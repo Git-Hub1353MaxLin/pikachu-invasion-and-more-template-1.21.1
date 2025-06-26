@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "pikachu-invasion-and-more",
+	"version": "${version}",
+	"name": "Pikachu invasion and more",
+	"description": "This is a mod containing Pikachus and more stuff.",
+	"authors": [
+		"maxlin"
+	],
+	"contact": {
+		"homepage": "https://maxlin.net",
+		"sources": "https://github.com/PikachuInvasionAndMore/pikachu-invaision-and-more"
+	},
+	"license": "MIT",
+	"icon": "assets/pikachu-invasion-and-more/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.maxlin.tutorialmod.PikachuInvasionAndMore"
+		],
+		"fabric-datagen": [
+			"net.maxlin.tutorialmod.PikachuInvasionAndMoreDataGenerator"
+		],
+		"client": [
+			"net.maxlin.tutorialmod.PikachuInvasionAndMoreClient"
+		]
+	},
+	"mixins": [
+		"pikachu-invasion-and-more.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
