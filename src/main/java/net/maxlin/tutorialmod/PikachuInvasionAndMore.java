@@ -11,6 +11,6 @@ public class PikachuInvasionAndMore implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-        //here is some code.
+        //here is some code to commit.
 	}
 }
