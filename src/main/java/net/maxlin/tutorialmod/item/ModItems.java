@@ -9,7 +9,8 @@
    import net.minecraft.util.Identifier;
 
    public class ModItems {
-       public static final Item THUNDER_ORE = registerItem("thunder_ore", new Item(new Item.Settings()));
+       public static final Item PINK_GARNET = registerItem("pink_garnet", new Item(new Item.Settings()));
+       public static final Item RAW_PINK_GARNET = registerItem("raw_pink_garnet", new Item(new Item.Settings()));
 
        //name: "thunder_ore", new Item(new Item.Settings())
        private static Item registerItem(String name, Item item) {
@@ -21,7 +22,8 @@
            PikachuInvasionAndMore.LOGGER.info("Registering Mod Items for " + PikachuInvasionAndMore.MOD_ID);
 
            ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
-               entries.add(THUNDER_ORE);
+               entries.add(PINK_GARNET);
+               entries.add(RAW_PINK_GARNET);
            });
       }
   }
