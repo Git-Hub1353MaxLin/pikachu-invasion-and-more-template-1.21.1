@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "pikachu-invasion-and-more",
+	"id": "pikachu_invasion_and_more",
 	"version": "${version}",
 	"name": "Pikachu invasion and more",
 	"description": "This is a mod containing Pikachus and more stuff.",
@@ -9,10 +9,10 @@
 	],
 	"contact": {
 		"homepage": "https://maxlin.net",
-		"sources": "https://github.com/PikachuInvasionAndMore/pikachu-invaision-and-more"
+		"sources": "https://github.com/PikachuInvasionAndMore/pikachu_invaision_and_more"
 	},
 	"license": "MIT",
-	"icon": "assets/pikachu-invasion-and-more/icon.png",
+	"icon": "assets/pikachu_invasion_and_more/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
@@ -26,7 +26,7 @@
 		]
 	},
 	"mixins": [
-		"pikachu-invasion-and-more.mixins.json"
+		"pikachu_invasion_and_more.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.16.14",
