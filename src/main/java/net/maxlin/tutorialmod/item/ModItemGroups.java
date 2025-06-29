@@ -14,7 +14,7 @@ public class ModItemGroups {
     public static final ItemGroup PIKACHU_INVASION_AND_MORE = Registry.register(Registries.ITEM_GROUP,
             Identifier.of(PikachuInvasionAndMore.MOD_ID, "pikachu_invasion_and_more_items"),
             FabricItemGroup.builder().icon(() -> new ItemStack(ModItems.PINK_GARNET))
-                    .displayName(Text.translatable("itemgroup.pikachu_invasion_and_more"))
+                    .displayName(Text.translatable("itemgroup.pikachu_invasion_and_more.pikachu_invasion_and_more_items"))
                     .entries((displayContext, entries) -> {
                         entries.add(ModItems.PINK_GARNET);
                         entries.add(ModItems.RAW_PINK_GARNET);
