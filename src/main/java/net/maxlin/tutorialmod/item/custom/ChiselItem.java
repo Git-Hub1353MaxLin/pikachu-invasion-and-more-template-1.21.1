@@ -19,7 +19,12 @@ public class ChiselItem extends Item {
     private static final Map<Block, Block> CHISEL_MAP =
             Map.of(
                     Blocks.STONE, Blocks.STONE_BRICKS,
+                    Blocks.STONE_BRICKS, Blocks.STONE,
                     Blocks.END_STONE, Blocks.END_STONE_BRICKS,
+                    Blocks.END_STONE_BRICKS, Blocks.END_STONE,
+                    Blocks.DEEPSLATE, Blocks.DEEPSLATE_BRICKS,
+                    Blocks.DEEPSLATE_BRICKS, Blocks.DEEPSLATE,
+                    Blocks.TUFF, Blocks.TUFF_BRICKS,
                     Blocks.GOLD_BLOCK, Blocks.NETHERITE_BLOCK
             );
     public ChiselItem(Settings settings) {
