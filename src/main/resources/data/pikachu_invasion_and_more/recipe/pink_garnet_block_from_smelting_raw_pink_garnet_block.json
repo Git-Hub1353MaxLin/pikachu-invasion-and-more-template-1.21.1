@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "building",
+  "cookingtime": 1800,
+  "experience": 0.2,
+  "group": "pink_garnet_block",
+  "ingredient": {
+    "item": "pikachu_invasion_and_more:raw_pink_garnet_block"
+  },
+  "result": {
+    "id": "pikachu_invasion_and_more:pink_garnet_block"
+  }
+}
