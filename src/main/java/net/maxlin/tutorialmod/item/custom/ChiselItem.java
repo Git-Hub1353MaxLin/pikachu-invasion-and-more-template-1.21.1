@@ -25,6 +25,7 @@ public class ChiselItem extends Item {
                     Blocks.DEEPSLATE, Blocks.DEEPSLATE_BRICKS,
                     Blocks.DEEPSLATE_BRICKS, Blocks.DEEPSLATE,
                     Blocks.TUFF, Blocks.TUFF_BRICKS,
+                    Blocks.TUFF_BRICKS, Blocks.TUFF,
                     Blocks.GOLD_BLOCK, Blocks.NETHERITE_BLOCK
             );
     public ChiselItem(Settings settings) {
