@@ -3,6 +3,7 @@ package net.maxlin.tutorialmod.item;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.maxlin.tutorialmod.PikachuInvasionAndMore;
 import net.maxlin.tutorialmod.block.ModBlocks;
+import net.maxlin.tutorialmod.item.custom.ModFoodComponents;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
@@ -20,10 +21,16 @@ public class ModItemGroups {
                         entries.add(ModItems.RAW_PINK_GARNET);
                         entries.add(ModBlocks.PINK_GARNET_BLOCK);
                         entries.add(ModBlocks.RAW_PINK_GARNET_BLOCK);
+
                         entries.add(ModBlocks.PINK_GARNET_ORE);
                         entries.add(ModBlocks.PINK_GARNET_DEEPSLATE_ORE);
+
                         entries.add(ModItems.CHISEL);
+
                         entries.add(ModBlocks.MAGIC_BLOCK);
+
+                        entries.add(ModItems.CAULIFLOWER);
+                        entries.add(ModItems.STARLIGHT_ASHES);
 
                             }).build());
 
