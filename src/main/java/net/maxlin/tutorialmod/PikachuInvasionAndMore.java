@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.maxlin.tutorialmod.block.ModBlocks;
 import net.maxlin.tutorialmod.item.ModItemGroups;
 import net.maxlin.tutorialmod.item.ModItems;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,6 +21,7 @@ public class PikachuInvasionAndMore implements ModInitializer {
 
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
+
 
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES,3000);
 	}

@@ -1,14 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "building",
+  "category": "misc",
   "key": {
     "#": {
-      "item": "pikachu_invasion_and_more:raw_pink_garnet_block"
-    }
+      "item": "pikachu_invasion_and_more:pink_garnet"
+    },
+    "%": {
+  "item": "pikachu_invasion_and_more:starlight_ashes"
+}
   },
   "pattern": [
     "###",
-    "###",
+    "#%#",
     "###"
   ],
   "result": {
