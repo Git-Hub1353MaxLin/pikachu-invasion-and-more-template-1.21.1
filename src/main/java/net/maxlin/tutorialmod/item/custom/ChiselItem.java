@@ -2,32 +2,38 @@ package net.maxlin.tutorialmod.item.custom;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.injection.struct.InjectorGroupInfo;
 
+import java.util.List;
 import java.util.Map;
 
 public class ChiselItem extends Item {
     private static final Map<Block, Block> CHISEL_MAP =
             Map.of(
                     Blocks.STONE, Blocks.STONE_BRICKS,
-                    Blocks.STONE_BRICKS, Blocks.STONE,
                     Blocks.END_STONE, Blocks.END_STONE_BRICKS,
-                    Blocks.END_STONE_BRICKS, Blocks.END_STONE,
                     Blocks.DEEPSLATE, Blocks.DEEPSLATE_BRICKS,
-                    Blocks.DEEPSLATE_BRICKS, Blocks.DEEPSLATE,
                     Blocks.BLACKSTONE, Blocks.POLISHED_BLACKSTONE_BRICKS,
-                    Blocks.POLISHED_BLACKSTONE_BRICKS, Blocks.BLACKSTONE,
+                    Blocks.PACKED_MUD, Blocks.MUD_BRICKS,
+                    Blocks.TUFF, Blocks.TUFF_BRICKS,
+                    Blocks.PRISMARINE, Blocks.PRISMARINE_BRICKS,
+                    Blocks.QUARTZ_BLOCK, Blocks.QUARTZ_BRICKS,
                     Blocks.GOLD_BLOCK, Blocks.NETHERITE_BLOCK
             );
+
     public ChiselItem(Settings settings) {
         super(settings);
     }
@@ -39,15 +45,27 @@ public class ChiselItem extends Item {
 
         if (CHISEL_MAP.containsKey(clickedBlock)) {
             if (!world.isClient()) {
-                 world.setBlockState(context.getBlockPos(), CHISEL_MAP.get(clickedBlock).getDefaultState());
+                world.setBlockState(context.getBlockPos(), CHISEL_MAP.get(clickedBlock).getDefaultState());
 
-                 context.getStack().damage(1, ((ServerWorld) world), ((ServerPlayerEntity) context.getPlayer()),
-                         item -> context.getPlayer().sendEquipmentBreakStatus(item, EquipmentSlot.MAINHAND));
+                context.getStack().damage(1, ((ServerWorld) world), ((ServerPlayerEntity) context.getPlayer()),
+                        item -> context.getPlayer().sendEquipmentBreakStatus(item, EquipmentSlot.MAINHAND));
 
-                 world.playSound(null, context.getBlockPos(), SoundEvents.BLOCK_GRINDSTONE_USE, SoundCategory.BLOCKS);
+                world.playSound(null, context.getBlockPos(), SoundEvents.BLOCK_GRINDSTONE_USE, SoundCategory.BLOCKS);
             }
         }
 
         return ActionResult.SUCCESS;
+
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        if (Screen.hasShiftDown()) {
+            tooltip.add(Text.translatable("tooltip.pikachu_invasion_and_more.chisel.shift_down"));
+        } else {
+            tooltip.add(Text.translatable("tooltip.pikachu_invasion_and_more.chisel"));
+        }
+
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }
