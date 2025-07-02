@@ -18,5 +18,8 @@
   "tooltip, pikachu_invasion_and_more.magic_block.tooltip": "This block is very, very MAGICAL",
   "tooltip.pikachu_invasion_and_more.chisel.shift_down": "This item chisels blocks into bricks!",
   "tooltip.pikachu_invasion_and_more.chisel": "Press Shift for more information!",
-  "tooltip.pikachu_invasion_and_more.cauliflower.tooltip": "This is delicious!"
+  "tooltip.pikachu_invasion_and_more.cauliflower.tooltip": "This is delicious!",
+  "tooltip.pikachu_invasion_and_more.starlight_ashes.tooltip": "Mystical powder from the stars",
+  "tooltip.pikachu_invasion_and_more.pink_garnet.tooltip": "Very beautiful gem, it used to contain a star!"
+
 }

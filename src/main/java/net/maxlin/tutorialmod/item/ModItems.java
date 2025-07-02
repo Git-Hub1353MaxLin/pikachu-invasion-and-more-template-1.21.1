@@ -16,7 +16,13 @@
    import java.util.List;
 
    public class ModItems {
-       public static final Item PINK_GARNET = registerItem("pink_garnet", new Item(new Item.Settings()));
+       public static final Item PINK_GARNET = registerItem("pink_garnet", new Item(new Item.Settings()) {
+           @Override
+           public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+               tooltip.add(Text.translatable("tooltip.pikachu_invasion_and_more.pink_garnet.tooltip"));
+               super.appendTooltip(stack, context, tooltip, type);
+           }
+       });
        public static final Item RAW_PINK_GARNET = registerItem("raw_pink_garnet", new Item(new Item.Settings()));
 
        public static final Item CHISEL = registerItem("chisel", new ChiselItem(new Item.Settings().maxDamage(32)));
@@ -29,7 +35,13 @@
            }
        });
 
-       public static final Item STARLIGHT_ASHES = registerItem("starlight_ashes", new Item(new Item.Settings()));
+       public static final Item STARLIGHT_ASHES = registerItem("starlight_ashes", new Item(new Item.Settings()) {
+           @Override
+           public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+               tooltip.add(Text.translatable("tooltip.pikachu_invasion_and_more.starlight_ashes.tooltip"));
+               super.appendTooltip(stack, context, tooltip, type);
+           }
+       });
 
        private static Item registerItem(String name, Item item) {
            return Registry.register(Registries.ITEM, Identifier.of(PikachuInvasionAndMore.MOD_ID, name), item);
