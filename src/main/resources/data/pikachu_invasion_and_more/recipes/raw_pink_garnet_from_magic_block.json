@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "pikachu_invasion_and_more:magic_block"
+    }
+  ],
+  "result": {
+    "count": 36,
+    "id": "pikachu_invasion_and_more:raw_pink_garnet"
+  }
+}
