@@ -2,10 +2,7 @@ package net.maxlin.tutorialmod;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.maxlin.tutorialmod.datagen.ModBlockTagProvider;
-import net.maxlin.tutorialmod.datagen.ModItemTagProvider;
-import net.maxlin.tutorialmod.datagen.ModLootTableProvider;
-import net.maxlin.tutorialmod.datagen.ModModelProvider;
+import net.maxlin.tutorialmod.datagen.*;
 
 public class PikachuInvasionAndMoreDataGenerator implements DataGeneratorEntrypoint {
 	@Override
@@ -16,5 +13,6 @@ public class PikachuInvasionAndMoreDataGenerator implements DataGeneratorEntrypo
 		pack.addProvider(ModItemTagProvider::new);
 		pack.addProvider(ModLootTableProvider::new);
 		pack.addProvider(ModModelProvider::new);
+		pack.addProvider(ModRecipeProvider::new);
 	}
 }
