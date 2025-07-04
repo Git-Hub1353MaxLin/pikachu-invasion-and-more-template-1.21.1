@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_wall_post",
+  "textures": {
+    "wall": "pikachu_invasion_and_more:block/pink_garnet_block"
+  }
+}

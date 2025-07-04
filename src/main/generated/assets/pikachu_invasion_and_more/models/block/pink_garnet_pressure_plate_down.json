@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/pressure_plate_down",
+  "textures": {
+    "texture": "pikachu_invasion_and_more:block/pink_garnet_block"
+  }
+}

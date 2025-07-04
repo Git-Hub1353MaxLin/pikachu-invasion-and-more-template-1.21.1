@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_left",
+  "textures": {
+    "bottom": "pikachu_invasion_and_more:block/pink_garnet_door_bottom",
+    "top": "pikachu_invasion_and_more:block/pink_garnet_door_top"
+  }
+}

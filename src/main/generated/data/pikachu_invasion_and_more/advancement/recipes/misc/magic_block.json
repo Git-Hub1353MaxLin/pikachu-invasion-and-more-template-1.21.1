@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_raw_pink_garnet": {
+    "has_pink_garnet": {
       "conditions": {
         "items": [
           {
-            "items": "pikachu_invasion_and_more:raw_pink_garnet"
+            "items": "pikachu_invasion_and_more:pink_garnet"
           }
         ]
       },
@@ -31,7 +31,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_raw_pink_garnet",
+      "has_pink_garnet",
       "has_starlight_ashes"
     ]
   ],

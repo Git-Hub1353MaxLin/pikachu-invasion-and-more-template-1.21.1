@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "pikachu_invasion_and_more:block/pink_garnet_slab"
+    },
+    "type=double": {
+      "model": "pikachu_invasion_and_more:block/pink_garnet_block"
+    },
+    "type=top": {
+      "model": "pikachu_invasion_and_more:block/pink_garnet_slab_top"
+    }
+  }
+}

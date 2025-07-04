@@ -2,17 +2,17 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "R": {
-      "item": "pikachu_invasion_and_more:raw_pink_garnet"
+    "P": {
+      "item": "pikachu_invasion_and_more:pink_garnet"
     },
     "S": {
       "item": "pikachu_invasion_and_more:starlight_ashes"
     }
   },
   "pattern": [
-    "RRR",
-    "RSR",
-    "RRR"
+    "PPP",
+    "PSP",
+    "PPP"
   ],
   "result": {
     "count": 1,

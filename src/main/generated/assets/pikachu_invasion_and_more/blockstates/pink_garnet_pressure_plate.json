@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "pikachu_invasion_and_more:block/pink_garnet_pressure_plate"
+    },
+    "powered=true": {
+      "model": "pikachu_invasion_and_more:block/pink_garnet_pressure_plate_down"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "pikachu_invasion_and_more:block/pink_garnet_block",
+    "side": "pikachu_invasion_and_more:block/pink_garnet_block",
+    "top": "pikachu_invasion_and_more:block/pink_garnet_block"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_trapdoor_bottom",
+  "textures": {
+    "texture": "pikachu_invasion_and_more:block/pink_garnet_trapdoor"
+  }
+}
