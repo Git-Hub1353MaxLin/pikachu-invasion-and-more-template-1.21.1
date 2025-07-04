@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.25,
+  "group": "pink_garnet",
+  "ingredient": {
+    "item": "pikachu_invasion_and_more:pink_garnet_ore"
+  },
+  "result": {
+    "id": "pikachu_invasion_and_more:pink_garnet"
+  }
+}

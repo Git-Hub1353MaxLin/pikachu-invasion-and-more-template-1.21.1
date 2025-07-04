@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_pink_garnet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "pikachu_invasion_and_more:raw_pink_garnet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_starlight_ashes": {
+      "conditions": {
+        "items": [
+          {
+            "items": "pikachu_invasion_and_more:starlight_ashes"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "pikachu_invasion_and_more:magic_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_raw_pink_garnet",
+      "has_starlight_ashes"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "pikachu_invasion_and_more:magic_block"
+    ]
+  }
+}
