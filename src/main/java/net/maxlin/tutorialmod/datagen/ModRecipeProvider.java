@@ -76,9 +76,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter);
 
         //Crafting pink garnet slab
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.PINK_GARNET_STAIRS, 6)
-                .pattern("")
-                .pattern("")
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.PINK_GARNET_SLAB, 6)
+                .pattern("   ")
+                .pattern("   ")
                 .pattern("PPP")
                 .input('P', ModBlocks.PINK_GARNET_BLOCK)
                 .criterion(hasItem(ModBlocks.PINK_GARNET_BLOCK), conditionsFromItem(ModBlocks.PINK_GARNET_BLOCK))

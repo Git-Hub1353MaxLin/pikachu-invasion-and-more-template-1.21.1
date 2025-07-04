@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "clicked=false": {
+      "model": "pikachu_invasion_and_more:block/pink_garnet_lamp"
+    },
+    "clicked=true": {
+      "model": "pikachu_invasion_and_more:block/pink_garnet_lamp_on"
+    }
+  }
+}
