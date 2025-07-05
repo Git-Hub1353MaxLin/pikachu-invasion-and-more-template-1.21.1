@@ -138,6 +138,27 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModBlocks.PINK_GARNET_BLOCK), conditionsFromItem(ModBlocks.PINK_GARNET_BLOCK))
                 .offerTo(exporter);
 
+        //Crafting pink garnet trapdoor
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.PINK_GARNET_TRAPDOOR, 6)
+                .pattern("   ")
+                .pattern("PP ")
+                .pattern("PP ")
+                .input('P', ModBlocks.PINK_GARNET_BLOCK)
+                .criterion(hasItem(ModBlocks.PINK_GARNET_BLOCK), conditionsFromItem(ModBlocks.PINK_GARNET_BLOCK))
+                .offerTo(exporter);
+
+        //Crafting pink garnet lamp
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.PINK_GARNET_LAMP)
+                .pattern("RRR")
+                .pattern("RSR")
+                .pattern("RRR")
+                .input('R', ModItems.RAW_PINK_GARNET)
+                .input('S', ModItems.STARLIGHT_ASHES)
+                .criterion(hasItem(ModItems.RAW_PINK_GARNET), conditionsFromItem(ModItems.RAW_PINK_GARNET))
+                .criterion(hasItem(ModItems.STARLIGHT_ASHES), conditionsFromItem(ModItems.STARLIGHT_ASHES))
+                .offerTo(exporter);
+
+
         //Crafting pink garnet sword
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.PINK_GARNET_SWORD)
                 .pattern(" P ")
