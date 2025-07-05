@@ -100,6 +100,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.PINK_GARNET), conditionsFromItem(ModItems.PINK_GARNET))
                 .offerTo(exporter);
 
+        //Crafting pink garnet fence
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.PINK_GARNET_FENCE, 8)
+                .pattern("   ")
+                .pattern("   ")
+                .pattern("PP ")
+                .input('P', ModBlocks.PINK_GARNET_BLOCK)
+                .criterion(hasItem(ModBlocks.PINK_GARNET_BLOCK), conditionsFromItem(ModBlocks.PINK_GARNET_BLOCK))
+                .offerTo(exporter);
+
         //Crafting pink garnet sword
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.PINK_GARNET_SWORD)
                 .pattern(" P ")

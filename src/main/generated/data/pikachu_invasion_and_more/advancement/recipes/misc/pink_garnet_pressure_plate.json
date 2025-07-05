@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_pink_garnet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "pikachu_invasion_and_more:pink_garnet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "pikachu_invasion_and_more:pink_garnet_pressure_plate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_pink_garnet"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "pikachu_invasion_and_more:pink_garnet_pressure_plate"
+    ]
+  }
+}
