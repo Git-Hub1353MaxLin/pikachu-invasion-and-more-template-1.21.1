@@ -214,5 +214,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
                 .offerTo(exporter);
 
+        //Crafting pink garnet hammer
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.PINK_GARNET_HAMMER)
+                .pattern("PPP")
+                .pattern("PPP")
+                .pattern(" S ")
+                .input('P', ModItems.PINK_GARNET)
+                .input('S', Items.STICK)
+                .criterion(hasItem(ModItems.PINK_GARNET), conditionsFromItem(ModItems.PINK_GARNET))
+                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                .offerTo(exporter);
     }
 }
