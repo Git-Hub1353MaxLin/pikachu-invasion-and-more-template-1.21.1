@@ -1,0 +1,8 @@
+{
+  "values": [
+    "#minecraft:incorrect_for_iron_tool"
+  ],
+  "remove": [
+          "#pikachu_invasion_and_more:needs_pink_garnet_tool"
+    ]
+}

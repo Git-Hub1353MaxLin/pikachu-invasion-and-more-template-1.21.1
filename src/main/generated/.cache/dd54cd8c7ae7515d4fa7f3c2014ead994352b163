@@ -1,2 +1,7 @@
-// 1.21.1	2025-07-04T21:11:55.7578971	Pikachu invasion and more/Tags for minecraft:item
+// 1.21.1	2025-07-05T10:33:08.821425	Pikachu invasion and more/Tags for minecraft:item
+3c92d7e2594beb35c687f851228e9c2bacd6b666 data\minecraft\tags\item\hoes.json
 9bf959144a39540db2b52ad756744134a2d57003 data\pikachu_invasion_and_more\tags\item\transformable_items.json
+5c6217e41a9b3e12fefb507722eb361e2379832b data\minecraft\tags\item\shovels.json
+f97223a9fb973bcdba08f25eb67967aa450a60e8 data\minecraft\tags\item\pickaxes.json
+8c638e4154ce878af6d4b7a8160735e2e6c4ea71 data\minecraft\tags\item\axes.json
+119ef214c2e960398b9c9c4fa6c7784237aa3ef4 data\minecraft\tags\item\swords.json

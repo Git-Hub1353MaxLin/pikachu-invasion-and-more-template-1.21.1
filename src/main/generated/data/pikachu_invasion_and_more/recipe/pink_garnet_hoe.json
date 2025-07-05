@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "P": {
+      "item": "pikachu_invasion_and_more:pink_garnet"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " PP",
+    " S ",
+    " S "
+  ],
+  "result": {
+    "count": 1,
+    "id": "pikachu_invasion_and_more:pink_garnet_hoe"
+  }
+}
