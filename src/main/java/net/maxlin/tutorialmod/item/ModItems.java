@@ -64,7 +64,7 @@
 
        public static final Item PINK_GARNET_HAMMER = registerItem("pink_garnet_hammer",
                new HammerItem(ModToolMaterials.PINK_GARNET, new Item.Settings()
-                       .attributeModifiers(HammerItem.createAttributeModifiers(ModToolMaterials.PINK_GARNET, 7, -3.8f))));
+                       .attributeModifiers(HammerItem.createAttributeModifiers(ModToolMaterials.PINK_GARNET, 7, -2.6f))));
 
 
        private static Item registerItem(String name, Item item) {
