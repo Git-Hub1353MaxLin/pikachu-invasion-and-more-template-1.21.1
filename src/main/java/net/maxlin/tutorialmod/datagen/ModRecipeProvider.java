@@ -115,9 +115,27 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern("   ")
                 .pattern("PpP")
                 .input('P', ModBlocks.PINK_GARNET_BLOCK)
-                .input('P', ModItems.PINK_GARNET)
+                .input('p', ModItems.PINK_GARNET)
                 .criterion(hasItem(ModBlocks.PINK_GARNET_BLOCK), conditionsFromItem(ModBlocks.PINK_GARNET_BLOCK))
                 .criterion(hasItem(ModItems.PINK_GARNET), conditionsFromItem(ModItems.PINK_GARNET))
+                .offerTo(exporter);
+
+        //Crafting pink garnet wall
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.PINK_GARNET_WALL, 6)
+                .pattern("   ")
+                .pattern("PPP")
+                .pattern("PPP")
+                .input('P', ModBlocks.PINK_GARNET_BLOCK)
+                .criterion(hasItem(ModBlocks.PINK_GARNET_BLOCK), conditionsFromItem(ModBlocks.PINK_GARNET_BLOCK))
+                .offerTo(exporter);
+
+        //Crafting pink garnet door
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.PINK_GARNET_DOOR, 2)
+                .pattern("PP ")
+                .pattern("PP ")
+                .pattern("PP ")
+                .input('P', ModBlocks.PINK_GARNET_BLOCK)
+                .criterion(hasItem(ModBlocks.PINK_GARNET_BLOCK), conditionsFromItem(ModBlocks.PINK_GARNET_BLOCK))
                 .offerTo(exporter);
 
         //Crafting pink garnet sword
