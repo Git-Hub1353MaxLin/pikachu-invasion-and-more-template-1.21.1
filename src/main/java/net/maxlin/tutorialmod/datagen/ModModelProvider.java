@@ -6,6 +6,7 @@ import net.maxlin.tutorialmod.block.ModBlocks;
 import net.maxlin.tutorialmod.block.custom.PinkGarnetLampBlock;
 import net.maxlin.tutorialmod.item.ModItems;
 import net.minecraft.data.client.*;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.Identifier;
 
@@ -57,7 +58,10 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.PINK_GARNET_HAMMER, Models.HANDHELD);
 
-
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GARNET_HELMET));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GARNET_CHESTPLATE));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GARNET_LEGGINGS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GARNET_BOOTS));
 
     }
 }
