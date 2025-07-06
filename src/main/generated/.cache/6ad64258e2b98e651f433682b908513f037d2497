@@ -1,7 +1,7 @@
-// 1.21.1	2025-07-05T20:47:03.1913964	Pikachu invasion and more/Tags for minecraft:block
+// 1.21.1	2025-07-06T18:41:37.125536	Pikachu invasion and more/Tags for minecraft:block
 44bae87fb1f828637cbcc2c6b08ca0c490cdb05a data\minecraft\tags\block\needs_iron_tool.json
 32b13946c4cd1f944b029659ccce5fcb2adad4ff data\pikachu_invasion_and_more\tags\block\needs_pink_garnet_tool.json
-fc8c13c60982eac8bfe4311c6c2ea488391b4bbf data\minecraft\tags\block\mineable\pickaxe.json
 aeb5d4641e958c1f6d0af80e7479b4247c3454e4 data\minecraft\tags\block\walls.json
 e5df41bec6f15a76f4e1118f818199aaf1d29e57 data\minecraft\tags\block\fence_gates.json
+fc8c13c60982eac8bfe4311c6c2ea488391b4bbf data\minecraft\tags\block\mineable\pickaxe.json
 fd199ef3c9ec9a8655ec9274340a680b2823258d data\minecraft\tags\block\fences.json
