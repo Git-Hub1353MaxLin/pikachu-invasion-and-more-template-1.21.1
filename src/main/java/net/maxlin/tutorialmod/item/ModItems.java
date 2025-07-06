@@ -5,6 +5,7 @@
    import net.maxlin.tutorialmod.item.custom.ChiselItem;
    import net.maxlin.tutorialmod.item.custom.HammerItem;
    import net.maxlin.tutorialmod.item.custom.ModFoodComponents;
+   import net.minecraft.client.gui.screen.Screen;
    import net.minecraft.item.*;
    import net.minecraft.item.tooltip.TooltipType;
    import net.minecraft.registry.Registries;
@@ -18,8 +19,12 @@
        public static final Item PINK_GARNET = registerItem("pink_garnet", new Item(new Item.Settings()) {
            @Override
            public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-               tooltip.add(Text.translatable("tooltip.pikachu_invasion_and_more.pink_garnet.tooltip"));
-               super.appendTooltip(stack, context, tooltip, type);
+               if (Screen.hasShiftDown()) {
+                   tooltip.add(Text.translatable("tooltip.pikachu_invasion_and_more.pink_garnet.shift_down"));
+               } else {
+                   tooltip.add(Text.translatable("tooltip.pikachu_invasion_and_more.pink_garnet"));
+               }
+
            }
        });
        public static final Item RAW_PINK_GARNET = registerItem("raw_pink_garnet", new Item(new Item.Settings()));
