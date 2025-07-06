@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": {
+      "item": "pikachu_invasion_and_more:pink_garnet_block"
+    }
+  },
+  "pattern": [
+    "   ",
+    "PP ",
+    "PP "
+  ],
+  "result": {
+    "count": 6,
+    "id": "pikachu_invasion_and_more:pink_garnet_trapdoor"
+  }
+}
