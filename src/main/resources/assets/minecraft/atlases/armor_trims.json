@@ -1,0 +1,63 @@
+{
+  "replace": false,
+  "sources": [
+    {
+      "type": "paletted_permutations",
+      "textures": [
+        "trims/models/armor/coast",
+        "trims/models/armor/coast/leggings",
+        "trims/models/armor/sentry",
+        "trims/models/armor/sentry/leggings",
+        "trims/models/armor/dune",
+        "trims/models/armor/dune/leggings",
+        "trims/models/armor/wild",
+        "trims/models/armor/wild/leggings",
+        "trims/models/armor/ward",
+        "trims/models/armor/ward/leggings",
+        "trims/models/armor/eye",
+        "trims/models/armor/eye/leggings",
+        "trims/models/armor/vex",
+        "trims/models/armor/vex/leggings",
+        "trims/models/armor/tide",
+        "trims/models/armor/tide/leggings",
+        "trims/models/armor/snout",
+        "trims/models/armor/snout/leggings",
+        "trims/models/armor/rib",
+        "trims/models/armor/rib/leggings",
+        "trims/models/armor/spire",
+        "trims/models/armor/spire/leggings",
+        "trims/models/armor/wayfinder",
+        "trims/models/armor/wayfinder/leggings",
+        "trims/models/armor/shaper",
+        "trims/models/armor/shaper/leggings",
+        "trims/models/armor/silence",
+        "trims/models/armor/silence/leggings",
+        "trims/models/armor/raiser",
+        "trims/models/armor/raiser/leggings",
+        "trims/models/armor/host",
+        "trims/models/armor/host/leggings",
+        "pikachu_invasion_and_more:trims/models/armor/kaupen",
+        "pikachu_invasion_and_more:trims/models/armor/kaupen/leggings"
+
+      ],
+      "palette_key": "trims/color_palettes/trim_palette",
+      "permutations": {
+        "quartz": "trims/color_palettes/quartz",
+        "iron": "trims/color_palettes/iron",
+        "gold": "trims/color_palettes/gold",
+         "diamond": "trims/color_palettes/diamond",
+        "netherite": "trims/color_palettes/netherite",
+        "redstone": "trims/color_palettes/redstone",
+        "copper": "trims/color_palettes/copper",
+        "emerald": "trims/color_palettes/emerald",
+        "lapis": "trims/color_palettes/lapis",
+        "amethyst": "trims/color_palettes/amethyst",
+        "iron_darker": "trims/color_palette/iron_darker",
+                "gold_darker": "trims/color_palettes/gold_darker",
+        "diamond_darker": "trims/color_palettes/diamond_darker",
+        "netherite_darker": "trims/color_palettes/netherite_darker",
+        "pink_garnet": "trims/color_palettes/pink_garnet"
+      }
+    }
+  ]
+}

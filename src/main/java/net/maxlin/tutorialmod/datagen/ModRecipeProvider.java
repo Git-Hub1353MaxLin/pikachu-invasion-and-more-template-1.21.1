@@ -113,11 +113,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.PINK_GARNET_FENCE_GATE, 8)
                 .pattern("   ")
                 .pattern("   ")
-                .pattern("PpP")
+                .pattern("P P")
                 .input('P', ModBlocks.PINK_GARNET_BLOCK)
-                .input('p', ModItems.PINK_GARNET)
                 .criterion(hasItem(ModBlocks.PINK_GARNET_BLOCK), conditionsFromItem(ModBlocks.PINK_GARNET_BLOCK))
-                .criterion(hasItem(ModItems.PINK_GARNET), conditionsFromItem(ModItems.PINK_GARNET))
                 .offerTo(exporter);
 
         //Crafting pink garnet wall
@@ -260,5 +258,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('P', ModItems.PINK_GARNET)
                 .criterion(hasItem(ModItems.PINK_GARNET), conditionsFromItem(ModItems.PINK_GARNET))
                 .offerTo(exporter);
+
+        offerSmithingTrimRecipe(exporter, ModItems.KAUPEN_SMITHING_TEMPLATE, Identifier.of(PikachuInvasionAndMore.MOD_ID, "kaupen"));
     }
 }

@@ -20,6 +20,8 @@
 
   "item.pikachu_invasion_and_more.pink_garnet_horse_armor": "Pink Garnet Horse Armor",
 
+  "item.pikachu_invasion_and_more.kaupen_armor_trim_smithing_template": "Kaupen Smithing Template",
+
   "block.pikachu_invasion_and_more.pink_garnet_block": "Block of Pink Garnet",
   "block.pikachu_invasion_and_more.raw_pink_garnet_block": "Block of Raw Pink Garnet",
 
@@ -51,6 +53,9 @@
   "tooltip.pikachu_invasion_and_more.cauliflower.tooltip": "This is delicious!",
   "tooltip.pikachu_invasion_and_more.starlight_ashes.tooltip": "Mystical powder from the stars",
   "tooltip.pikachu_invasion_and_more.pink_garnet.shift_down": "This item can harness a star's energy",
-  "tooltip.pikachu_invasion_and_more.pink_garnet": "Press Shift for more information"
+  "tooltip.pikachu_invasion_and_more.pink_garnet": "Press Shift for more information",
+
+  "trim_material.pikachu_invasion_and_more.pink_garnet": "Pink Garnet Material",
+  "trim_pattern.pikachu_invasion_and_more.kaupen": "Kaupen Armor Pattern"
 
 }
