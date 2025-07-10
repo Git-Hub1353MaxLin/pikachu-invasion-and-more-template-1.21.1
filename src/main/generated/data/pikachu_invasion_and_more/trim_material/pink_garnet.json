@@ -1,0 +1,9 @@
+{
+  "asset_name": "pink_garnet",
+  "description": {
+    "color": "#B03FE0",
+    "translate": "trim_material.pikachu_invasion_and_more.pink_garnet"
+  },
+  "ingredient": "pikachu_invasion_and_more:pink_garnet",
+  "item_model_index": 1.0
+}

@@ -1,0 +1,8 @@
+{
+  "asset_id": "pikachu_invasion_and_more:kaupen",
+  "decal": false,
+  "description": {
+    "translate": "trim_pattern.pikachu_invasion_and_more.kaupen"
+  },
+  "template_item": "pikachu_invasion_and_more:kaupen_armor_trim_smithing_template"
+}

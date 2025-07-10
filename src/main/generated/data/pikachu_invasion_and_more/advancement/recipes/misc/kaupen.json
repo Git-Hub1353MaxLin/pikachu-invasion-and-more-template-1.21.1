@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_pink_garnet_block": {
+    "has_smithing_trim_template": {
       "conditions": {
         "items": [
           {
-            "items": "pikachu_invasion_and_more:pink_garnet_block"
+            "items": "pikachu_invasion_and_more:kaupen_armor_trim_smithing_template"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "pikachu_invasion_and_more:pink_garnet_fence_gate"
+        "recipe": "pikachu_invasion_and_more:kaupen"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_pink_garnet_block"
+      "has_smithing_trim_template"
     ]
   ],
   "rewards": {
     "recipes": [
-      "pikachu_invasion_and_more:pink_garnet_fence_gate"
+      "pikachu_invasion_and_more:kaupen"
     ]
   }
 }

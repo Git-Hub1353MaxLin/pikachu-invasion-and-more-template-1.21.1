@@ -4,15 +4,12 @@
   "key": {
     "P": {
       "item": "pikachu_invasion_and_more:pink_garnet_block"
-    },
-    "p": {
-      "item": "pikachu_invasion_and_more:pink_garnet"
     }
   },
   "pattern": [
     "   ",
     "   ",
-    "PpP"
+    "P P"
   ],
   "result": {
     "count": 8,
