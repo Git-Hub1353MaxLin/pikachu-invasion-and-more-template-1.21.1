@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "pikachu_invasion_and_more:item/chisel_used"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "pikachu_invasion_and_more:used" : 1
+      },
+      "model": "pikachu_invasion_and_more:item/chisel_used"
+    }
+  ]
+}
