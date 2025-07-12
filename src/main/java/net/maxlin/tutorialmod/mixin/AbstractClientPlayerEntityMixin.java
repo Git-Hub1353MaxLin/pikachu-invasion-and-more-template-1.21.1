@@ -3,6 +3,7 @@ package net.maxlin.tutorialmod.mixin;
 import com.mojang.authlib.GameProfile;
 import net.maxlin.tutorialmod.item.ModItems;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -15,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
-@Mixin(AbstractClientPlayerEntityMixin.class)
+@Mixin(AbstractClientPlayerEntity.class)
 public abstract class AbstractClientPlayerEntityMixin extends PlayerEntity {
     public AbstractClientPlayerEntityMixin(World world, BlockPos pos, float yaw, GameProfile gameProfile) {
         super(world, pos, yaw, gameProfile);
