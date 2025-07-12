@@ -1,0 +1,6 @@
+{
+  "parent": "pikachu_invasion_and_more:item/kaupen_bow",
+  "textures": {
+    "layer0": "pikachu_invasion_and_more:item/kaupen_bow_pulling_1"
+  }
+}
