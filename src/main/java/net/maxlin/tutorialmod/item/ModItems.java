@@ -5,6 +5,7 @@
    import net.maxlin.tutorialmod.item.custom.ChiselItem;
    import net.maxlin.tutorialmod.item.custom.HammerItem;
    import net.maxlin.tutorialmod.item.custom.ModFoodComponents;
+   import net.maxlin.tutorialmod.sound.ModSounds;
    import net.maxlin.tutorialmod.trim.ModTrimMaterials;
    import net.minecraft.client.gui.screen.Screen;
    import net.minecraft.item.*;
@@ -97,6 +98,9 @@
 
        public static final Item KAUPEN_BOW = registerItem("kaupen_bow",
                new BowItem(new Item.Settings().maxDamage(500)));
+
+       public static final Item BAR_BRAWL_MUSIC_DISC = registerItem("bar_brawl_music_disc",
+               new Item(new Item.Settings().jukeboxPlayable(ModSounds.BAR_BRAWL_KEY).maxCount(1)));
 
        private static Item registerItem(String name, Item item) {
            return Registry.register(Registries.ITEM, Identifier.of(PikachuInvasionAndMore.MOD_ID, name), item);

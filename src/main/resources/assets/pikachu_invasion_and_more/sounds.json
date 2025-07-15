@@ -34,5 +34,13 @@
     "sounds": [
       "pikachu_invasion_and_more:magic_block_step"
     ]
+  },
+  "bar_brawl": {
+    "sounds": [
+      {
+        "name": "pikachu_invasion_and_more:bar_brawl",
+        "stream": true
+      }
+    ]
   }
 }
