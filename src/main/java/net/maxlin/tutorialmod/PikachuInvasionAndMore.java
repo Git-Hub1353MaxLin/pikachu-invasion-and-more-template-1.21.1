@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.maxlin.tutorialmod.block.ModBlocks;
 import net.maxlin.tutorialmod.component.ModDataComponentTypes;
+import net.maxlin.tutorialmod.effect.ModEffects;
 import net.maxlin.tutorialmod.item.ModItemGroups;
 import net.maxlin.tutorialmod.item.ModItems;
 
@@ -29,6 +30,8 @@ public class PikachuInvasionAndMore implements ModInitializer {
 		ModDataComponentTypes.registerDataComponentTypes();
 
 		ModSounds.registerSounds();
+
+		ModEffects.registerEffects();
 
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES,3000);
 
