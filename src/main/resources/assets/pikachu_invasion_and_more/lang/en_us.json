@@ -65,6 +65,9 @@
   "trim_material.pikachu_invasion_and_more.pink_garnet": "Pink Garnet Material",
   "trim_pattern.pikachu_invasion_and_more.kaupen": "Kaupen Armor Pattern",
 
-  "effect.pikachu_invasion_and_more.slimey": "Slimey"
+  "effect.pikachu_invasion_and_more.slimey": "Slimey",
 
+  "item.minecraft.potion.effect.slimey_potion": "Slimey Potion",
+  "item.minecraft.splash_potion.effect.slimey_potion": "Slimey Splash Potion",
+  "item.minecraft.lingering_potion.effect.slimey_potion": "Slimey Lingering Potion"
 }
