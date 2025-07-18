@@ -69,5 +69,12 @@
 
   "item.minecraft.potion.effect.slimey_potion": "Slimey Potion",
   "item.minecraft.splash_potion.effect.slimey_potion": "Slimey Splash Potion",
-  "item.minecraft.lingering_potion.effect.slimey_potion": "Slimey Lingering Potion"
+  "item.minecraft.lingering_potion.effect.slimey_potion": "Slimey Lingering Potion",
+
+  "painting.pikachu_invasion_and_more:saw_them.title": "Saw Them",
+  "painting.pikachu_invasion_and_more:saw_them.author": "Max Lin",
+  "painting.pikachu_invasion_and_more:shrimp.title": "Shrimp",
+  "painting.pikachu_invasion_and_more:shrimp.author": "Max Lin",
+  "painting.pikachu_invasion_and_more:world.title": "World",
+  "painting.pikachu_invasion_and_more:world.author": "Max Lin"
 }

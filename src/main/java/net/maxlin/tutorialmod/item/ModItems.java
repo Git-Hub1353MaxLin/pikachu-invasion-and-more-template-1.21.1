@@ -102,6 +102,9 @@
        public static final Item BAR_BRAWL_MUSIC_DISC = registerItem("bar_brawl_music_disc",
                new Item(new Item.Settings().jukeboxPlayable(ModSounds.BAR_BRAWL_KEY).maxCount(1)));
 
+
+
+
        private static Item registerItem(String name, Item item) {
            return Registry.register(Registries.ITEM, Identifier.of(PikachuInvasionAndMore.MOD_ID, name), item);
        }
