@@ -1,4 +1,4 @@
-package net.maxlin.tutorialmod.item.custom;
+package net.maxlin.tutorialmod.item;
 
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;

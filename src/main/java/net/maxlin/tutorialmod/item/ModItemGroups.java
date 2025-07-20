@@ -3,7 +3,6 @@ package net.maxlin.tutorialmod.item;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.maxlin.tutorialmod.PikachuInvasionAndMore;
 import net.maxlin.tutorialmod.block.ModBlocks;
-import net.maxlin.tutorialmod.item.custom.ModFoodComponents;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;

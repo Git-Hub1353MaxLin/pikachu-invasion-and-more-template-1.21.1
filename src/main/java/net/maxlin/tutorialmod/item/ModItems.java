@@ -4,9 +4,7 @@
    import net.maxlin.tutorialmod.PikachuInvasionAndMore;
    import net.maxlin.tutorialmod.item.custom.ChiselItem;
    import net.maxlin.tutorialmod.item.custom.HammerItem;
-   import net.maxlin.tutorialmod.item.custom.ModFoodComponents;
    import net.maxlin.tutorialmod.sound.ModSounds;
-   import net.maxlin.tutorialmod.trim.ModTrimMaterials;
    import net.minecraft.client.gui.screen.Screen;
    import net.minecraft.item.*;
    import net.minecraft.item.tooltip.TooltipType;
