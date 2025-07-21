@@ -20,7 +20,10 @@ public class ModArmorItem extends ArmorItem {
             (new ImmutableMap.Builder<RegistryEntry<ArmorMaterial>, List<StatusEffectInstance>>())
                     .put(ModArmorMaterials.PINK_GARNET_ARMOR_MATERIAL,
                       List.of(new StatusEffectInstance(StatusEffects.HASTE, 400, 2, false, false),
+                              new StatusEffectInstance(StatusEffects.RESISTANCE, 400, 2, false, false),
+                              new StatusEffectInstance(StatusEffects.SPEED, 400, 2, false, false),
                               new StatusEffectInstance(StatusEffects.JUMP_BOOST, 400, 2, false, false))).build();
+
 
 
 
