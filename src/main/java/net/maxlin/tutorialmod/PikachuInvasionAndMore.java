@@ -51,11 +51,11 @@ public class PikachuInvasionAndMore implements ModInitializer {
 		PlayerBlockBreakEvents.BEFORE.register(new HammerUsageEvent());
 
 		AttackEntityCallback.EVENT.register((player, world, hand, entity, entityHitResult) -> {
-			if(entity instanceof SheepEntity sheepEntity) {
+			if(entity instanceof SheepEntity sheepEntity && !world.isClient()) {
 				if (player.getMainHandStack().getItem() == Items.END_ROD) {
 					player.sendMessage(Text.literal("The Player just hit a sheep with an End Rod! You sick frick!"));
 					player.getMainHandStack().decrement(1);
-					sheepEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 1500, 6));
+					sheepEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 1500, 8));
 
 				}
 				return ActionResult.PASS;
