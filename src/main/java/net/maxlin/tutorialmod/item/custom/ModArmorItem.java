@@ -22,6 +22,8 @@ public class ModArmorItem extends ArmorItem {
                       List.of(new StatusEffectInstance(StatusEffects.HASTE, 400, 2, false, false),
                               new StatusEffectInstance(StatusEffects.JUMP_BOOST, 400, 2, false, false))).build();
 
+
+
     public ModArmorItem(RegistryEntry<ArmorMaterial> material, Type type, Settings settings) {
         super(material, type, settings);
     }
@@ -52,7 +54,7 @@ public void inventoryTick(ItemStack stack, World world, Entity entity, int slot,
     private void addStatusEffectForMaterial(PlayerEntity player, RegistryEntry<ArmorMaterial> mapArmorMaterial, List<StatusEffectInstance> mapStatusEffect) {
         boolean hasPlayerEffect = mapStatusEffect.stream().allMatch(statusEffectInstance -> player.hasStatusEffect(statusEffectInstance.getEffectType()));
 
-        if(hasPlayerEffect) {
+        if(hasCorrectArmorOn(mapArmorMaterial, player) && !hasPlayerEffect) {
             for(StatusEffectInstance instance : mapStatusEffect) {
                 player.addStatusEffect(new StatusEffectInstance(instance.getEffectType(),
                         instance.getDuration(), instance.getAmplifier(), instance.isAmbient(), instance.shouldShowParticles()));
