@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 public class ModArmorItem extends ArmorItem {
-    private static final Map<RegistryEntry<ArmorMaterial>, java.util.List<StatusEffectInstance>> MATERIAL_TO_EFFECT_MAP =
+    private static final Map<RegistryEntry<ArmorMaterial>, List<StatusEffectInstance>> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<RegistryEntry<ArmorMaterial>, List<StatusEffectInstance>>())
                     .put(ModArmorMaterials.PINK_GARNET_ARMOR_MATERIAL,
                       List.of(new StatusEffectInstance(StatusEffects.HASTE, 400, 2, false, false),
