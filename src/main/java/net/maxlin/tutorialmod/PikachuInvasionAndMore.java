@@ -17,6 +17,7 @@ import net.maxlin.tutorialmod.sound.ModSounds;
 import net.maxlin.tutorialmod.util.HammerUsageEvent;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.entity.passive.SheepEntity;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Potions;
@@ -56,6 +57,20 @@ public class PikachuInvasionAndMore implements ModInitializer {
 					player.sendMessage(Text.literal("The Player just hit a sheep with an End Rod! You sick frick!"));
 					player.getMainHandStack().decrement(1);
 					sheepEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 1500, 8));
+
+				}
+				return ActionResult.PASS;
+			}
+
+			return ActionResult.PASS;
+		});
+
+		AttackEntityCallback.EVENT.register((player, world, hand, entity, entityHitResult) -> {
+			if(entity instanceof CowEntity cowEntity && !world.isClient()) {
+				if (player.getMainHandStack().getItem() == Items.END_ROD) {
+					player.sendMessage(Text.literal("The Player just hit a cow with an End Rod! You sick frick!"));
+					player.getMainHandStack().decrement(1);
+					cowEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 1500, 8));
 
 				}
 				return ActionResult.PASS;
