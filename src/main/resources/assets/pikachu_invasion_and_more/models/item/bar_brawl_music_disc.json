@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "pikachu_invasion_and_more:item/bar_brawl_music_disc"
+  }
+
+}
