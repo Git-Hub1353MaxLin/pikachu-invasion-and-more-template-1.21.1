@@ -36,6 +36,7 @@
     ]
   },
   "bar_brawl": {
+    "category": "record",
     "sounds": [
       {
         "name": "pikachu_invasion_and_more:bar_brawl",
