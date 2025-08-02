@@ -1,0 +1,46 @@
+{
+  "chisel_use": {
+    "subtitle": "sounds.pikachu_invasion_and_more.chisel_use",
+    "sounds": [
+      "pikachu_invasion_and_more:chisel_use"
+    ]
+  },
+  "magic_block_break": {
+    "subtitle": "sounds.pikachu_invasion_and_more.magic_block_break",
+    "sounds": [
+      "pikachu_invasion_and_more:magic_block_break"
+    ]
+  },
+  "magic_block_fall": {
+    "subtitle": "sounds.pikachu_invasion_and_more.magic_block_fall",
+    "sounds": [
+      "pikachu_invasion_and_more:magic_block_fall"
+    ]
+  },
+  "magic_block_hit": {
+    "subtitle": "sounds.pikachu_invasion_and_more.magic_block_hit",
+    "sounds": [
+      "pikachu_invasion_and_more:magic_block_hit"
+    ]
+  },
+  "magic_block_place": {
+    "subtitle": "sounds.pikachu_invasion_and_more.magic_block_place",
+    "sounds": [
+      "pikachu_invasion_and_more:magic_block_place"
+    ]
+  },
+  "magic_block_step": {
+    "subtitle": "sounds.pikachu_invasion_and_more.magic_block_step",
+    "sounds": [
+      "pikachu_invasion_and_more:magic_block_step"
+    ]
+  },
+  "bar_brawl": {
+    "sounds": [
+      {
+        "name": "pikachu_invasion_and_more:bar_brawl",
+        "stream": true
+      }
+    ]
+  }
+}

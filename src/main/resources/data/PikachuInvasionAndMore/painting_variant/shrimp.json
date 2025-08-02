@@ -1,5 +1,11 @@
 {
   "asset_id": "pikachu_invasion_and_more:shrimp",
   "height": 1,
-  "width": 2
+  "width": 2,
+  "author": {
+    "translate": "painting.pikachu_invasion_and_more.shrimp.author"
+  },
+  "title": {
+    "translate": "painting.pikachu_invasion_and_more.shrimp.title"
+  }
 }

@@ -1,5 +1,11 @@
 {
   "asset_id": "pikachu_invasion_and_more:saw_them",
   "height": 2,
-  "width": 2
+  "width": 2,
+  "author": {
+    "translate": "painting.pikachu_invasion_and_more.saw_them.author"
+  },
+  "title": {
+    "translate": "painting.pikachu_invasion_and_more.saw_them.title"
+  }
 }
