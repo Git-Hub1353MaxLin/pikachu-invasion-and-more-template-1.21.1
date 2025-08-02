@@ -34,6 +34,6 @@ public class ModSounds {
     }
 
     public static void registerSounds() {
-        PikachuInvasionAndMore.LOGGER.info("Registering ModSounds for " + PikachuInvasionAndMore.MOD_ID);
+        PikachuInvasionAndMore.LOGGER.info("Registering Mod Sounds for " + PikachuInvasionAndMore.MOD_ID);
     }
 }
