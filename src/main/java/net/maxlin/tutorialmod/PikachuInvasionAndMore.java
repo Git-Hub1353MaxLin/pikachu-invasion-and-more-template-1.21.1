@@ -112,5 +112,6 @@ public class PikachuInvasionAndMore implements ModInitializer {
 			builder.registerPotionRecipe(Potions.AWKWARD, Items.SLIME_BALL, ModPotions.SLIMEY_POTION);
 
 		});
+
 	}
 }
