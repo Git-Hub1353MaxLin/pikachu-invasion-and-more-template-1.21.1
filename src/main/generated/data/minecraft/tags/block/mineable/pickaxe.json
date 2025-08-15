@@ -3,7 +3,14 @@
     "minecraft:grass_block",
     "minecraft:dirt",
     "minecraft:sand",
+
     "minecraft:stone",
+    "minecraft:stone_stairs",
+    "minecraft:stone_slabs",
+    "minecraft:stone_pressure_plate",
+    "minecraft:stone_button",
+    "minecraft:stone_wall",
+
     "minecraft:cobblestone",
     "minecraft:andesite",
     "minecraft:diorite",
