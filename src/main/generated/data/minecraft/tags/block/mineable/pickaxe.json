@@ -12,7 +12,17 @@
     "minecraft:stone_wall",
 
     "minecraft:cobblestone",
+    "minecraft:cobblestone_stairs",
+    "minecraft:cobblestone_slabs",
+    "minecraft:cobblestone_pressure_plate",
+    "minecraft:cobblestone_wall",
+
     "minecraft:andesite",
+    "minecraft:andesite_stairs",
+    "minecraft:andesite_slabs",
+    "minecraft:andesite_pressure_plate",
+    "minecraft:andesite_wall",
+
     "minecraft:diorite",
     "minecraft:granite",
     "minecraft:deepslate",
