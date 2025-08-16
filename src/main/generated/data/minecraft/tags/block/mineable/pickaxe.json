@@ -21,7 +21,15 @@
     "minecraft:andesite_wall",
 
     "minecraft:diorite",
+    "minecraft:diorite_stairs",
+    "minecraft:diorite_slab",
+    "minecraft:diorite_wall",
+
     "minecraft:granite",
+    "minecraft:granite_stairs",
+    "minecraft:granite_slab",
+    "minecraft:granite_wall",
+
     "minecraft:deepslate",
     "minecraft:tuff",
     "minecraft:calcite",
