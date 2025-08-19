@@ -2,7 +2,17 @@
   "values": [
     "minecraft:grass_block",
     "minecraft:dirt",
+    "minecraft:coarse_dirt",
+    "minecraft:rooted_dirt",
+    "minecraft:mycelium",
+    "minecraft:podzol",
+    "minecraft:mud",
+    "minecraft:clay",
+    "minecraft:gravel",
     "minecraft:sand",
+    "minecraft:red_sand",
+
+    "minecraft:netherrack",
 
     "minecraft:stone",
     "minecraft:stone_stairs",
@@ -54,7 +64,6 @@
     "minecraft:deepslate_tile_stairs",
     "minecraft:deepslate_tile_slab",
     "minecraft:deepslate_tile_wall",
-
 
     "minecraft:tuff",
     "minecraft:calcite",

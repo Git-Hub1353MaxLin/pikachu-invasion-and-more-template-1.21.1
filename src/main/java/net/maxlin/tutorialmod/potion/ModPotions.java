@@ -17,6 +17,7 @@ public class ModPotions {
 
 
 
+
     private static RegistryEntry<Potion> registerPotion(String name, Potion potion) {
         return Registry.registerReference(Registries.POTION, Identifier.of(PikachuInvasionAndMore.MOD_ID, name), potion);
     }

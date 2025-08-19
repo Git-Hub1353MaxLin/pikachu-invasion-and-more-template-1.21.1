@@ -44,6 +44,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.MAGIC_BLOCK);
 
                         entries.add(ModItems.CAULIFLOWER);
+                        entries.add(ModItems.MANGO);
                         entries.add(ModItems.STARLIGHT_ASHES);
 
                         entries.add(ModItems.PINK_GARNET_SWORD);
