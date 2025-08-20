@@ -4,6 +4,7 @@
    import net.maxlin.tutorialmod.PikachuInvasionAndMore;
    import net.maxlin.tutorialmod.item.custom.ChiselItem;
    import net.maxlin.tutorialmod.item.custom.HammerItem;
+   import net.maxlin.tutorialmod.item.custom.MangoJuiceItem;
    import net.maxlin.tutorialmod.item.custom.ModArmorItem;
    import net.maxlin.tutorialmod.sound.ModSounds;
    import net.minecraft.client.gui.screen.Screen;
@@ -42,6 +43,11 @@
        });
 
        public static final Item MANGO = registerItem("mango", new Item(new Item.Settings().food(ModFoodComponents.MANGO)));
+
+       public static final Item MANGO_JUICE = registerItem("mango_juice", new Item(new Item.Settings().food(MangoJuiceItem.MANGO_JUICE)));
+
+       public static final Item BIG_GLASS_BOTTLE = registerItem("big_glass_bottle",
+               new Item(new Item.Settings().maxCount(16)));
 
        public static final Item STARLIGHT_ASHES = registerItem("starlight_ashes", new Item(new Item.Settings()) {
            @Override

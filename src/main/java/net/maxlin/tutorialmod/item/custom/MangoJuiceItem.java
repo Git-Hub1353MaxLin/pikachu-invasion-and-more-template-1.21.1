@@ -1,5 +1,6 @@
 package net.maxlin.tutorialmod.item.custom;
 
+import net.maxlin.tutorialmod.item.ModItems;
 import net.maxlin.tutorialmod.util.ModTags;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.LivingEntity;
@@ -9,6 +10,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 
@@ -17,7 +20,7 @@ public class MangoJuiceItem extends Item{
         .statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 1500), 1f).alwaysEdible().build();
 
     public MangoJuiceItem(Settings settings) {
-        super(settings.food(MANGO_JUICE).maxCount(16));
+        super(settings.food(MANGO_JUICE).maxCount(1));
     }
 
     @Override
@@ -26,11 +29,16 @@ public class MangoJuiceItem extends Item{
     }
 
     @Override
+    public SoundEvent getEatSound() {
+        return SoundEvents.ENTITY_GENERIC_DRINK;
+    }
+
+    @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         ItemStack result = super.finishUsing(stack, world, user);
 
         if (user instanceof PlayerEntity player && !player.getAbilities().creativeMode) {
-            return new ItemStack(Items.GLASS_BOTTLE);
+            return new ItemStack(ModItems.BIG_GLASS_BOTTLE);
         }
 
         return result;

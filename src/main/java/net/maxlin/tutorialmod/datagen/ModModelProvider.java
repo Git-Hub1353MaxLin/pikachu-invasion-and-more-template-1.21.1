@@ -7,7 +7,6 @@ import net.maxlin.tutorialmod.block.custom.PinkGarnetLampBlock;
 import net.maxlin.tutorialmod.item.ModItems;
 import net.minecraft.data.client.*;
 import net.minecraft.item.ArmorItem;
-import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.Identifier;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -49,6 +48,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.CHISEL, Models.GENERATED);
         itemModelGenerator.register(ModItems.CAULIFLOWER, Models.GENERATED);
         itemModelGenerator.register(ModItems.MANGO, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MANGO_JUICE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BIG_GLASS_BOTTLE, Models.GENERATED);
         itemModelGenerator.register(ModItems.STARLIGHT_ASHES, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.PINK_GARNET_SWORD, Models.HANDHELD);

@@ -5,7 +5,6 @@ import net.maxlin.tutorialmod.component.ModDataComponentTypes;
 import net.maxlin.tutorialmod.item.ModItems;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.item.Item;
-import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 
 public class ModModelPredicates {

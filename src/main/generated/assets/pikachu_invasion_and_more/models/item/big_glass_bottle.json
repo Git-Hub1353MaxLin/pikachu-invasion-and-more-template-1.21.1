@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "pikachu_invasion_and_more:item/big_glass_bottle"
+  }
+}
