@@ -46,6 +46,7 @@ public class ModItemGroups {
                         entries.add(ModItems.CAULIFLOWER);
                         entries.add(ModItems.MANGO);
                         entries.add(ModItems.MANGO_JUICE);
+                        entries.add(ModItems.BIG_GLASS_BOTTLE);
                         entries.add(ModItems.STARLIGHT_ASHES);
 
                         entries.add(ModItems.PINK_GARNET_SWORD);
