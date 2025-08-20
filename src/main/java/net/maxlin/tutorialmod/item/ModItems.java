@@ -44,7 +44,7 @@
 
        public static final Item MANGO = registerItem("mango", new Item(new Item.Settings().food(ModFoodComponents.MANGO)));
 
-       public static final Item MANGO_JUICE = registerItem("mango_juice", new Item(new Item.Settings().food(MangoJuiceItem.MANGO_JUICE)));
+       public static final Item MANGO_JUICE = registerItem("mango_juice", new MangoJuiceItem(new Item.Settings().maxCount(1)));
 
        public static final Item BIG_GLASS_BOTTLE = registerItem("big_glass_bottle",
                new Item(new Item.Settings().maxCount(16)));
