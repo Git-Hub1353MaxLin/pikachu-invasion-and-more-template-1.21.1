@@ -16,10 +16,10 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 
-public class StaffOfPikachuXVIII extends Item {
+public class StaffOfPikachuXVIIIItem extends Item {
 
-    public StaffOfPikachuXVIII (Settings settings) {
-        super(settings.maxCount(1).maxDamage(128)); // 128 uses
+    public StaffOfPikachuXVIIIItem(Settings settings) {
+        super(settings.maxCount(1).maxDamage(250));
     }
 
     @Override
@@ -48,13 +48,22 @@ public class StaffOfPikachuXVIII extends Item {
                 // Increase durability
                 stack.setDamage(stack.getDamage() + 1);
 
-                // Play break sound if fully damaged
-                if (stack.getDamage() >= stack.getMaxDamage()) {
-                    world.playSound(null, user.getBlockPos(), SoundEvents.ENTITY_ITEM_BREAK, SoundCategory.PLAYERS, 1.0f, 1.0f);
-                }
-
                 // Add cooldown (40 ticks = 2 seconds)
                 user.getItemCooldownManager().set(this, 40);
+
+                if (!user.getAbilities().creativeMode) {
+                    stack.setDamage(stack.getDamage() + 1);
+
+                    if (stack.getDamage() >= stack.getMaxDamage()) {
+                        world.playSound(null, user.getBlockPos(),
+                                SoundEvents.ENTITY_ITEM_BREAK, SoundCategory.PLAYERS,
+                                1.0f, 1.0f);
+                        stack.decrement(1); // remove when broken
+                    }
+                }
+
+
+
             }
         }
 

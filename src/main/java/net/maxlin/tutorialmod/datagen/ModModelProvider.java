@@ -60,6 +60,8 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.PINK_GARNET_HAMMER, Models.HANDHELD);
 
+        itemModelGenerator.register(ModItems.STAFF_OF_PIKACHU_XVIII, Models.HANDHELD);
+
         itemModelGenerator.register(ModItems.KAUPEN_BOW, Models.HANDHELD);
 
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GARNET_HELMET));

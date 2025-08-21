@@ -2,10 +2,7 @@
 
    import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
    import net.maxlin.tutorialmod.PikachuInvasionAndMore;
-   import net.maxlin.tutorialmod.item.custom.ChiselItem;
-   import net.maxlin.tutorialmod.item.custom.HammerItem;
-   import net.maxlin.tutorialmod.item.custom.MangoJuiceItem;
-   import net.maxlin.tutorialmod.item.custom.ModArmorItem;
+   import net.maxlin.tutorialmod.item.custom.*;
    import net.maxlin.tutorialmod.sound.ModSounds;
    import net.minecraft.client.gui.screen.Screen;
    import net.minecraft.item.*;
@@ -108,6 +105,10 @@
 
        public static final Item BAR_BRAWL_MUSIC_DISC = registerItem("bar_brawl_music_disc",
                new Item(new Item.Settings().jukeboxPlayable(ModSounds.BAR_BRAWL_KEY).maxCount(1)));
+
+
+       public static final Item STAFF_OF_PIKACHU_XVIII = registerItem("staff_of_pikachu_xviii",
+               new StaffOfPikachuXVIIIItem(new Item.Settings().maxDamage(128).maxCount(1)));
 
 
 
