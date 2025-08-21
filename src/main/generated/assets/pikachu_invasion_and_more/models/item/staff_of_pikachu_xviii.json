@@ -1,5 +1,5 @@
 {
-  "parent": "item/handheld",
+  "parent": "minecraft:item/handheld",
   "textures": {
     "layer0": "pikachu_invasion_and_more:item/staff_of_pikachu_xviii"
   }

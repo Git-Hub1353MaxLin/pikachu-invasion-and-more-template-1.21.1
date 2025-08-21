@@ -5,8 +5,8 @@ import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.hit.BlockHitResult;
@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 public class StaffOfPikachuXVIIIItem extends Item {
 
     public StaffOfPikachuXVIIIItem(Settings settings) {
-        super(settings.maxCount(1).maxDamage(250));
+        super(settings.maxCount(1));
     }
 
     @Override
@@ -52,9 +52,15 @@ public class StaffOfPikachuXVIIIItem extends Item {
                 user.getItemCooldownManager().set(this, 40);
 
                 if (!user.isCreative()) {
-                    stack.damage(1, user, null);
-                }
+                    stack.setDamage(stack.getDamage() + 1);
 
+                    // Break item if over max damage
+                    if (stack.getDamage() >= stack.getMaxDamage()) {
+                        stack.decrement(1);
+                        world.playSound(null, user.getBlockPos(), SoundEvents.ENTITY_ITEM_BREAK,
+                                SoundCategory.PLAYERS, 1f, 1f);
+                    }
+                }
 
             }
         }
