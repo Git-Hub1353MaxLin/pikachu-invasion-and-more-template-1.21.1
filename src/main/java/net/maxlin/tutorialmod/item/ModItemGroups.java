@@ -69,6 +69,8 @@ public class ModItemGroups {
 
                         entries.add(ModItems.BAR_BRAWL_MUSIC_DISC);
 
+                        entries.add(ModItems.STAFF_OF_PIKACHU_XVIII);
+
                             }).build());
 
     public static void registerItemGroups() {

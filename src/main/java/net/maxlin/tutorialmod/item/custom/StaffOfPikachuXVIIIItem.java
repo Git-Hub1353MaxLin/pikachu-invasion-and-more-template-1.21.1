@@ -51,17 +51,9 @@ public class StaffOfPikachuXVIIIItem extends Item {
                 // Add cooldown (40 ticks = 2 seconds)
                 user.getItemCooldownManager().set(this, 40);
 
-                if (!user.getAbilities().creativeMode) {
-                    stack.setDamage(stack.getDamage() + 1);
-
-                    if (stack.getDamage() >= stack.getMaxDamage()) {
-                        world.playSound(null, user.getBlockPos(),
-                                SoundEvents.ENTITY_ITEM_BREAK, SoundCategory.PLAYERS,
-                                1.0f, 1.0f);
-                        stack.decrement(1); // remove when broken
-                    }
+                if (!user.isCreative()) {
+                    stack.damage(1, user, null);
                 }
-
 
 
             }
