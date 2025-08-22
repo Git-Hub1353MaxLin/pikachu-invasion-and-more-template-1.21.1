@@ -108,7 +108,7 @@
 
 
        public static final Item STAFF_OF_PIKACHU_XVIII = registerItem("staff_of_pikachu_xviii",
-               new StaffOfPikachuXVIIIItem(new Item.Settings().maxCount(1)));
+               new StaffOfPikachuXVIIIItem(new Item.Settings().maxDamage(250).maxCount(1)));
 
 
 
