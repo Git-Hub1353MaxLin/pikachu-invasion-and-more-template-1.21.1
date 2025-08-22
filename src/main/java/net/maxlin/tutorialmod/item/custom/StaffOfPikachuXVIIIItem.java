@@ -27,32 +27,21 @@ public class StaffOfPikachuXVIIIItem extends Item {
         ItemStack stack = user.getStackInHand(hand);
 
         if (!world.isClient) {
+            // FIRST ABILITY: lightning at targeted block
+            HitResult hit = raycastFromPlayer(world, user, RaycastContext.FluidHandling.NONE);
 
-            if (user.isSneaking()) {
-                // SECOND ABILITY: explosion at player's position (no block damage)
-                world.createExplosion(user,
-                        user.getX(), user.getY(), user.getZ(),
-                        4.0f,
-                        World.ExplosionSourceType.NONE
-                );
+            if (hit.getType() == HitResult.Type.BLOCK) {
+                BlockHitResult blockHit = (BlockHitResult) hit;
+                BlockPos pos = blockHit.getBlockPos().up();
 
-                // 30 particles spread in a spherical shape
-                for (int i = 0; i < 30; i++) {
-                    double theta = world.random.nextDouble() * 2 * Math.PI; // angle around Y-axis
-                    double phi = Math.acos(2 * world.random.nextDouble() - 1); // angle from Y-axis
-                    double radius = world.random.nextDouble() * 5; // max distance from center
-
-                    double offsetX = radius * Math.sin(phi) * Math.cos(theta);
-                    double offsetY = radius * Math.sin(phi) * Math.sin(theta);
-                    double offsetZ = radius * Math.cos(phi);
-
-                    world.addParticle(
-                            net.minecraft.particle.ParticleTypes.EXPLOSION_EMITTER,
-                            user.getX() + offsetX,
-                            user.getY() + offsetY,
-                            user.getZ() + offsetZ,
-                            0, 0, 0
+                LightningEntity lightning = EntityType.LIGHTNING_BOLT.create(world);
+                if (lightning != null) {
+                    lightning.refreshPositionAfterTeleport(
+                            pos.getX() + 0.5,
+                            pos.getY(),
+                            pos.getZ() + 0.5
                     );
+                    world.spawnEntity(lightning);
                 }
 
                 // Damage staff if not in creative
@@ -60,34 +49,8 @@ public class StaffOfPikachuXVIIIItem extends Item {
                     damageStaff(stack, world, user);
                 }
 
-                // Cooldown for explosion
-                user.getItemCooldownManager().set(this, 100);
-
-            } else {
-                // FIRST ABILITY: lightning at targeted block
-                HitResult hit = raycastFromPlayer(world, user, RaycastContext.FluidHandling.NONE);
-
-                if (hit.getType() == HitResult.Type.BLOCK) {
-                    BlockHitResult blockHit = (BlockHitResult) hit;
-                    BlockPos pos = blockHit.getBlockPos().up();
-
-                    LightningEntity lightning = EntityType.LIGHTNING_BOLT.create(world);
-                    if (lightning != null) {
-                        lightning.refreshPositionAfterTeleport(
-                                pos.getX() + 0.5,
-                                pos.getY(),
-                                pos.getZ() + 0.5
-                        );
-                        world.spawnEntity(lightning);
-                    }
-
-                    if (!user.isCreative()) {
-                        damageStaff(stack, world, user);
-                    }
-
-                    // Cooldown for lightning
-                    user.getItemCooldownManager().set(this, 40);
-                }
+                // Cooldown for lightning
+                user.getItemCooldownManager().set(this, 40);
             }
         }
 
@@ -99,13 +62,10 @@ public class StaffOfPikachuXVIIIItem extends Item {
         stack.setDamage(stack.getDamage() + 1);
         if (stack.getDamage() >= stack.getMaxDamage()) {
             stack.decrement(1);
-            world.playSound(
-                    null,
+            world.playSound(null,
                     user.getX(), user.getY(), user.getZ(),
                     SoundEvents.ENTITY_ITEM_BREAK,
-                    SoundCategory.PLAYERS,
-                    1f, 1f
-            );
+                    SoundCategory.PLAYERS, 1f, 1f);
         }
     }
 
