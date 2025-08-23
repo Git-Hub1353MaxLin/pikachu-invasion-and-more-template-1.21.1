@@ -1,10 +1,14 @@
 package net.maxlin.tutorialmod.item.custom;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
@@ -27,9 +31,14 @@ public class StaffOfPikachuXVIIIItem extends Item {
         ItemStack stack = user.getStackInHand(hand);
 
         if (!world.isClient) {
+            if (user.isSneaking()) {
+                // SECOND ABILITY: wave of explosions in a straight line
+                castExplosionWave(world, user, stack);
+                return TypedActionResult.success(stack, false);
+            }
+
             // FIRST ABILITY: lightning at targeted block
             HitResult hit = raycastFromPlayer(world, user, RaycastContext.FluidHandling.NONE);
-
             if (hit.getType() == HitResult.Type.BLOCK) {
                 BlockHitResult blockHit = (BlockHitResult) hit;
                 BlockPos pos = blockHit.getBlockPos().up();
@@ -44,12 +53,10 @@ public class StaffOfPikachuXVIIIItem extends Item {
                     world.spawnEntity(lightning);
                 }
 
-                // Damage staff if not in creative
+                // Durability + cooldown
                 if (!user.isCreative()) {
                     damageStaff(stack, world, user);
                 }
-
-                // Cooldown for lightning
                 user.getItemCooldownManager().set(this, 40);
             }
         }
@@ -57,26 +64,78 @@ public class StaffOfPikachuXVIIIItem extends Item {
         return TypedActionResult.success(stack, world.isClient());
     }
 
+    private void castExplosionWave(World world, PlayerEntity user, ItemStack stack) {
+        Vec3d start = user.getCameraPosVec(1.0F);
+        Vec3d dir = user.getRotationVec(1.0F).normalize();
+
+        final int maxDistance = 50;   // blocks out
+        final int step = 2;           // spacing between explosion points
+        final double damageRadius = 2.5;
+        final float damageAmount = 14.0f; // 7 hearts
+
+        for (int dist = step; dist <= maxDistance; dist += step) {
+            Vec3d point = start.add(dir.multiply(dist));
+            BlockPos bpos = new BlockPos((int) point.x, (int) point.y, (int) point.z);
+
+            // Play explosion sound
+            world.playSound(
+                    null,
+                    bpos.getX() + 0.5,
+                    bpos.getY() + 0.5,
+                    bpos.getZ() + 0.5,
+                    SoundEvents.ENTITY_GENERIC_EXPLODE,
+                    SoundCategory.PLAYERS,
+                    1.0f,
+                    1.0f
+            );
+
+            // Spawn explosion particles
+            if (world instanceof ServerWorld serverWorld) {
+                serverWorld.spawnParticles(ParticleTypes.EXPLOSION_EMITTER, point.x, point.y, point.z, 1, 0, 0, 0, 0);
+                serverWorld.spawnParticles(ParticleTypes.EXPLOSION, point.x, point.y, point.z, 8, 0.5, 0.5, 0.5, 0);
+            }
+
+
+            // Damage nearby entities (excluding the user)
+            for (Entity e : world.getOtherEntities(user, user.getBoundingBox().expand(maxDistance))) {
+                if (e instanceof LivingEntity living && living != user) {
+                    if (living.squaredDistanceTo(point) <= (damageRadius * damageRadius)) {
+                        living.damage(world.getDamageSources().magic(), damageAmount);
+                    }
+                }
+            }
+        }
+
+        // Durability + cooldown once on cast
+        if (!user.isCreative()) {
+            damageStaff(stack, world, user);
+        }
+        user.getItemCooldownManager().set(this, 100);
+    }
+
     // Handle durability
     private void damageStaff(ItemStack stack, World world, PlayerEntity user) {
         stack.setDamage(stack.getDamage() + 1);
         if (stack.getDamage() >= stack.getMaxDamage()) {
             stack.decrement(1);
-            world.playSound(null,
+            world.playSound(
+                    null,
                     user.getX(), user.getY(), user.getZ(),
                     SoundEvents.ENTITY_ITEM_BREAK,
-                    SoundCategory.PLAYERS, 1f, 1f);
+                    SoundCategory.PLAYERS,
+                    1f,
+                    1f
+            );
         }
     }
 
     // Raycast for targeting
     private HitResult raycastFromPlayer(World world, PlayerEntity player, RaycastContext.FluidHandling fluidHandling) {
         Vec3d start = player.getCameraPosVec(1.0F);
-        Vec3d direction = player.getRotationVec(1.0F).multiply(50); // 50 block range
+        Vec3d direction = player.getRotationVec(1.0F).multiply(50);
         Vec3d end = start.add(direction);
 
         return world.raycast(new RaycastContext(start, end, RaycastContext.ShapeType.OUTLINE, fluidHandling, player));
     }
 }
-
 
