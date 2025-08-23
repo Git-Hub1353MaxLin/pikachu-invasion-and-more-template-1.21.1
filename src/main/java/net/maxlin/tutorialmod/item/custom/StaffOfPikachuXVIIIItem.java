@@ -19,6 +19,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
+import net.maxlin.tutorialmod.util.TickScheduler;
 
 public class StaffOfPikachuXVIIIItem extends Item {
 
@@ -32,7 +33,7 @@ public class StaffOfPikachuXVIIIItem extends Item {
 
         if (!world.isClient) {
             if (user.isSneaking()) {
-                // SECOND ABILITY: wave of explosions in a straight line
+                // SECOND ABILITY: chain explosion wave
                 castExplosionWave(world, user, stack);
                 return TypedActionResult.success(stack, false);
             }
@@ -53,7 +54,6 @@ public class StaffOfPikachuXVIIIItem extends Item {
                     world.spawnEntity(lightning);
                 }
 
-                // Durability + cooldown
                 if (!user.isCreative()) {
                     damageStaff(stack, world, user);
                 }
@@ -65,45 +65,56 @@ public class StaffOfPikachuXVIIIItem extends Item {
     }
 
     private void castExplosionWave(World world, PlayerEntity user, ItemStack stack) {
+        if (!(world instanceof ServerWorld serverWorld)) return;
+
         Vec3d start = user.getCameraPosVec(1.0F);
         Vec3d dir = user.getRotationVec(1.0F).normalize();
 
-        final int maxDistance = 50;   // blocks out
-        final int step = 2;           // spacing between explosion points
+        final int maxDistance = 30;
+        final int step = 2;                  // spacing between explosions
+        final int ticksBetweenSteps = 3;     // delay per explosion step
         final double damageRadius = 2.5;
-        final float damageAmount = 14.0f; // 7 hearts
+        final float damageAmount = 14.0f;    // 7 hearts
 
+        int index = 0;
         for (int dist = step; dist <= maxDistance; dist += step) {
             Vec3d point = start.add(dir.multiply(dist));
-            BlockPos bpos = new BlockPos((int) point.x, (int) point.y, (int) point.z);
-
-            // Play explosion sound
-            world.playSound(
-                    null,
-                    bpos.getX() + 0.5,
-                    bpos.getY() + 0.5,
-                    bpos.getZ() + 0.5,
-                    SoundEvents.ENTITY_GENERIC_EXPLODE,
-                    SoundCategory.PLAYERS,
-                    1.0f,
-                    1.0f
+            BlockPos bpos = new BlockPos(
+                    (int) Math.floor(point.x),
+                    (int) Math.floor(point.y),
+                    (int) Math.floor(point.z)
             );
 
-            // Spawn explosion particles
-            if (world instanceof ServerWorld serverWorld) {
+
+            int delayTicks = index * ticksBetweenSteps;
+            index++;
+
+            TickScheduler.schedule(() -> {
+                // Sound
+                serverWorld.playSound(
+                        null,
+                        bpos.getX() + 0.5,
+                        bpos.getY() + 0.5,
+                        bpos.getZ() + 0.5,
+                        SoundEvents.ENTITY_GENERIC_EXPLODE,
+                        SoundCategory.PLAYERS,
+                        1.0f,
+                        1.0f
+                );
+
+                // Particles
                 serverWorld.spawnParticles(ParticleTypes.EXPLOSION_EMITTER, point.x, point.y, point.z, 1, 0, 0, 0, 0);
                 serverWorld.spawnParticles(ParticleTypes.EXPLOSION, point.x, point.y, point.z, 8, 0.5, 0.5, 0.5, 0);
-            }
 
-
-            // Damage nearby entities (excluding the user)
-            for (Entity e : world.getOtherEntities(user, user.getBoundingBox().expand(maxDistance))) {
-                if (e instanceof LivingEntity living && living != user) {
-                    if (living.squaredDistanceTo(point) <= (damageRadius * damageRadius)) {
-                        living.damage(world.getDamageSources().magic(), damageAmount);
+                // Damage entities near this point
+                for (Entity e : serverWorld.getOtherEntities(user, user.getBoundingBox().expand(maxDistance))) {
+                    if (e instanceof LivingEntity living && living != user) {
+                        if (living.squaredDistanceTo(point) <= (damageRadius * damageRadius)) {
+                            living.damage(serverWorld.getDamageSources().magic(), damageAmount);
+                        }
                     }
                 }
-            }
+            }, delayTicks);
         }
 
         // Durability + cooldown once on cast
@@ -113,7 +124,6 @@ public class StaffOfPikachuXVIIIItem extends Item {
         user.getItemCooldownManager().set(this, 100);
     }
 
-    // Handle durability
     private void damageStaff(ItemStack stack, World world, PlayerEntity user) {
         stack.setDamage(stack.getDamage() + 1);
         if (stack.getDamage() >= stack.getMaxDamage()) {
@@ -129,7 +139,6 @@ public class StaffOfPikachuXVIIIItem extends Item {
         }
     }
 
-    // Raycast for targeting
     private HitResult raycastFromPlayer(World world, PlayerEntity player, RaycastContext.FluidHandling fluidHandling) {
         Vec3d start = player.getCameraPosVec(1.0F);
         Vec3d direction = player.getRotationVec(1.0F).multiply(50);
@@ -138,4 +147,5 @@ public class StaffOfPikachuXVIIIItem extends Item {
         return world.raycast(new RaycastContext(start, end, RaycastContext.ShapeType.OUTLINE, fluidHandling, player));
     }
 }
+
 

@@ -11,10 +11,12 @@ import net.maxlin.tutorialmod.component.ModDataComponentTypes;
 import net.maxlin.tutorialmod.effect.ModEffects;
 import net.maxlin.tutorialmod.item.ModItemGroups;
 import net.maxlin.tutorialmod.item.ModItems;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 
 import net.maxlin.tutorialmod.potion.ModPotions;
 import net.maxlin.tutorialmod.sound.ModSounds;
 import net.maxlin.tutorialmod.util.HammerUsageEvent;
+import net.maxlin.tutorialmod.util.TickScheduler;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.passive.ChickenEntity;
@@ -36,22 +38,18 @@ public class PikachuInvasionAndMore implements ModInitializer {
 	public void onInitialize() {
         //Third commit.
 		ModItemGroups.registerItemGroups();
-
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
-
 		ModDataComponentTypes.registerDataComponentTypes();
-
 		ModSounds.registerSounds();
-
 		ModEffects.registerEffects();
-
 		ModPotions.registerPotions();
-
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES,3000);
-
-
 		PlayerBlockBreakEvents.BEFORE.register(new HammerUsageEvent());
+		ServerTickEvents.END_SERVER_TICK.register(server -> {
+			TickScheduler.tick();  // Calls your scheduler each server tick
+		});
+
 
 		AttackEntityCallback.EVENT.register((player, world, hand, entity, entityHitResult) -> {
 			if(entity instanceof SheepEntity sheepEntity && !world.isClient()) {
@@ -112,6 +110,8 @@ public class PikachuInvasionAndMore implements ModInitializer {
 			builder.registerPotionRecipe(Potions.AWKWARD, Items.SLIME_BALL, ModPotions.SLIMEY_POTION);
 
 		});
+
+
 
 	}
 }
