@@ -70,7 +70,7 @@ public class StaffOfPikachuXVIIIItem extends Item {
         Vec3d start = user.getCameraPosVec(1.0F);
         Vec3d dir = user.getRotationVec(1.0F).normalize();
 
-        final int maxDistance = 30;
+        final int maxDistance = 50;
         final int step = 2;                  // spacing between explosions
         final int ticksBetweenSteps = 3;     // delay per explosion step
         final double damageRadius = 2.5;
