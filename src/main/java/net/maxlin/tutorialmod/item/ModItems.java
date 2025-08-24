@@ -44,7 +44,10 @@
        public static final Item MANGO_JUICE = registerItem("mango_juice", new MangoJuiceItem(new Item.Settings().maxCount(1)));
 
        public static final Item BIG_GLASS_BOTTLE = registerItem("big_glass_bottle",
-               new Item(new Item.Settings().maxCount(16)));
+               new BigBottleItem(new Item.Settings().maxCount(16), false));
+
+       public static final Item BIG_WATER_BOTTLE = registerItem("big_water_bottle",
+               new BigBottleItem(new Item.Settings().maxCount(1), true));
 
        public static final Item STARLIGHT_ASHES = registerItem("starlight_ashes", new Item(new Item.Settings()) {
            @Override
