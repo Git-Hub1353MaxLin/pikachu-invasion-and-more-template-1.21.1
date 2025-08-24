@@ -27,48 +27,45 @@ public class BigBottleItem extends Item {
         ItemStack stack = user.getStackInHand(hand);
 
         if (!filled) {
-            // Try to scoop water
+            // ✅ Scoop water
             BlockHitResult hitResult = raycast(world, user, RaycastContext.FluidHandling.SOURCE_ONLY);
             if (hitResult.getType() == BlockHitResult.Type.BLOCK) {
                 BlockPos pos = hitResult.getBlockPos();
                 if (world.getBlockState(pos).getBlock() == Blocks.WATER) {
-                    world.playSound(null, pos, SoundEvents.ITEM_BUCKET_FILL, SoundCategory.PLAYERS, 1.0F, 1.0F);
-
                     if (!world.isClient) {
+                        // Remove the water block like a real bucket
+                        world.removeBlock(pos, false);
+
                         stack.decrement(1);
+                        ItemStack result = new ItemStack(ModItems.BIG_WATER_BOTTLE);
                         if (stack.isEmpty()) {
-                            return TypedActionResult.success(new ItemStack(ModItems.BIG_WATER_BOTTLE));
-                        } else {
-                            if (!user.getInventory().insertStack(new ItemStack(ModItems.BIG_WATER_BOTTLE))) {
-                                user.dropItem(new ItemStack(ModItems.BIG_WATER_BOTTLE), false);
-                            }
+                            return TypedActionResult.success(result);
+                        } else if (!user.getInventory().insertStack(result)) {
+                            user.dropItem(result, false);
                         }
                     }
+                    world.playSound(null, pos, SoundEvents.ITEM_BUCKET_FILL, SoundCategory.PLAYERS, 1.0F, 1.0F);
                     return TypedActionResult.success(stack);
                 }
             }
         } else {
-            // Empty the bottle (place water)
+            // ✅ Empty water
             BlockHitResult hitResult = raycast(world, user, RaycastContext.FluidHandling.NONE);
             if (hitResult.getType() == BlockHitResult.Type.BLOCK) {
                 BlockPos pos = hitResult.getBlockPos().offset(hitResult.getSide());
-
                 if (world.getBlockState(pos).isAir()) {
                     if (!world.isClient) {
                         world.setBlockState(pos, Blocks.WATER.getDefaultState());
-                    }
-                    world.playSound(null, pos, SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.PLAYERS, 1.0F, 1.0F);
 
-                    if (!world.isClient) {
                         stack.decrement(1);
+                        ItemStack result = new ItemStack(ModItems.BIG_GLASS_BOTTLE);
                         if (stack.isEmpty()) {
-                            return TypedActionResult.success(new ItemStack(ModItems.BIG_GLASS_BOTTLE));
-                        } else {
-                            if (!user.getInventory().insertStack(new ItemStack(ModItems.BIG_GLASS_BOTTLE))) {
-                                user.dropItem(new ItemStack(ModItems.BIG_GLASS_BOTTLE), false);
-                            }
+                            return TypedActionResult.success(result);
+                        } else if (!user.getInventory().insertStack(result)) {
+                            user.dropItem(result, false);
                         }
                     }
+                    world.playSound(null, pos, SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.PLAYERS, 1.0F, 1.0F);
                     return TypedActionResult.success(stack);
                 }
             }
@@ -76,6 +73,12 @@ public class BigBottleItem extends Item {
 
         return TypedActionResult.pass(stack);
     }
+
+    // Raycast helper
+    public static BlockHitResult raycast(World world, PlayerEntity player, RaycastContext.FluidHandling fluidHandling) {
+        return (BlockHitResult) player.raycast(5.0D, 0.0F, false); // Adjust reach if needed
+    }
 }
+
 
 
