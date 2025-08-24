@@ -36,13 +36,14 @@ public class BigBottleItem extends Item {
                         // Remove the water block like a real bucket
                         world.removeBlock(pos, false);
 
-                        stack.decrement(1);
                         ItemStack result = new ItemStack(ModItems.BIG_WATER_BOTTLE);
-                        if (stack.isEmpty()) {
-                            return TypedActionResult.success(result);
-                        } else if (!user.getInventory().insertStack(result)) {
+                        if (!user.getInventory().insertStack(result)) {
                             user.dropItem(result, false);
                         }
+                        if (!user.isCreative()) {
+                            stack.decrement(1); // decrement only after giving the filled bottle
+                        }
+                        return TypedActionResult.success(stack);
                     }
                     world.playSound(null, pos, SoundEvents.ITEM_BUCKET_FILL, SoundCategory.PLAYERS, 1.0F, 1.0F);
                     return TypedActionResult.success(stack);
