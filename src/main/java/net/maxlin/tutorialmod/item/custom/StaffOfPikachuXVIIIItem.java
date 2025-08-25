@@ -5,8 +5,9 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.SwordItem;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -15,52 +16,65 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 import net.minecraft.server.world.ServerWorld;
 import net.maxlin.tutorialmod.util.TickScheduler;
 
-public class StaffOfPikachuXVIIIItem extends Item {
+public class StaffOfPikachuXVIIIItem extends SwordItem {
 
-    public StaffOfPikachuXVIIIItem(Settings settings) {
-        super(settings.maxDamage(250).maxCount(1));
+    public StaffOfPikachuXVIIIItem(ToolMaterial material, Settings settings) {
+        super(material, settings);
     }
 
+    // LEFT-CLICK on mob
+    @Override
+    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        World world = attacker.getWorld();
+        if (!world.isClient) {
+            LightningEntity lightning = EntityType.LIGHTNING_BOLT.create(world);
+            if (lightning != null) {
+                lightning.refreshPositionAfterTeleport(target.getX(), target.getY(), target.getZ());
+                world.spawnEntity(lightning);
+            }
+        }
+        return super.postHit(stack, target, attacker);
+    }
+
+    // RIGHT-CLICK on block
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack stack = user.getStackInHand(hand);
 
-        // Client: do nothing, just return
-        if (world.isClient) return TypedActionResult.success(stack, true);
-
-        if (user.isSneaking()) {
-            // SECOND ABILITY: chain explosion wave
-            castExplosionWave((ServerWorld) world, user, stack);
-            return TypedActionResult.success(stack, false);
-        }
-
-        // FIRST ABILITY: lightning at targeted block
-        HitResult hit = raycastFromPlayer(world, user, RaycastContext.FluidHandling.NONE);
-        if (hit.getType() == HitResult.Type.BLOCK) {
-            BlockHitResult blockHit = (BlockHitResult) hit;
-            BlockPos pos = blockHit.getBlockPos().up();
-
-            LightningEntity lightning = EntityType.LIGHTNING_BOLT.create(world);
-            if (lightning != null) {
-                lightning.refreshPositionAfterTeleport(
-                        pos.getX() + 0.5,
-                        pos.getY(),
-                        pos.getZ() + 0.5
-                );
-                world.spawnEntity(lightning);
+        if (!world.isClient) {
+            if (user.isSneaking()) {
+                // Sneak + right-click -> explosion wave
+                castExplosionWave((ServerWorld) world, user, stack);
+                return TypedActionResult.success(stack, false);
             }
 
-            applyDurabilityAndCooldown(stack, user, 40);
+            // Lightning at targeted block
+            HitResult hit = raycastFromPlayer(world, user, RaycastContext.FluidHandling.NONE);
+            if (hit.getType() == HitResult.Type.BLOCK) {
+                BlockHitResult blockHit = (BlockHitResult) hit;
+                BlockPos pos = blockHit.getBlockPos().up();
+
+                LightningEntity lightning = EntityType.LIGHTNING_BOLT.create(world);
+                if (lightning != null) {
+                    lightning.refreshPositionAfterTeleport(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
+                    world.spawnEntity(lightning);
+                }
+
+                if (!user.isCreative()) {
+                    stack.setDamage(stack.getDamage() + 1);
+                    if (stack.getDamage() >= stack.getMaxDamage()) stack.decrement(1);
+                    user.getItemCooldownManager().set(this, 40); // 2 sec cooldown
+                }
+            }
         }
 
-        return TypedActionResult.success(stack, false);
+        return TypedActionResult.success(stack, world.isClient());
     }
 
     private void castExplosionWave(ServerWorld world, PlayerEntity user, ItemStack stack) {
@@ -68,41 +82,25 @@ public class StaffOfPikachuXVIIIItem extends Item {
         Vec3d dir = user.getRotationVec(1.0F).normalize();
 
         final int maxDistance = 50;
-        final int step = 2;                  // spacing between explosions
-        final int ticksBetweenSteps = 3;     // delay per explosion step
+        final int step = 3;
+        final int ticksBetweenSteps = 2;
         final double damageRadius = 2.5;
-        final float damageAmount = 14.0f;    // 7 hearts
+        final float damageAmount = 14.0f;
 
         int index = 0;
         for (int dist = step; dist <= maxDistance; dist += step) {
             Vec3d point = start.add(dir.multiply(dist));
-            BlockPos bpos = new BlockPos(
-                    MathHelper.floor(point.x),
-                    MathHelper.floor(point.y),
-                    MathHelper.floor(point.z)
-            );
-
+            BlockPos bpos = new BlockPos((int) Math.floor(point.x), (int) Math.floor(point.y), (int) Math.floor(point.z));
             int delayTicks = index * ticksBetweenSteps;
             index++;
 
             TickScheduler.schedule(() -> {
-                // Sound
-                world.playSound(
-                        null,
-                        bpos.getX() + 0.5,
-                        bpos.getY() + 0.5,
-                        bpos.getZ() + 0.5,
-                        SoundEvents.ENTITY_GENERIC_EXPLODE,
-                        SoundCategory.PLAYERS,
-                        1.0f,
-                        1.0f
-                );
+                world.playSound(null, bpos.getX() + 0.5, bpos.getY() + 0.5, bpos.getZ() + 0.5,
+                        SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.PLAYERS, 1.0f, 1.0f);
 
-                // Particles
                 world.spawnParticles(ParticleTypes.EXPLOSION_EMITTER, point.x, point.y, point.z, 1, 0, 0, 0, 0);
                 world.spawnParticles(ParticleTypes.EXPLOSION, point.x, point.y, point.z, 8, 0.5, 0.5, 0.5, 0);
 
-                // Damage entities near this point
                 for (Entity e : world.getOtherEntities(user, user.getBoundingBox().expand(maxDistance))) {
                     if (e instanceof LivingEntity living && living != user) {
                         if (living.squaredDistanceTo(point) <= (damageRadius * damageRadius)) {
@@ -113,25 +111,10 @@ public class StaffOfPikachuXVIIIItem extends Item {
             }, delayTicks);
         }
 
-        // Apply durability + cooldown once on cast
-        applyDurabilityAndCooldown(stack, user, 100);
-    }
-
-    private void applyDurabilityAndCooldown(ItemStack stack, PlayerEntity user, int cooldownTicks) {
         if (!user.isCreative()) {
             stack.setDamage(stack.getDamage() + 1);
-            if (stack.getDamage() >= stack.getMaxDamage()) {
-                stack.decrement(1);
-                user.getWorld().playSound(
-                        null,
-                        user.getX(), user.getY(), user.getZ(),
-                        SoundEvents.ENTITY_ITEM_BREAK,
-                        SoundCategory.PLAYERS,
-                        1f,
-                        1f
-                );
-            }
-            user.getItemCooldownManager().set(this, cooldownTicks);
+            if (stack.getDamage() >= stack.getMaxDamage()) stack.decrement(1);
+            user.getItemCooldownManager().set(this, 100);
         }
     }
 
@@ -143,5 +126,6 @@ public class StaffOfPikachuXVIIIItem extends Item {
         return world.raycast(new RaycastContext(start, end, RaycastContext.ShapeType.OUTLINE, fluidHandling, player));
     }
 }
+
 
 
