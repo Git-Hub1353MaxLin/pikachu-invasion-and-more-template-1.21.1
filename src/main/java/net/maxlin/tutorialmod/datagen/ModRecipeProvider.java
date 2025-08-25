@@ -262,9 +262,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         //Crafting mango juice
         ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.MANGO_JUICE)
-                .pattern("")
-                .pattern("B")
-                .pattern("M")
+                .pattern("   ")
+                .pattern(" B ")
+                .pattern(" M ")
                 .input('B', ModItems.BIG_GLASS_BOTTLE)
                 .criterion(hasItem(ModItems.BIG_GLASS_BOTTLE), conditionsFromItem(ModItems.BIG_GLASS_BOTTLE))
                 .input('M', ModItems.MANGO)

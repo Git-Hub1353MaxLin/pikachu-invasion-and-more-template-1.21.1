@@ -3,7 +3,6 @@ package net.maxlin.tutorialmod.item.custom;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LightningEntity;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -16,9 +15,11 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
+import net.minecraft.server.world.ServerWorld;
 import net.maxlin.tutorialmod.util.TickScheduler;
 
 public class StaffOfPikachuXVIIIItem extends Item {
@@ -31,42 +32,38 @@ public class StaffOfPikachuXVIIIItem extends Item {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack stack = user.getStackInHand(hand);
 
-        if (!world.isClient) {
-            if (user.isSneaking()) {
-                // SECOND ABILITY: chain explosion wave
-                castExplosionWave(world, user, stack);
-                return TypedActionResult.success(stack, false);
-            }
+        // Client: do nothing, just return
+        if (world.isClient) return TypedActionResult.success(stack, true);
 
-            // FIRST ABILITY: lightning at targeted block
-            HitResult hit = raycastFromPlayer(world, user, RaycastContext.FluidHandling.NONE);
-            if (hit.getType() == HitResult.Type.BLOCK) {
-                BlockHitResult blockHit = (BlockHitResult) hit;
-                BlockPos pos = blockHit.getBlockPos().up();
-
-                LightningEntity lightning = EntityType.LIGHTNING_BOLT.create(world);
-                if (lightning != null) {
-                    lightning.refreshPositionAfterTeleport(
-                            pos.getX() + 0.5,
-                            pos.getY(),
-                            pos.getZ() + 0.5
-                    );
-                    world.spawnEntity(lightning);
-                }
-
-                if (!user.isCreative()) {
-                    damageStaff(stack, world, user);
-                }
-                user.getItemCooldownManager().set(this, 40);
-            }
+        if (user.isSneaking()) {
+            // SECOND ABILITY: chain explosion wave
+            castExplosionWave((ServerWorld) world, user, stack);
+            return TypedActionResult.success(stack, false);
         }
 
-        return TypedActionResult.success(stack, world.isClient());
+        // FIRST ABILITY: lightning at targeted block
+        HitResult hit = raycastFromPlayer(world, user, RaycastContext.FluidHandling.NONE);
+        if (hit.getType() == HitResult.Type.BLOCK) {
+            BlockHitResult blockHit = (BlockHitResult) hit;
+            BlockPos pos = blockHit.getBlockPos().up();
+
+            LightningEntity lightning = EntityType.LIGHTNING_BOLT.create(world);
+            if (lightning != null) {
+                lightning.refreshPositionAfterTeleport(
+                        pos.getX() + 0.5,
+                        pos.getY(),
+                        pos.getZ() + 0.5
+                );
+                world.spawnEntity(lightning);
+            }
+
+            applyDurabilityAndCooldown(stack, user, 40);
+        }
+
+        return TypedActionResult.success(stack, false);
     }
 
-    private void castExplosionWave(World world, PlayerEntity user, ItemStack stack) {
-        if (!(world instanceof ServerWorld serverWorld)) return;
-
+    private void castExplosionWave(ServerWorld world, PlayerEntity user, ItemStack stack) {
         Vec3d start = user.getCameraPosVec(1.0F);
         Vec3d dir = user.getRotationVec(1.0F).normalize();
 
@@ -80,18 +77,17 @@ public class StaffOfPikachuXVIIIItem extends Item {
         for (int dist = step; dist <= maxDistance; dist += step) {
             Vec3d point = start.add(dir.multiply(dist));
             BlockPos bpos = new BlockPos(
-                    (int) Math.floor(point.x),
-                    (int) Math.floor(point.y),
-                    (int) Math.floor(point.z)
+                    MathHelper.floor(point.x),
+                    MathHelper.floor(point.y),
+                    MathHelper.floor(point.z)
             );
-
 
             int delayTicks = index * ticksBetweenSteps;
             index++;
 
             TickScheduler.schedule(() -> {
                 // Sound
-                serverWorld.playSound(
+                world.playSound(
                         null,
                         bpos.getX() + 0.5,
                         bpos.getY() + 0.5,
@@ -103,39 +99,39 @@ public class StaffOfPikachuXVIIIItem extends Item {
                 );
 
                 // Particles
-                serverWorld.spawnParticles(ParticleTypes.EXPLOSION_EMITTER, point.x, point.y, point.z, 1, 0, 0, 0, 0);
-                serverWorld.spawnParticles(ParticleTypes.EXPLOSION, point.x, point.y, point.z, 8, 0.5, 0.5, 0.5, 0);
+                world.spawnParticles(ParticleTypes.EXPLOSION_EMITTER, point.x, point.y, point.z, 1, 0, 0, 0, 0);
+                world.spawnParticles(ParticleTypes.EXPLOSION, point.x, point.y, point.z, 8, 0.5, 0.5, 0.5, 0);
 
                 // Damage entities near this point
-                for (Entity e : serverWorld.getOtherEntities(user, user.getBoundingBox().expand(maxDistance))) {
+                for (Entity e : world.getOtherEntities(user, user.getBoundingBox().expand(maxDistance))) {
                     if (e instanceof LivingEntity living && living != user) {
                         if (living.squaredDistanceTo(point) <= (damageRadius * damageRadius)) {
-                            living.damage(serverWorld.getDamageSources().magic(), damageAmount);
+                            living.damage(world.getDamageSources().magic(), damageAmount);
                         }
                     }
                 }
             }, delayTicks);
         }
 
-        // Durability + cooldown once on cast
-        if (!user.isCreative()) {
-            damageStaff(stack, world, user);
-        }
-        user.getItemCooldownManager().set(this, 100);
+        // Apply durability + cooldown once on cast
+        applyDurabilityAndCooldown(stack, user, 100);
     }
 
-    private void damageStaff(ItemStack stack, World world, PlayerEntity user) {
-        stack.setDamage(stack.getDamage() + 1);
-        if (stack.getDamage() >= stack.getMaxDamage()) {
-            stack.decrement(1);
-            world.playSound(
-                    null,
-                    user.getX(), user.getY(), user.getZ(),
-                    SoundEvents.ENTITY_ITEM_BREAK,
-                    SoundCategory.PLAYERS,
-                    1f,
-                    1f
-            );
+    private void applyDurabilityAndCooldown(ItemStack stack, PlayerEntity user, int cooldownTicks) {
+        if (!user.isCreative()) {
+            stack.setDamage(stack.getDamage() + 1);
+            if (stack.getDamage() >= stack.getMaxDamage()) {
+                stack.decrement(1);
+                user.getWorld().playSound(
+                        null,
+                        user.getX(), user.getY(), user.getZ(),
+                        SoundEvents.ENTITY_ITEM_BREAK,
+                        SoundCategory.PLAYERS,
+                        1f,
+                        1f
+                );
+            }
+            user.getItemCooldownManager().set(this, cooldownTicks);
         }
     }
 
