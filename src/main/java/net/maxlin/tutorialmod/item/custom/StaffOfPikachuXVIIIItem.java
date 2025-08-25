@@ -28,6 +28,30 @@ public class StaffOfPikachuXVIIIItem extends Item {
     }
 
     @Override
+    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        World world = attacker.getWorld();
+
+        if (!world.isClient) {
+            LightningEntity lightning = EntityType.LIGHTNING_BOLT.create(world);
+            if (lightning != null) {
+                lightning.refreshPositionAfterTeleport(
+                        target.getX(),
+                        target.getY(),
+                        target.getZ()
+                );
+                world.spawnEntity(lightning);
+            }
+
+            if (attacker instanceof PlayerEntity player && !player.isCreative()) {
+                damageStaff(stack, world, player);
+                player.getItemCooldownManager().set(this, 60); // 3 sec cooldown on melee lightning
+            }
+        }
+
+        return super.postHit(stack, target, attacker);
+    }
+
+    @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack stack = user.getStackInHand(hand);
 
