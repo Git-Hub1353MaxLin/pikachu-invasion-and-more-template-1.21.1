@@ -69,7 +69,7 @@ public class StaffOfPikachuXVIIIItem extends Item {
 
         final int maxDistance = 50;
         final int step = 2;                  // spacing between explosions
-        final int ticksBetweenSteps = 3;     // delay per explosion step
+        final int ticksBetweenSteps = 2;     // much faster delay per explosion step
         final double damageRadius = 2.5;
         final float damageAmount = 14.0f;    // 7 hearts
 
@@ -86,7 +86,7 @@ public class StaffOfPikachuXVIIIItem extends Item {
             index++;
 
             TickScheduler.schedule(() -> {
-                // Sound
+                // Sound with slight random pitch for more dynamic feel
                 world.playSound(
                         null,
                         bpos.getX() + 0.5,
@@ -95,12 +95,12 @@ public class StaffOfPikachuXVIIIItem extends Item {
                         SoundEvents.ENTITY_GENERIC_EXPLODE,
                         SoundCategory.PLAYERS,
                         1.0f,
-                        1.0f
+                        0.9f + world.random.nextFloat() * 0.2f
                 );
 
-                // Particles
-                world.spawnParticles(ParticleTypes.EXPLOSION_EMITTER, point.x, point.y, point.z, 1, 0, 0, 0, 0);
-                world.spawnParticles(ParticleTypes.EXPLOSION, point.x, point.y, point.z, 8, 0.5, 0.5, 0.5, 0);
+                // Particles: a few more for a faster, denser visual
+                world.spawnParticles(ParticleTypes.EXPLOSION_EMITTER, point.x, point.y, point.z, 2, 0, 0, 0, 0);
+                world.spawnParticles(ParticleTypes.EXPLOSION, point.x, point.y, point.z, 12, 0.5, 0.5, 0.5, 0);
 
                 // Damage entities near this point
                 for (Entity e : world.getOtherEntities(user, user.getBoundingBox().expand(maxDistance))) {
@@ -116,6 +116,7 @@ public class StaffOfPikachuXVIIIItem extends Item {
         // Apply durability + cooldown once on cast
         applyDurabilityAndCooldown(stack, user, 100);
     }
+
 
     private void applyDurabilityAndCooldown(ItemStack stack, PlayerEntity user, int cooldownTicks) {
         if (!user.isCreative()) {

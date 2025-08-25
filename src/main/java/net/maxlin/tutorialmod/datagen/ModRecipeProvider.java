@@ -258,8 +258,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.PINK_GARNET), conditionsFromItem(ModItems.PINK_GARNET))
                 .offerTo(exporter);
 
-        offerSmithingTrimRecipe(exporter, ModItems.KAUPEN_SMITHING_TEMPLATE, Identifier.of(PikachuInvasionAndMore.MOD_ID, "kaupen"));
-
         //Crafting mango juice
         ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.MANGO_JUICE)
                 .pattern("   ")
