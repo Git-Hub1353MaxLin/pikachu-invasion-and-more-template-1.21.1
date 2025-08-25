@@ -68,10 +68,10 @@ public class StaffOfPikachuXVIIIItem extends Item {
         Vec3d dir = user.getRotationVec(1.0F).normalize();
 
         final int maxDistance = 50;
-        final int step = 2;
-        final int ticksBetweenSteps = 2;     // faster explosion
+        final int step = 2;                  // spacing between explosions
+        final int ticksBetweenSteps = 3;     // delay per explosion step
         final double damageRadius = 2.5;
-        final float damageAmount = 14.0f;
+        final float damageAmount = 14.0f;    // 7 hearts
 
         int index = 0;
         for (int dist = step; dist <= maxDistance; dist += step) {
@@ -95,14 +95,14 @@ public class StaffOfPikachuXVIIIItem extends Item {
                         SoundEvents.ENTITY_GENERIC_EXPLODE,
                         SoundCategory.PLAYERS,
                         1.0f,
-                        0.9f + world.random.nextFloat() * 0.2f
+                        1.0f
                 );
 
                 // Particles
-                world.spawnParticles(ParticleTypes.EXPLOSION_EMITTER, point.x, point.y, point.z, 2, 0, 0, 0, 0);
-                world.spawnParticles(ParticleTypes.EXPLOSION, point.x, point.y, point.z, 12, 0.5, 0.5, 0.5, 0);
+                world.spawnParticles(ParticleTypes.EXPLOSION_EMITTER, point.x, point.y, point.z, 1, 0, 0, 0, 0);
+                world.spawnParticles(ParticleTypes.EXPLOSION, point.x, point.y, point.z, 8, 0.5, 0.5, 0.5, 0);
 
-                // Damage entities
+                // Damage entities near this point
                 for (Entity e : world.getOtherEntities(user, user.getBoundingBox().expand(maxDistance))) {
                     if (e instanceof LivingEntity living && living != user) {
                         if (living.squaredDistanceTo(point) <= (damageRadius * damageRadius)) {
@@ -113,11 +113,9 @@ public class StaffOfPikachuXVIIIItem extends Item {
             }, delayTicks);
         }
 
-        // Apply durability + cooldown **after last explosion step**
-        int totalDelay = index * ticksBetweenSteps;
-        TickScheduler.schedule(() -> applyDurabilityAndCooldown(stack, user, 100), totalDelay);
+        // Apply durability + cooldown once on cast
+        applyDurabilityAndCooldown(stack, user, 100);
     }
-
 
     private void applyDurabilityAndCooldown(ItemStack stack, PlayerEntity user, int cooldownTicks) {
         if (!user.isCreative()) {
