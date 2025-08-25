@@ -68,10 +68,10 @@ public class StaffOfPikachuXVIIIItem extends Item {
         Vec3d dir = user.getRotationVec(1.0F).normalize();
 
         final int maxDistance = 50;
-        final int step = 2;                  // spacing between explosions
-        final int ticksBetweenSteps = 2;     // much faster delay per explosion step
+        final int step = 2;
+        final int ticksBetweenSteps = 2;     // faster explosion
         final double damageRadius = 2.5;
-        final float damageAmount = 14.0f;    // 7 hearts
+        final float damageAmount = 14.0f;
 
         int index = 0;
         for (int dist = step; dist <= maxDistance; dist += step) {
@@ -86,7 +86,7 @@ public class StaffOfPikachuXVIIIItem extends Item {
             index++;
 
             TickScheduler.schedule(() -> {
-                // Sound with slight random pitch for more dynamic feel
+                // Sound
                 world.playSound(
                         null,
                         bpos.getX() + 0.5,
@@ -98,11 +98,11 @@ public class StaffOfPikachuXVIIIItem extends Item {
                         0.9f + world.random.nextFloat() * 0.2f
                 );
 
-                // Particles: a few more for a faster, denser visual
+                // Particles
                 world.spawnParticles(ParticleTypes.EXPLOSION_EMITTER, point.x, point.y, point.z, 2, 0, 0, 0, 0);
                 world.spawnParticles(ParticleTypes.EXPLOSION, point.x, point.y, point.z, 12, 0.5, 0.5, 0.5, 0);
 
-                // Damage entities near this point
+                // Damage entities
                 for (Entity e : world.getOtherEntities(user, user.getBoundingBox().expand(maxDistance))) {
                     if (e instanceof LivingEntity living && living != user) {
                         if (living.squaredDistanceTo(point) <= (damageRadius * damageRadius)) {
@@ -113,8 +113,9 @@ public class StaffOfPikachuXVIIIItem extends Item {
             }, delayTicks);
         }
 
-        // Apply durability + cooldown once on cast
-        applyDurabilityAndCooldown(stack, user, 100);
+        // Apply durability + cooldown **after last explosion step**
+        int totalDelay = index * ticksBetweenSteps;
+        TickScheduler.schedule(() -> applyDurabilityAndCooldown(stack, user, 100), totalDelay);
     }
 
 

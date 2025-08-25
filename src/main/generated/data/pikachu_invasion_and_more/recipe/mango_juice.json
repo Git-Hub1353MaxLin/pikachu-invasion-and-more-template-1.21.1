@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "pikachu_invasion_and_more:big_glass_bottle"
+    },
+    "M": {
+      "item": "pikachu_invasion_and_more:mango"
+    }
+  },
+  "pattern": [
+    "   ",
+    " B ",
+    " M "
+  ],
+  "result": {
+    "count": 1,
+    "id": "pikachu_invasion_and_more:mango_juice"
+  }
+}
