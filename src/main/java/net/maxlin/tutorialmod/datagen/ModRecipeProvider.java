@@ -259,5 +259,20 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter);
 
         offerSmithingTrimRecipe(exporter, ModItems.KAUPEN_SMITHING_TEMPLATE, Identifier.of(PikachuInvasionAndMore.MOD_ID, "kaupen"));
+
+        //Crafting mango juice
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.MANGO_JUICE)
+                .pattern("")
+                .pattern("B")
+                .pattern("M")
+                .input('B', ModItems.BIG_GLASS_BOTTLE)
+                .criterion(hasItem(ModItems.BIG_GLASS_BOTTLE), conditionsFromItem(ModItems.BIG_GLASS_BOTTLE))
+                .input('M', ModItems.MANGO)
+                .criterion(hasItem(ModItems.MANGO), conditionsFromItem(ModItems.MANGO))
+                .offerTo(exporter);
+
+
+        offerSmithingTrimRecipe(exporter, ModItems.KAUPEN_SMITHING_TEMPLATE, Identifier.of(PikachuInvasionAndMore.MOD_ID, "kaupen"));
+
     }
 }
