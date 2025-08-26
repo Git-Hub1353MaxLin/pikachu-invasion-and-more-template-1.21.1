@@ -34,7 +34,7 @@ public class MangoJuiceItem extends Item{
 
     @Override
     public int getMaxUseTime(ItemStack stack, LivingEntity user) {
-        return 32;
+        return 16;
     }
 
     @Override
