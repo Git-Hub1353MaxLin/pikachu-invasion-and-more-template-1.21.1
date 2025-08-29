@@ -72,6 +72,8 @@ public class ModItemGroups {
 
                         entries.add(ModItems.STAFF_OF_PIKACHU_XVIII);
 
+                        entries.add(ModItems.CAULIFLOWER_SEEDS);
+
                             }).build());
 
     public static void registerItemGroups() {

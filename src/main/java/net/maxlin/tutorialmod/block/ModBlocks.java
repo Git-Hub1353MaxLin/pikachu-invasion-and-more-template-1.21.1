@@ -1,11 +1,14 @@
 package net.maxlin.tutorialmod.block;
 
    import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+   import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
    import net.maxlin.tutorialmod.PikachuInvasionAndMore;
+   import net.maxlin.tutorialmod.block.custom.CauliflowerCropBlock;
    import net.maxlin.tutorialmod.block.custom.MagicBlock;
    import net.maxlin.tutorialmod.block.custom.PinkGarnetLampBlock;
    import net.maxlin.tutorialmod.sound.ModSounds;
    import net.minecraft.block.*;
+   import net.minecraft.block.piston.PistonBehavior;
    import net.minecraft.item.BlockItem;
    import net.minecraft.item.Item;
    import net.minecraft.item.ItemGroups;
@@ -67,6 +70,11 @@ public class ModBlocks {
     public static final Block PINK_GARNET_LAMP = registerBlock("pink_garnet_lamp",
             new PinkGarnetLampBlock(AbstractBlock.Settings.create()
                     .strength(1f).requiresTool().luminance(state -> state.get(PinkGarnetLampBlock.CLICKED) ? 15:0 )));
+
+    public static final Block CAULIFLOWER_CROP = registerBlock("cauliflower_crop",
+            new CauliflowerCropBlock(AbstractBlock.Settings.create().noCollision()
+                    .ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY)));
+
 
 
     private static Block registerBlock(String name, Block block){

@@ -28,6 +28,7 @@ public class TickScheduler {
     }
 
     public static void schedule(ServerWorld serverWorld, int delayTicks, Object o) {
+
     }
 
     private static class ScheduledTask {

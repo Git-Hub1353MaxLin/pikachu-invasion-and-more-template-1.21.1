@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.maxlin.tutorialmod.block.ModBlocks;
@@ -111,7 +112,8 @@ public class PikachuInvasionAndMore implements ModInitializer {
 
 		});
 
-
+		CompostingChanceRegistry.INSTANCE.add(ModItems.CAULIFLOWER, 0.5f);
+		CompostingChanceRegistry.INSTANCE.add(ModItems.CAULIFLOWER_SEEDS, 0.2f);
 
 	}
 }

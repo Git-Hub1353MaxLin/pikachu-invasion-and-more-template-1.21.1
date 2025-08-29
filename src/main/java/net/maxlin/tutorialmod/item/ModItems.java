@@ -2,6 +2,7 @@
 
    import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
    import net.maxlin.tutorialmod.PikachuInvasionAndMore;
+   import net.maxlin.tutorialmod.block.ModBlocks;
    import net.maxlin.tutorialmod.item.custom.*;
    import net.maxlin.tutorialmod.sound.ModSounds;
    import net.minecraft.client.gui.screen.Screen;
@@ -12,6 +13,7 @@
    import net.minecraft.resource.featuretoggle.FeatureFlags;
    import net.minecraft.text.Text;
    import net.minecraft.util.Identifier;
+
 
    import java.util.List;
 
@@ -113,7 +115,8 @@
        public static final Item STAFF_OF_PIKACHU_XVIII = registerItem("staff_of_pikachu_xviii",
                new StaffOfPikachuXVIIIItem( new Item.Settings().maxDamage(250).maxCount(1)));
 
-
+       public static final Item CAULIFLOWER_SEEDS = registerItem("cauliflower_seeds",
+               new AliasedBlockItem(ModBlocks.CAULIFLOWER_CROP, new Item.Settings()));
 
 
 
