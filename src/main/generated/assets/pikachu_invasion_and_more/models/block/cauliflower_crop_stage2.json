@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "pikachu_invasion_and_more:block/cauliflower_crop_stage2"
+  }
+}
