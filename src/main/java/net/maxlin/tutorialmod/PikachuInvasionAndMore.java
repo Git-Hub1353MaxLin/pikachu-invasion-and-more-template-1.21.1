@@ -10,6 +10,8 @@ import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.maxlin.tutorialmod.block.ModBlocks;
 import net.maxlin.tutorialmod.component.ModDataComponentTypes;
 import net.maxlin.tutorialmod.effect.ModEffects;
+import net.maxlin.tutorialmod.enchantment.ModEnchantmentEffects;
+import net.maxlin.tutorialmod.enchantment.ModEnchantments;
 import net.maxlin.tutorialmod.item.ModItemGroups;
 import net.maxlin.tutorialmod.item.ModItems;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
@@ -39,14 +41,25 @@ public class PikachuInvasionAndMore implements ModInitializer {
 	public void onInitialize() {
         //Third commit.
 		ModItemGroups.registerItemGroups();
+
 		ModItems.registerModItems();
+
 		ModBlocks.registerModBlocks();
+
 		ModDataComponentTypes.registerDataComponentTypes();
+
 		ModSounds.registerSounds();
+
 		ModEffects.registerEffects();
+
 		ModPotions.registerPotions();
+
+		ModEnchantmentEffects.registerEnchantmentEffects();
+
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES,3000);
+
 		PlayerBlockBreakEvents.BEFORE.register(new HammerUsageEvent());
+
 		ServerTickEvents.END_SERVER_TICK.register(server -> {
 			TickScheduler.tick();  // Calls your scheduler each server tick
 		});

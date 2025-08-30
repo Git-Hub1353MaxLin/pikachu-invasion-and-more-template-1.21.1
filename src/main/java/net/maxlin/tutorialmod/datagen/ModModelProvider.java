@@ -10,7 +10,7 @@ import net.minecraft.data.client.*;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.util.Identifier;
 
-import static net.maxlin.tutorialmod.block.ModBlocks.CAULIFLOWER_CROP;
+
 
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
@@ -51,7 +51,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.RAW_PINK_GARNET, Models.GENERATED);
         itemModelGenerator.register(ModItems.CHISEL, Models.GENERATED);
         itemModelGenerator.register(ModItems.CAULIFLOWER, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CAULIFLOWER_SEEDS, Models.GENERATED);
         itemModelGenerator.register(ModItems.MANGO, Models.GENERATED);
         itemModelGenerator.register(ModItems.MANGO_JUICE, Models.GENERATED);
         itemModelGenerator.register(ModItems.BIG_GLASS_BOTTLE, Models.GENERATED);
