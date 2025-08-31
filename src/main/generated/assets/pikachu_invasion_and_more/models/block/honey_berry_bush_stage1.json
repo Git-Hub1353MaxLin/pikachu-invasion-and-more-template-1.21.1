@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "pikachu_invasion_and_more:block/honey_berry_bush_stage1"
+  }
+}

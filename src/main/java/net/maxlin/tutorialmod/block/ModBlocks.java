@@ -4,6 +4,7 @@ package net.maxlin.tutorialmod.block;
    import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
    import net.maxlin.tutorialmod.PikachuInvasionAndMore;
    import net.maxlin.tutorialmod.block.custom.CauliflowerCropBlock;
+   import net.maxlin.tutorialmod.block.custom.HoneyBerryBushBlock;
    import net.maxlin.tutorialmod.block.custom.MagicBlock;
    import net.maxlin.tutorialmod.block.custom.PinkGarnetLampBlock;
    import net.maxlin.tutorialmod.sound.ModSounds;
@@ -73,9 +74,14 @@ public class ModBlocks {
 
     public static final Block CAULIFLOWER_CROP = registerBlock("cauliflower_crop",
             new CauliflowerCropBlock(AbstractBlock.Settings.create().noCollision()
-                    .ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY)));
+                    .ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY).mapColor(MapColor.DARK_GREEN)));
 
+    public static final Block HONEY_BERRY_BUSH = registerBlockWithoutBlockItem("honey_berry_bush",
+            new HoneyBerryBushBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH)));
 
+    private static Block registerBlockWithoutBlockItem(String name, Block block) {
+        return Registry.register(Registries.BLOCK, Identifier.of(PikachuInvasionAndMore.MOD_ID, name), block);
+    }
 
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);

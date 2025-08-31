@@ -11,4 +11,7 @@ public class ModFoodComponents {
     public static final FoodComponent MANGO = new FoodComponent.Builder().nutrition(5).saturationModifier(0.4f)
             .statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 250), 0.25f).build();
 
+    public static final FoodComponent HONEY_BERRY = new FoodComponent.Builder().nutrition(2).saturationModifier(0.15f)
+            .snack().build();
+
 }
