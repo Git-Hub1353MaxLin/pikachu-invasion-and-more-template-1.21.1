@@ -3,7 +3,7 @@
   "item.pikachu_invasion_and_more.raw_pink_garnet": "Raw Pink Garnet",
 
   "item.pikachu_invasion_and_more.chisel": "Chisel",
-  youtube
+
   "item.pikachu_invasion_and_more.cauliflower": "Cauliflower",
   "item.pikachu_invasion_and_more.cauliflower_seeds": "Cauliflower Seeds",
   "block.pikachu_invasion_and_more.cauliflower_crop": "Cauliflower Crop",
@@ -55,6 +55,9 @@
 
   "block.pikachu_invasion_and_more.pink_garnet_ore": "Pink Garnet Ore",
   "block.pikachu_invasion_and_more.pink_garnet_deepslate_ore": "Pink Garnet Deepslate Ore",
+
+  "block.pikachu_invasion_and_more.pink_garnet_nether_ore": "Pink Garnet Nether Ore",
+  "block.pikachu_invasion_and_more.pink_garnet_end_ore": "Pink Garnet End Ore",
 
   "block.pikachu_invasion_and_more.magic_block": "Magic Block",
 
