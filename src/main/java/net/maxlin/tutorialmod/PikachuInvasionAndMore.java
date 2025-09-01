@@ -20,6 +20,7 @@ import net.maxlin.tutorialmod.potion.ModPotions;
 import net.maxlin.tutorialmod.sound.ModSounds;
 import net.maxlin.tutorialmod.util.HammerUsageEvent;
 import net.maxlin.tutorialmod.util.TickScheduler;
+import net.maxlin.tutorialmod.world.gen.ModWorldGeneration;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.passive.ChickenEntity;
@@ -55,6 +56,8 @@ public class PikachuInvasionAndMore implements ModInitializer {
 		ModPotions.registerPotions();
 
 		ModEnchantmentEffects.registerEnchantmentEffects();
+
+		ModWorldGeneration.generateWorldGen();
 
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES,3000);
 

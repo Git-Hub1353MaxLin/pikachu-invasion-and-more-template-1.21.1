@@ -6,6 +6,8 @@ import net.maxlin.tutorialmod.datagen.*;
 import net.maxlin.tutorialmod.enchantment.ModEnchantments;
 import net.maxlin.tutorialmod.trim.ModTrimMaterials;
 import net.maxlin.tutorialmod.trim.ModTrimPatterns;
+import net.maxlin.tutorialmod.world.ModConfiguredFeatures;
+import net.maxlin.tutorialmod.world.ModPlacedFeatures;
 import net.minecraft.registry.RegistryBuilder;
 import net.minecraft.registry.RegistryKeys;
 
@@ -27,6 +29,9 @@ public class PikachuInvasionAndMoreDataGenerator implements DataGeneratorEntrypo
 		registryBuilder.addRegistry(RegistryKeys.TRIM_MATERIAL, ModTrimMaterials::boostrap);
 		registryBuilder.addRegistry(RegistryKeys.TRIM_PATTERN, ModTrimPatterns::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.ENCHANTMENT, ModEnchantments::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
+
 
 	}
 }
