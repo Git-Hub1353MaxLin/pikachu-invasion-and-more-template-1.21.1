@@ -1,10 +1,12 @@
-// 1.21.1	2025-09-01T16:46:29.7396737	Pikachu invasion and more/Tags for minecraft:item
+// 1.21.1	2025-09-02T16:17:10.6590648	Pikachu invasion and more/Tags for minecraft:item
 3c92d7e2594beb35c687f851228e9c2bacd6b666 data\minecraft\tags\item\hoes.json
 39499adf060dbeb6009680902a456b5cc2018226 data\minecraft\tags\item\trimmable_armor.json
 9bf959144a39540db2b52ad756744134a2d57003 data\pikachu_invasion_and_more\tags\item\transformable_items.json
+d7e62073bc242d2cf94390af129e32cb73437c46 data\minecraft\tags\item\planks.json
 baff1c936acb5f4614ccb25e14a4de73175263ea data\minecraft\tags\item\trim_materials.json
 5627998dc1dc5365ea729a6d3d89f9ac0155cdb5 data\minecraft\tags\item\trim_templates.json
 5c6217e41a9b3e12fefb507722eb361e2379832b data\minecraft\tags\item\shovels.json
 f97223a9fb973bcdba08f25eb67967aa450a60e8 data\minecraft\tags\item\pickaxes.json
 8c638e4154ce878af6d4b7a8160735e2e6c4ea71 data\minecraft\tags\item\axes.json
+445bcdc43d71da97f2532248081ea2fd7ca3d170 data\minecraft\tags\item\logs_that_burn.json
 119ef214c2e960398b9c9c4fa6c7784237aa3ef4 data\minecraft\tags\item\swords.json

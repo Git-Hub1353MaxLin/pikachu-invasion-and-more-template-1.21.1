@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "pikachu_invasion_and_more:block/stripped_driftwood_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "pikachu_invasion_and_more:block/stripped_driftwood_wood"
+    },
+    "axis=z": {
+      "model": "pikachu_invasion_and_more:block/stripped_driftwood_wood",
+      "x": 90
+    }
+  }
+}

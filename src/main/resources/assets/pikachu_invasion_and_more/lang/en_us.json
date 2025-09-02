@@ -94,5 +94,13 @@
 
   "item.pikachu_invasion_and_more.staff_of_pikachu_xviii": "Staff of Pikachu the Sun God",
 
-  "enchantment.pikachu_invasion_and_more.lightning_striker": "Lightning Striker"
+  "enchantment.pikachu_invasion_and_more.lightning_striker": "Lightning Striker",
+
+  "block.pikachu_invasion_and_more.driftwood_log": "Driftwood Log",
+  "block.pikachu_invasion_and_more.driftwood_wood": "Driftwood Wood",
+  "block.pikachu_invasion_and_more.stripped_driftwood_log": "Stripped Driftwood Log",
+  "block.pikachu_invasion_and_more.stripped_driftwood_wood": "Stripped Driftwood Wood",
+  "block.pikachu_invasion_and_more.driftwood_planks": "Driftwood Planks",
+  "block.pikachu_invasion_and_more.driftwood_leaves": "Driftwood Leaves",
+  "block.pikachu_invasion_and_more.driftwood_sapling": "Driftwood Sapling"
 }

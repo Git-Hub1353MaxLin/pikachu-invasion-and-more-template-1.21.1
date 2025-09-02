@@ -78,6 +78,16 @@ public class ModItemGroups {
 
                         entries.add(ModItems.STAFF_OF_PIKACHU_XVIII);
 
+                        entries.add(ModBlocks.DRIFTWOOD_LOG);
+                        entries.add(ModBlocks.DRIFTWOOD_WOOD);
+                        entries.add(ModBlocks.STRIPPED_DRIFTWOOD_LOG);
+                        entries.add(ModBlocks.STRIPPED_DRIFTWOOD_WOOD);
+
+                        entries.add(ModBlocks.DRIFTWOOD_PLANKS);
+                        entries.add(ModBlocks.DRIFTWOOD_LEAVES);
+
+                        entries.add(ModBlocks.DRIFTWOOD_SAPLING);
+
 
                             }).build());
 

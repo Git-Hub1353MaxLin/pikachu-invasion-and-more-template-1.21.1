@@ -5,6 +5,7 @@
    import net.maxlin.tutorialmod.block.ModBlocks;
    import net.maxlin.tutorialmod.item.custom.*;
    import net.maxlin.tutorialmod.sound.ModSounds;
+   import net.minecraft.block.AbstractBlock;
    import net.minecraft.client.gui.screen.Screen;
    import net.minecraft.item.*;
    import net.minecraft.item.tooltip.TooltipType;
@@ -16,6 +17,7 @@
 
 
    import java.util.List;
+
 
    public class ModItems {
        public static final Item PINK_GARNET = registerItem("pink_garnet", new Item(new Item.Settings()) {

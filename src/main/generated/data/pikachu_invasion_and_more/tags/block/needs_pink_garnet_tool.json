@@ -1,5 +1,7 @@
 {
   "values": [
+    "#minecraft:needs_iron_tool",
+    "pikachu_invasion_and_more:magic_block",
     "#minecraft:needs_iron_tool"
   ]
 }
