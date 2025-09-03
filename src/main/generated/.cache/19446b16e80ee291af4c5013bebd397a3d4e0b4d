@@ -1,4 +1,4 @@
-// 1.21.1	2025-09-02T16:26:01.2070192	Pikachu invasion and more/
+// 1.21.1	2025-09-03T16:13:45.4660686	Pikachu invasion and more/
 be0b36e8fac289ceb37a41c000890a635bc1114a data\pikachu_invasion_and_more\worldgen\configured_feature\end_pink_garnet_ore.json
 3a26f25e2f415c62b7fb47270573e6240c6b8207 data\pikachu_invasion_and_more\worldgen\configured_feature\nether_pink_garnet_ore.json
 070e9146b4f51c85ccc25b53c931925ec162d4e8 data\pikachu_invasion_and_more\worldgen\configured_feature\driftwood.json
@@ -9,3 +9,4 @@ be0b36e8fac289ceb37a41c000890a635bc1114a data\pikachu_invasion_and_more\worldgen
 fe99d387667be1cf5577007825d13364137bb0e2 data\pikachu_invasion_and_more\worldgen\placed_feature\end_pink_garnet_ore_placed.json
 6311dc294f4cdb5fc974e4244aa55f9c6ada7355 data\pikachu_invasion_and_more\trim_pattern\kaupen.json
 c199b004fb40e4b91140965b1b3353e40f906533 data\pikachu_invasion_and_more\worldgen\configured_feature\pink_garnet_ore.json
+6b24acb9fc5828734a7c4a97855fbc959ca3a5fb data\pikachu_invasion_and_more\worldgen\placed_feature\driftwood_placed.json
