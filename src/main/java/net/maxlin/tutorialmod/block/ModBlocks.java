@@ -3,10 +3,7 @@ package net.maxlin.tutorialmod.block;
    import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
    import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
    import net.maxlin.tutorialmod.PikachuInvasionAndMore;
-   import net.maxlin.tutorialmod.block.custom.CauliflowerCropBlock;
-   import net.maxlin.tutorialmod.block.custom.HoneyBerryBushBlock;
-   import net.maxlin.tutorialmod.block.custom.MagicBlock;
-   import net.maxlin.tutorialmod.block.custom.PinkGarnetLampBlock;
+   import net.maxlin.tutorialmod.block.custom.*;
    import net.maxlin.tutorialmod.sound.ModSounds;
    import net.maxlin.tutorialmod.world.tree.ModSaplingGenerators;
    import net.minecraft.block.*;
@@ -103,8 +100,7 @@ public class ModBlocks {
             new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)));
 
     public static final Block DRIFTWOOD_SAPLING = registerBlock("driftwood_sapling",
-            new SaplingBlock(ModSaplingGenerators.DRIFTWOOD, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
-
+            new ModSaplingBlock(ModSaplingGenerators.DRIFTWOOD, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING), Blocks.STONE));
 
 
     private static Block registerBlockWithoutBlockItem(String name, Block block) {
