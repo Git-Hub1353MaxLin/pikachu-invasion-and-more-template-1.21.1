@@ -17,6 +17,7 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.maxlin.tutorialmod.potion.ModPotions;
 import net.maxlin.tutorialmod.sound.ModSounds;
 import net.maxlin.tutorialmod.util.HammerUsageEvent;
+import net.maxlin.tutorialmod.util.ModLootTableModifiers;
 import net.maxlin.tutorialmod.util.TickScheduler;
 import net.maxlin.tutorialmod.world.gen.ModWorldGeneration;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -56,6 +57,8 @@ public class PikachuInvasionAndMore implements ModInitializer {
 		ModEnchantmentEffects.registerEnchantmentEffects();
 
 		ModWorldGeneration.generateWorldGen();
+
+		ModLootTableModifiers.modifyLootTables();
 
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES,3000);
 
