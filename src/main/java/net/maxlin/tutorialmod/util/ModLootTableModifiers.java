@@ -39,20 +39,11 @@ public class ModLootTableModifiers {
                 tableBuilder.pool(poolBuilder.build());
             }
 
-            if(LootTables.SHIPWRECK_TREASURE_CHEST.equals(key)) {
-                LootPool.Builder poolBuilder = LootPool.builder()
-                        .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(0.25f)) // Drops 25% of the time
-                        .with(ItemEntry.builder(ModItems.STAFF_OF_PIKACHU_XVIII))
-                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
-
-                tableBuilder.pool(poolBuilder.build());
-            }
 
             if(LootTables.BASTION_OTHER_CHEST.equals(key)) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(0.6f)) // Drops 25% of the time
+                        .conditionally(RandomChanceLootCondition.builder(1.0f)) // Drops 100% of the time
                         .with(ItemEntry.builder(ModItems.STARLIGHT_ASHES))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 6.0f)).build());
 
