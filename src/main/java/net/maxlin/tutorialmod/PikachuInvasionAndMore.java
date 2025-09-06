@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.registry.*;
 import net.maxlin.tutorialmod.block.ModBlocks;
+import net.maxlin.tutorialmod.block.entity.ModBlockEntities;
 import net.maxlin.tutorialmod.component.ModDataComponentTypes;
 import net.maxlin.tutorialmod.effect.ModEffects;
 import net.maxlin.tutorialmod.enchantment.ModEnchantmentEffects;
@@ -59,6 +60,8 @@ public class PikachuInvasionAndMore implements ModInitializer {
 		ModWorldGeneration.generateWorldGen();
 
 		ModLootTableModifiers.modifyLootTables();
+
+		ModBlockEntities.registerBlockEntities();
 
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES,3000);
 

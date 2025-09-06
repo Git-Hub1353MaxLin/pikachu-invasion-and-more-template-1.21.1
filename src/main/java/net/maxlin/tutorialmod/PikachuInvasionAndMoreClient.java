@@ -3,8 +3,11 @@ package net.maxlin.tutorialmod;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.maxlin.tutorialmod.block.ModBlocks;
+import net.maxlin.tutorialmod.block.entity.ModBlockEntities;
 import net.maxlin.tutorialmod.util.ModModelPredicates;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
+import net.maxlin.tutorialmod.block.entity.renderer.PedestalBlockEntityRenderer;
 
 public class PikachuInvasionAndMoreClient implements ClientModInitializer {
     @Override
@@ -18,5 +21,7 @@ public class PikachuInvasionAndMoreClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DRIFTWOOD_SAPLING, RenderLayer.getCutout());
 
         ModModelPredicates.registerModelPredicates();
+
+        BlockEntityRendererFactories.register(ModBlockEntities.PEDESTAL_BE, PedestalBlockEntityRenderer::new);
     }
 }
