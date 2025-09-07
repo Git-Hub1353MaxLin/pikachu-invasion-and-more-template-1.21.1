@@ -16,11 +16,15 @@ import net.maxlin.tutorialmod.item.ModItems;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 
 import net.maxlin.tutorialmod.potion.ModPotions;
+import net.maxlin.tutorialmod.screen.custom.ModScreenHandlers;
+import net.maxlin.tutorialmod.screen.custom.PedestalScreen;
 import net.maxlin.tutorialmod.sound.ModSounds;
 import net.maxlin.tutorialmod.util.HammerUsageEvent;
 import net.maxlin.tutorialmod.util.ModLootTableModifiers;
 import net.maxlin.tutorialmod.util.TickScheduler;
 import net.maxlin.tutorialmod.world.gen.ModWorldGeneration;
+import net.minecraft.client.gui.screen.ingame.HandledScreen;
+import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.passive.ChickenEntity;
