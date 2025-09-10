@@ -66,6 +66,7 @@ public class PikachuInvasionAndMore implements ModInitializer {
 		ModLootTableModifiers.modifyLootTables();
 
 		ModBlockEntities.registerBlockEntities();
+		ModScreenHandlers.registerScreenHandlers();
 
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES,3000);
 
