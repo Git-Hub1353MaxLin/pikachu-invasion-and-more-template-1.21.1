@@ -88,6 +88,8 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.DRIFTWOOD_SAPLING);
 
+                        entries.add(ModItems.SPECTRE_STAFF);
+
                         entries.add(ModBlocks.PEDESTAL);
 
 

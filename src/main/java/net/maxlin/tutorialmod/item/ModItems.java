@@ -123,6 +123,9 @@
        public static final Item HONEY_BERRIES = registerItem("honey_berries",
                new AliasedBlockItem(ModBlocks.HONEY_BERRY_BUSH, new Item.Settings().food(ModFoodComponents.HONEY_BERRY)));
 
+       public static final Item SPECTRE_STAFF = registerItem("spectre_staff",
+               new Item(new Item.Settings().maxCount(1)));
+
 
 
 
