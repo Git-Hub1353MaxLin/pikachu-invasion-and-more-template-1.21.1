@@ -5,7 +5,6 @@
    import net.maxlin.tutorialmod.block.ModBlocks;
    import net.maxlin.tutorialmod.item.custom.*;
    import net.maxlin.tutorialmod.sound.ModSounds;
-   import net.minecraft.block.AbstractBlock;
    import net.minecraft.client.gui.screen.Screen;
    import net.minecraft.item.*;
    import net.minecraft.item.tooltip.TooltipType;
@@ -123,8 +122,9 @@
        public static final Item HONEY_BERRIES = registerItem("honey_berries",
                new AliasedBlockItem(ModBlocks.HONEY_BERRY_BUSH, new Item.Settings().food(ModFoodComponents.HONEY_BERRY)));
 
+
        public static final Item SPECTRE_STAFF = registerItem("spectre_staff",
-               new Item(new Item.Settings().maxCount(1)));
+               new SpectreStaffItem(new Item.Settings().maxDamage(128).maxCount(1)));
 
 
 
