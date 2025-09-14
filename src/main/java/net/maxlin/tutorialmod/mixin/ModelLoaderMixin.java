@@ -1,6 +1,5 @@
 package net.maxlin.tutorialmod.mixin;
 
-
 import net.maxlin.tutorialmod.PikachuInvasionAndMore;
 import net.minecraft.client.render.model.ModelLoader;
 import net.minecraft.client.util.ModelIdentifier;
