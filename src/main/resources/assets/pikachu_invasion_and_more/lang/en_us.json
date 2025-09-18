@@ -106,6 +106,9 @@
 
   "item.pikachu_invasion_and_more.spectre_staff": "Spectre Staff",
 
+  "entity.pikachu_invasion_and_more.mantis": "Mantis",
+  "item.pikachu_invasion_and_more.mantis_spawn_egg": "Mantis Spawn Egg",
+
   "block.pikachu_invasion_and_more.pedestal": "Pedestal"
 
 }

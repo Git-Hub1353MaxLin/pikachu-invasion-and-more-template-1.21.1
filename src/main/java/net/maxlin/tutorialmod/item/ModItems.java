@@ -3,6 +3,7 @@
    import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
    import net.maxlin.tutorialmod.PikachuInvasionAndMore;
    import net.maxlin.tutorialmod.block.ModBlocks;
+   import net.maxlin.tutorialmod.entity.ModEntities;
    import net.maxlin.tutorialmod.item.custom.*;
    import net.maxlin.tutorialmod.sound.ModSounds;
    import net.minecraft.client.gui.screen.Screen;
@@ -125,6 +126,9 @@
 
        public static final Item SPECTRE_STAFF = registerItem("spectre_staff",
                new SpectreStaffItem(new Item.Settings().maxDamage(128).maxCount(1)));
+
+       public static final Item MANTIS_SPAWN_EGG = registerItem("mantis_spawn_egg",
+               new SpawnEggItem(ModEntities.MANTIS, 0x9dc783, 0xbfaf5f, new Item.Settings()));
 
 
 

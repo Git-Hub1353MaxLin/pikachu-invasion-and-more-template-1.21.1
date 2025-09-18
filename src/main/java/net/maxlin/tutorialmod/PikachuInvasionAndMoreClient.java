@@ -2,8 +2,13 @@ package net.maxlin.tutorialmod;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.maxlin.tutorialmod.block.ModBlocks;
 import net.maxlin.tutorialmod.block.entity.ModBlockEntities;
+import net.maxlin.tutorialmod.entity.ModEntities;
+import net.maxlin.tutorialmod.entity.client.MantisModel;
+import net.maxlin.tutorialmod.entity.client.MantisRenderer;
 import net.maxlin.tutorialmod.screen.custom.ModScreenHandlers;
 import net.maxlin.tutorialmod.screen.custom.PedestalScreen;
 import net.maxlin.tutorialmod.util.ModModelPredicates;
@@ -24,6 +29,9 @@ public class PikachuInvasionAndMoreClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DRIFTWOOD_SAPLING, RenderLayer.getCutout());
 
         ModModelPredicates.registerModelPredicates();
+
+        EntityModelLayerRegistry.registerModelLayer(MantisModel.MANTIS, MantisModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.MANTIS, MantisRenderer::new);
 
         BlockEntityRendererFactories.register(ModBlockEntities.PEDESTAL_BE, PedestalBlockEntityRenderer::new);
         HandledScreens.register(ModScreenHandlers.PEDESTAL_SCREEN_HANDLER, PedestalScreen::new);

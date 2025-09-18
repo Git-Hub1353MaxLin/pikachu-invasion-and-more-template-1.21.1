@@ -88,7 +88,11 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.DRIFTWOOD_SAPLING);
 
+                        entries.add(ModItems.MANTIS_SPAWN_EGG);
+
                         entries.add(ModItems.SPECTRE_STAFF);
+
+
 
                         entries.add(ModBlocks.PEDESTAL);
 

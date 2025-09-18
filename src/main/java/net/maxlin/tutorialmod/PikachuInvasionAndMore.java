@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.registry.*;
 import net.maxlin.tutorialmod.block.ModBlocks;
 import net.maxlin.tutorialmod.block.entity.ModBlockEntities;
@@ -11,6 +12,8 @@ import net.maxlin.tutorialmod.component.ModDataComponentTypes;
 import net.maxlin.tutorialmod.effect.ModEffects;
 import net.maxlin.tutorialmod.enchantment.ModEnchantmentEffects;
 import net.maxlin.tutorialmod.enchantment.ModEnchantments;
+import net.maxlin.tutorialmod.entity.ModEntities;
+import net.maxlin.tutorialmod.entity.custom.MantisEntity;
 import net.maxlin.tutorialmod.item.ModItemGroups;
 import net.maxlin.tutorialmod.item.ModItems;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
@@ -62,6 +65,8 @@ public class PikachuInvasionAndMore implements ModInitializer {
 		ModEnchantmentEffects.registerEnchantmentEffects();
 
 		ModWorldGeneration.generateWorldGen();
+
+		ModEntities.registerModEntities();
 
 		ModLootTableModifiers.modifyLootTables();
 
@@ -149,6 +154,8 @@ public class PikachuInvasionAndMore implements ModInitializer {
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.STRIPPED_DRIFTWOOD_WOOD, 5, 5);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.DRIFTWOOD_PLANKS, 5, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.DRIFTWOOD_LEAVES, 30, 60);
+
+		FabricDefaultAttributeRegistry.register(ModEntities.MANTIS, MantisEntity.createAttributes());
 
 	}
 }
