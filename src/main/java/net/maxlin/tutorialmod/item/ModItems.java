@@ -123,12 +123,16 @@
        public static final Item HONEY_BERRIES = registerItem("honey_berries",
                new AliasedBlockItem(ModBlocks.HONEY_BERRY_BUSH, new Item.Settings().food(ModFoodComponents.HONEY_BERRY)));
 
+       public static final Item TOMAHAWK = registerItem("tomahawk",
+               new TomahawkItem(new Item.Settings().maxCount(16)));
+
 
        public static final Item SPECTRE_STAFF = registerItem("spectre_staff",
                new SpectreStaffItem(new Item.Settings().maxDamage(128).maxCount(1)));
 
        public static final Item MANTIS_SPAWN_EGG = registerItem("mantis_spawn_egg",
                new SpawnEggItem(ModEntities.MANTIS, 0x9dc783, 0xbfaf5f, new Item.Settings()));
+
 
 
 

@@ -5,6 +5,7 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.*;
 import net.maxlin.tutorialmod.block.ModBlocks;
 import net.maxlin.tutorialmod.block.entity.ModBlockEntities;
@@ -25,6 +26,7 @@ import net.maxlin.tutorialmod.sound.ModSounds;
 import net.maxlin.tutorialmod.util.HammerUsageEvent;
 import net.maxlin.tutorialmod.util.ModLootTableModifiers;
 import net.maxlin.tutorialmod.util.TickScheduler;
+import net.maxlin.tutorialmod.villager.ModVillagers;
 import net.maxlin.tutorialmod.world.gen.ModWorldGeneration;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
@@ -34,10 +36,14 @@ import net.minecraft.entity.passive.ChickenEntity;
 import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.entity.passive.SheepEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Potions;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
+import net.minecraft.village.TradeOffer;
+import net.minecraft.village.TradedItem;
+import net.minecraft.village.VillagerProfession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -67,6 +73,8 @@ public class PikachuInvasionAndMore implements ModInitializer {
 		ModWorldGeneration.generateWorldGen();
 
 		ModEntities.registerModEntities();
+
+		ModVillagers.registerVillagers();
 
 		ModLootTableModifiers.modifyLootTables();
 
@@ -156,6 +164,70 @@ public class PikachuInvasionAndMore implements ModInitializer {
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.DRIFTWOOD_LEAVES, 30, 60);
 
 		FabricDefaultAttributeRegistry.register(ModEntities.MANTIS, MantisEntity.createAttributes());
+
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.CHAIR, 5, 5);
+
+		//Farmer trades
+		TradeOfferHelper.registerVillagerOffers(VillagerProfession.FARMER, 1, factories -> {
+				factories.add((entity, random) -> new TradeOffer(
+						new TradedItem(Items.EMERALD, 3),
+				new ItemStack(ModItems.CAULIFLOWER, 8), 7, 2, 0.04f));
+
+			factories.add((entity, random) -> new TradeOffer(
+					new TradedItem(Items.EMERALD, 1),
+					new ItemStack(ModItems.HONEY_BERRIES, 2), 13, 2, 0.04f));
+	});
+
+		TradeOfferHelper.registerVillagerOffers(VillagerProfession.FARMER, 2, factories -> {
+			factories.add((entity, random) -> new TradeOffer(
+					new TradedItem(Items.DIAMOND, 6),
+					new ItemStack(ModItems.CAULIFLOWER_SEEDS, 3), 7, 4, 0.04f));
+
+
+		factories.add((entity, random) -> new TradeOffer(
+				new TradedItem(Items.DIAMOND, 6),
+				new ItemStack(ModBlocks.DRIFTWOOD_SAPLING, 1), 2, 7, 0.04f));
+	});
+
+
+        //Kaupenger trades
+		TradeOfferHelper.registerVillagerOffers(ModVillagers.KAUPENGER, 1, factories -> {
+			factories.add((entity, random) -> new TradeOffer(
+					new TradedItem(Items.EMERALD, 5),
+					new ItemStack(ModItems.PINK_GARNET, 8), 7, 2, 0.04f));
+
+			factories.add((entity, random) -> new TradeOffer(
+					new TradedItem(Items.EMERALD, 3),
+					new ItemStack(ModItems.BIG_GLASS_BOTTLE, 1), 4, 2, 0.04f));
+
+		});
+
+		TradeOfferHelper.registerVillagerOffers(ModVillagers.KAUPENGER, 2, factories -> {
+			factories.add((entity, random) -> new TradeOffer(
+					new TradedItem(ModItems.PINK_GARNET, 5),
+					new ItemStack(ModItems.CHISEL, 8), 7, 4, 0.04f));
+
+			factories.add((entity, random) -> new TradeOffer(
+					new TradedItem(Items.NETHERITE_INGOT, 1),
+					new ItemStack(ModBlocks.MAGIC_BLOCK, 1), 1, 14, 0.04f));
+
+		});
+
+		TradeOfferHelper.registerVillagerOffers(ModVillagers.KAUPENGER, 3, factories -> {
+			factories.add((entity, random) -> new TradeOffer(
+					new TradedItem(ModItems.PINK_GARNET, 5),
+					new ItemStack(ModBlocks.PINK_GARNET_LAMP, 8), 3, 4, 0.04f));
+
+			factories.add((entity, random) -> new TradeOffer(
+					new TradedItem(Items.NETHERITE_INGOT, 2),
+					new ItemStack(ModItems.SPECTRE_STAFF, 1), 1, 8, 0.04f));
+
+			factories.add((entity, random) -> new TradeOffer(
+					new TradedItem(Items.NETHERITE_INGOT, 1),
+					new ItemStack(ModBlocks.MAGIC_BLOCK, 1), 1, 14, 0.04f));
+
+		});
+
 
 	}
 }

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "pikachu_invasion_and_more:block/chair",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "pikachu_invasion_and_more:block/chair"
+    },
+    "facing=south": {
+      "model": "pikachu_invasion_and_more:block/chair",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "pikachu_invasion_and_more:block/chair",
+      "y": 270
+    }
+  }
+}

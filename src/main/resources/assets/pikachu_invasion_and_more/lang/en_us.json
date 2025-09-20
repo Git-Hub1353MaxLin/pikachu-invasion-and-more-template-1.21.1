@@ -109,6 +109,15 @@
   "entity.pikachu_invasion_and_more.mantis": "Mantis",
   "item.pikachu_invasion_and_more.mantis_spawn_egg": "Mantis Spawn Egg",
 
+  "entity.pikachu_invasion_and_more.tomahawk": "Tomahawk",
+  "item.pikachu_invasion_and_more.tomahawk": "Tomahawk",
+
+  "block.pikachu_invasion_and_more.chair": "Chair",
+
+  "entity.minecraft.villager.pikachu_invasion_and_more.kaupenger": "Kaupenger",
+
+
+
   "block.pikachu_invasion_and_more.pedestal": "Pedestal"
 
 }

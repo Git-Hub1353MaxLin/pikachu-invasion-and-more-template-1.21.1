@@ -7,12 +7,11 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.maxlin.tutorialmod.block.ModBlocks;
 import net.maxlin.tutorialmod.block.entity.ModBlockEntities;
 import net.maxlin.tutorialmod.entity.ModEntities;
-import net.maxlin.tutorialmod.entity.client.MantisModel;
-import net.maxlin.tutorialmod.entity.client.MantisRenderer;
 import net.maxlin.tutorialmod.screen.custom.ModScreenHandlers;
 import net.maxlin.tutorialmod.screen.custom.PedestalScreen;
 import net.maxlin.tutorialmod.util.ModModelPredicates;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
+import net.maxlin.tutorialmod.entity.client.*;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.maxlin.tutorialmod.block.entity.renderer.PedestalBlockEntityRenderer;
@@ -32,6 +31,11 @@ public class PikachuInvasionAndMoreClient implements ClientModInitializer {
 
         EntityModelLayerRegistry.registerModelLayer(MantisModel.MANTIS, MantisModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.MANTIS, MantisRenderer::new);
+
+        EntityModelLayerRegistry.registerModelLayer(TomahawkProjectileModel.TOMAHAWK, TomahawkProjectileModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.TOMAHAWK, TomahawkProjectileRenderer::new);
+
+        EntityRendererRegistry.register(ModEntities.CHAIR, ChairRenderer::new);
 
         BlockEntityRendererFactories.register(ModBlockEntities.PEDESTAL_BE, PedestalBlockEntityRenderer::new);
         HandledScreens.register(ModScreenHandlers.PEDESTAL_SCREEN_HANDLER, PedestalScreen::new);
