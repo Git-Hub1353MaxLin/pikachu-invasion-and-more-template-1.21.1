@@ -20,6 +20,7 @@ import net.maxlin.tutorialmod.item.ModItems;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 
 import net.maxlin.tutorialmod.potion.ModPotions;
+import net.maxlin.tutorialmod.recipe.ModRecipes;
 import net.maxlin.tutorialmod.screen.ModScreenHandlers;
 import net.maxlin.tutorialmod.screen.custom.PedestalScreen;
 import net.maxlin.tutorialmod.sound.ModSounds;
@@ -81,6 +82,8 @@ public class PikachuInvasionAndMore implements ModInitializer {
 
 		ModBlockEntities.registerBlockEntities();
 		ModScreenHandlers.registerScreenHandlers();
+
+		ModRecipes.registerRecipes();
 
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES,600);
 

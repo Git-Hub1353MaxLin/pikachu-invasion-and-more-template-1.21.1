@@ -1,0 +1,10 @@
+{
+  "type": "pikachu_invasion_and_more:growth_chamber",
+  "ingredient": {
+    "item": "minecraft:beetroot_seeds"
+  },
+  "result": {
+    "count": 8,
+    "id": "minecraft:beetroot"
+  }
+}
