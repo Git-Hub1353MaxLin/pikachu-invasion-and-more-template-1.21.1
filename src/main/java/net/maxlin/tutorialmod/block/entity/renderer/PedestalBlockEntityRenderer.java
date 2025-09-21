@@ -1,6 +1,6 @@
 package net.maxlin.tutorialmod.block.entity.renderer;
 
-import net.maxlin.tutorialmod.block.entity.PedestalBlockEntity;
+import net.maxlin.tutorialmod.block.entity.custom.PedestalBlockEntity;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.LightmapTextureManager;
 import net.minecraft.client.render.OverlayTexture;

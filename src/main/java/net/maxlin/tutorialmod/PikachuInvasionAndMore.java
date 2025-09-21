@@ -20,7 +20,7 @@ import net.maxlin.tutorialmod.item.ModItems;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 
 import net.maxlin.tutorialmod.potion.ModPotions;
-import net.maxlin.tutorialmod.screen.custom.ModScreenHandlers;
+import net.maxlin.tutorialmod.screen.ModScreenHandlers;
 import net.maxlin.tutorialmod.screen.custom.PedestalScreen;
 import net.maxlin.tutorialmod.sound.ModSounds;
 import net.maxlin.tutorialmod.util.HammerUsageEvent;
@@ -82,7 +82,7 @@ public class PikachuInvasionAndMore implements ModInitializer {
 		ModBlockEntities.registerBlockEntities();
 		ModScreenHandlers.registerScreenHandlers();
 
-		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES,3000);
+		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES,600);
 
 		PlayerBlockBreakEvents.BEFORE.register(new HammerUsageEvent());
 

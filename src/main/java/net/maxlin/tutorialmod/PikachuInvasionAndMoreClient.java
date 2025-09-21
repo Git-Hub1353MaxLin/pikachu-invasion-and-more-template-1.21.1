@@ -10,7 +10,8 @@ import net.maxlin.tutorialmod.block.entity.ModBlockEntities;
 import net.maxlin.tutorialmod.entity.ModEntities;
 import net.maxlin.tutorialmod.particle.ModParticles;
 import net.maxlin.tutorialmod.particle.PinkGarnetParticle;
-import net.maxlin.tutorialmod.screen.custom.ModScreenHandlers;
+import net.maxlin.tutorialmod.screen.ModScreenHandlers;
+import net.maxlin.tutorialmod.screen.custom.GrowthChamberScreen;
 import net.maxlin.tutorialmod.screen.custom.PedestalScreen;
 import net.maxlin.tutorialmod.util.ModModelPredicates;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
@@ -44,5 +45,7 @@ public class PikachuInvasionAndMoreClient implements ClientModInitializer {
 
         BlockEntityRendererFactories.register(ModBlockEntities.PEDESTAL_BE, PedestalBlockEntityRenderer::new);
         HandledScreens.register(ModScreenHandlers.PEDESTAL_SCREEN_HANDLER, PedestalScreen::new);
+
+        HandledScreens.register(ModScreenHandlers.GROWTH_CHAMBER_SCREEN_HANDLER, GrowthChamberScreen::new);
     }
 }

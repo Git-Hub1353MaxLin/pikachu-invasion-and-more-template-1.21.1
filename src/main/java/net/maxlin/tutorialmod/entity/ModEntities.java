@@ -1,14 +1,17 @@
 package net.maxlin.tutorialmod.entity;
 
+import net.maxlin.tutorialmod.block.entity.custom.GrowthChamberBlockEntity;
 import net.maxlin.tutorialmod.entity.custom.MantisEntity;
 import net.maxlin.tutorialmod.PikachuInvasionAndMore;
 import net.maxlin.tutorialmod.entity.custom.TomahawkProjectileEntity;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.maxlin.tutorialmod.entity.custom.ChairEntity;
 import net.minecraft.util.Identifier;
+import net.maxlin.tutorialmod.block.ModBlocks;
 
 public class ModEntities {
     public static final EntityType<MantisEntity> MANTIS = Registry.register(Registries.ENTITY_TYPE,
@@ -26,6 +29,10 @@ public class ModEntities {
             Identifier.of(PikachuInvasionAndMore.MOD_ID, "chair_entity"),
             EntityType.Builder.create(ChairEntity::new, SpawnGroup.MISC)
                     .dimensions(0.5f, 0.5f).build());
+
+
+
+
 
 
     public static void registerModEntities() {

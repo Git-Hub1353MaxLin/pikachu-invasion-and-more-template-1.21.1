@@ -1,7 +1,7 @@
 package net.maxlin.tutorialmod.block.custom;
 
 import com.mojang.serialization.MapCodec;
-import net.maxlin.tutorialmod.block.entity.PedestalBlockEntity;
+import net.maxlin.tutorialmod.block.entity.custom.PedestalBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;

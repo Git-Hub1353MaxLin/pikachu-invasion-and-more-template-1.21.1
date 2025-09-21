@@ -1,5 +1,6 @@
 package net.maxlin.tutorialmod.screen.custom;
 
+import net.maxlin.tutorialmod.screen.ModScreenHandlers;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;

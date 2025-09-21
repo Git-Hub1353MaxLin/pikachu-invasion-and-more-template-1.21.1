@@ -96,9 +96,9 @@ public class ModItemGroups {
 
                         entries.add(ModItems.SPECTRE_STAFF);
 
-
-
                         entries.add(ModBlocks.PEDESTAL);
+
+                        entries.add(ModBlocks.GROWTH_CHAMBER);
 
 
                             }).build());

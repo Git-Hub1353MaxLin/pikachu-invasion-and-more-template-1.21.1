@@ -1,6 +1,7 @@
-package net.maxlin.tutorialmod.block.entity;
+package net.maxlin.tutorialmod.block.entity.custom;
 
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
+import net.maxlin.tutorialmod.block.entity.ImplementedInventory;
 import net.maxlin.tutorialmod.screen.custom.PedestalScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
