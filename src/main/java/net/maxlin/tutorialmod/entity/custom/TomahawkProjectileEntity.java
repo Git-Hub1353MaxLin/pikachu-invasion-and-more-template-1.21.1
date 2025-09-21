@@ -76,6 +76,7 @@ public class TomahawkProjectileEntity extends PersistentProjectileEntity {
         }
         if(result.getSide() == Direction.UP) {
             groundedOffset = new Vector2f(285f,180f);
+
         }
     }
 }

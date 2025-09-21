@@ -2,6 +2,7 @@ package net.maxlin.tutorialmod.item.custom;
 
 
 import net.maxlin.tutorialmod.component.ModDataComponentTypes;
+import net.maxlin.tutorialmod.particle.ModParticles;
 import net.maxlin.tutorialmod.sound.ModSounds;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -11,6 +12,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.particle.BlockStateParticleEffect;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
@@ -53,6 +56,19 @@ public class ChiselItem extends Item {
                         item -> context.getPlayer().sendEquipmentBreakStatus(item, EquipmentSlot.MAINHAND));
 
                 world.playSound(null, context.getBlockPos(), ModSounds.CHISEL_USE, SoundCategory.BLOCKS);
+
+                ((ServerWorld) world).spawnParticles(new BlockStateParticleEffect(ParticleTypes.BLOCK, clickedBlock.getDefaultState()),
+                        context.getBlockPos().getX() + 0.5, context.getBlockPos().getY() + 1.0,
+                        context.getBlockPos().getZ() + 0.5, 5, 0, 0, 0, 1);
+
+                ((ServerWorld) world).spawnParticles(ParticleTypes.FLAME,
+                        context.getBlockPos().getX() + 0.5, context.getBlockPos().getY() + 1.5,
+                        context.getBlockPos().getZ() + 0.5, 10, 0, 0, 0, 3);
+
+                ((ServerWorld) world).spawnParticles(ModParticles.PINK_GARNET_PARTICLE,
+                        context.getBlockPos().getX() + 0.5, context.getBlockPos().getY() + 1.0,
+                        context.getBlockPos().getZ() + 0.5, 8, 0, 0, 0, 2);
+
 
                 context.getStack().set(ModDataComponentTypes.COORDINATES, context.getBlockPos());
             }

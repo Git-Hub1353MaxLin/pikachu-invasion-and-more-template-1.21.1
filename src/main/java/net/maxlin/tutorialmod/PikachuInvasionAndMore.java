@@ -28,8 +28,7 @@ import net.maxlin.tutorialmod.util.ModLootTableModifiers;
 import net.maxlin.tutorialmod.util.TickScheduler;
 import net.maxlin.tutorialmod.villager.ModVillagers;
 import net.maxlin.tutorialmod.world.gen.ModWorldGeneration;
-import net.minecraft.client.gui.screen.ingame.HandledScreen;
-import net.minecraft.client.gui.screen.ingame.HandledScreens;
+import net.maxlin.tutorialmod.particle.ModParticles;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.passive.ChickenEntity;
@@ -75,6 +74,8 @@ public class PikachuInvasionAndMore implements ModInitializer {
 		ModEntities.registerModEntities();
 
 		ModVillagers.registerVillagers();
+
+		ModParticles.registerParticles();
 
 		ModLootTableModifiers.modifyLootTables();
 
