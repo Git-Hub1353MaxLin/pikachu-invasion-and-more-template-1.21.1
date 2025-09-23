@@ -8,10 +8,15 @@
   "item.pikachu_invasion_and_more.cauliflower_seeds": "Cauliflower Seeds",
   "block.pikachu_invasion_and_more.cauliflower_crop": "Cauliflower Crop",
 
+  "item.pikachu_invasion_and_more.kohlrabi": "Kohlrabi",
+  "item.pikachu_invasion_and_more.kohlrabi_seeds": "Kohlrabi Seeds",
+  "block.pikachu_invasion_and_more.kohlrabi_crop": "Kohlrabi Crop",
+
   "item.pikachu_invasion_and_more.honey_berries": "Honey Berries",
   "block.pikachu_invasion_and_more.honey_berry_bush": "Honey Berry Bush",
 
   "item.pikachu_invasion_and_more.starlight_ashes": "Starlight Ashes",
+  "item.pikachu_invasion_and_more.aurora_ashes": "Aurora Ashes",
 
   "item.pikachu_invasion_and_more.bar_brawl_music_disc": "Bar Brawl Music Disc",
   "item.pikachu_invasion_and_more.bar_brawl_music_disc.desc": "Bryan Tech - Bar Brawl (CC0)",
@@ -70,6 +75,8 @@
   "tooltip.pikachu_invasion_and_more.starlight_ashes.tooltip": "Mystical powder from the stars",
   "tooltip.pikachu_invasion_and_more.pink_garnet.shift_down": "This item can harness a star's energy",
   "tooltip.pikachu_invasion_and_more.pink_garnet": "Press Shift for more information",
+  "tooltip.pikachu_invasion_and_more.kohlrabi.tooltip": "This is splendid!",
+  "tooltip.pikachu_invasion_and_more.aurora_ashes.tooltip": "Blessed dust from the aurora",
 
   "trim_material.pikachu_invasion_and_more.pink_garnet": "Pink Garnet Material",
   "trim_pattern.pikachu_invasion_and_more.kaupen": "Kaupen Armor Pattern",

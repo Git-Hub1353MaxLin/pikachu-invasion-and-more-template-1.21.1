@@ -43,6 +43,14 @@
            }
        });
 
+       public static final Item KOHLRABI = registerItem("kohlrabi", new Item(new Item.Settings().food(ModFoodComponents.KOHLRABI)) {
+           @Override
+           public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+               tooltip.add(Text.translatable("tooltip.pikachu_invasion_and_more.kohlrabi.tooltip"));
+               super.appendTooltip(stack, context, tooltip, type);
+           }
+       });
+
        public static final Item MANGO = registerItem("mango", new Item(new Item.Settings().food(ModFoodComponents.MANGO)));
 
        public static final Item MANGO_JUICE = registerItem("mango_juice", new MangoJuiceItem(new Item.Settings().maxCount(1)));
@@ -57,6 +65,14 @@
            @Override
            public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
                tooltip.add(Text.translatable("tooltip.pikachu_invasion_and_more.starlight_ashes.tooltip"));
+               super.appendTooltip(stack, context, tooltip, type);
+           }
+       });
+
+       public static final Item AURORA_ASHES = registerItem("aurora_ashes", new Item(new Item.Settings()) {
+           @Override
+           public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+               tooltip.add(Text.translatable("tooltip.pikachu_invasion_and_more.aurora_ashes.tooltip"));
                super.appendTooltip(stack, context, tooltip, type);
            }
        });
@@ -119,6 +135,9 @@
 
        public static final Item CAULIFLOWER_SEEDS = registerItem("cauliflower_seeds",
                new AliasedBlockItem(ModBlocks.CAULIFLOWER_CROP, new Item.Settings()));
+
+       public static final Item KOHLRABI_SEEDS = registerItem("kohlrabi_seeds",
+               new AliasedBlockItem(ModBlocks.KOHLRABI_CROP, new Item.Settings()));
 
        public static final Item HONEY_BERRIES = registerItem("honey_berries",
                new AliasedBlockItem(ModBlocks.HONEY_BERRY_BUSH, new Item.Settings().food(ModFoodComponents.HONEY_BERRY)));

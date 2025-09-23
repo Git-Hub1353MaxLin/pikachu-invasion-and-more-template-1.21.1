@@ -57,6 +57,12 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                 .properties(StatePredicate.Builder.create().exactMatch(CauliflowerCropBlock.AGE, CauliflowerCropBlock.MAX_AGE));
         this.addDrop(ModBlocks.CAULIFLOWER_CROP, this.cropDrops(ModBlocks.CAULIFLOWER_CROP, ModItems.CAULIFLOWER, ModItems.CAULIFLOWER_SEEDS, builder2));
 
+        BlockStatePropertyLootCondition.builder(ModBlocks.KOHLRABI_CROP)
+                        .properties(StatePredicate.Builder.create().exactMatch(CauliflowerCropBlock.AGE, CauliflowerCropBlock.MAX_AGE));
+        this.addDrop(ModBlocks.KOHLRABI_CROP, this.cropDrops(ModBlocks.KOHLRABI_CROP, ModItems.KOHLRABI, ModItems.KOHLRABI_SEEDS, builder2));
+
+
+
       this.addDrop(ModBlocks.HONEY_BERRY_BUSH,
                    block -> this.applyExplosionDecay(
             block,LootTable.builder().pool(LootPool.builder().conditionally(

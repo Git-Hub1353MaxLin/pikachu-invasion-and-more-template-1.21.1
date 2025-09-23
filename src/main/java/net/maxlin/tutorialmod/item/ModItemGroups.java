@@ -46,6 +46,9 @@ public class ModItemGroups {
                         entries.add(ModItems.CAULIFLOWER);
                         entries.add(ModItems.CAULIFLOWER_SEEDS);
 
+                        entries.add(ModItems.KOHLRABI);
+                        entries.add(ModItems.CAULIFLOWER_SEEDS);
+
                         entries.add(ModItems.MANGO);
                         entries.add(ModItems.MANGO_JUICE);
 
@@ -55,6 +58,7 @@ public class ModItemGroups {
                         entries.add(ModItems.BIG_WATER_BOTTLE);
 
                         entries.add(ModItems.STARLIGHT_ASHES);
+                        entries.add(ModItems.AURORA_ASHES);
 
                         entries.add(ModItems.PINK_GARNET_SWORD);
                         entries.add(ModItems.PINK_GARNET_PICKAXE);

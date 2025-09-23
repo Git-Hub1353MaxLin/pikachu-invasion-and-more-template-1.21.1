@@ -87,6 +87,8 @@ public class PikachuInvasionAndMore implements ModInitializer {
 
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES,600);
 
+		FuelRegistry.INSTANCE.add(ModItems.AURORA_ASHES, 600);
+
 		PlayerBlockBreakEvents.BEFORE.register(new HammerUsageEvent());
 
 		ServerTickEvents.END_SERVER_TICK.register(server -> {
@@ -156,6 +158,9 @@ public class PikachuInvasionAndMore implements ModInitializer {
 
 		CompostingChanceRegistry.INSTANCE.add(ModItems.CAULIFLOWER, 0.5f);
 		CompostingChanceRegistry.INSTANCE.add(ModItems.CAULIFLOWER_SEEDS, 0.2f);
+
+		CompostingChanceRegistry.INSTANCE.add(ModItems.KOHLRABI, 0.5f);
+		CompostingChanceRegistry.INSTANCE.add(ModItems.KOHLRABI_SEEDS, 0.25f);
 
 		StrippableBlockRegistry.register(ModBlocks.DRIFTWOOD_LOG, ModBlocks.STRIPPED_DRIFTWOOD_LOG);
 		StrippableBlockRegistry.register(ModBlocks.DRIFTWOOD_WOOD, ModBlocks.STRIPPED_DRIFTWOOD_WOOD);
@@ -229,6 +234,15 @@ public class PikachuInvasionAndMore implements ModInitializer {
 			factories.add((entity, random) -> new TradeOffer(
 					new TradedItem(Items.NETHERITE_INGOT, 1),
 					new ItemStack(ModBlocks.MAGIC_BLOCK, 1), 1, 14, 0.04f));
+
+		});
+
+
+		TradeOfferHelper.registerWanderingTraderOffers( 1, factories -> {
+			factories.add((entity, random) -> new TradeOffer(
+					new TradedItem(ModItems.PINK_GARNET, 16),
+					new ItemStack(ModItems.TOMAHAWK, 4), 4, 12, 0.04f));
+
 
 		});
 

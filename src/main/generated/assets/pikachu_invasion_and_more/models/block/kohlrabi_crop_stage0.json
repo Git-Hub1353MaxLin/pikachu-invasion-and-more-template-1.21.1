@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "pikachu_invasion_and_more:block/kohlrabi_crop_stage0"
+  }
+}
