@@ -51,6 +51,14 @@
            }
        });
 
+       public static final Item RADISH = registerItem("radish", new Item(new Item.Settings().food(ModFoodComponents.RADISH)) {
+           @Override
+           public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+               tooltip.add(Text.translatable("tooltip.pikachu_invasion_and_more.radish.tooltip"));
+               super.appendTooltip(stack, context, tooltip, type);
+           }
+       });
+
        public static final Item MANGO = registerItem("mango", new Item(new Item.Settings().food(ModFoodComponents.MANGO)));
 
        public static final Item MANGO_JUICE = registerItem("mango_juice", new MangoJuiceItem(new Item.Settings().maxCount(1)));
@@ -73,6 +81,14 @@
            @Override
            public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
                tooltip.add(Text.translatable("tooltip.pikachu_invasion_and_more.aurora_ashes.tooltip"));
+               super.appendTooltip(stack, context, tooltip, type);
+           }
+       });
+
+       public static final Item FROSTFIRE_ICE = registerItem("frostfire_ice", new Item(new Item.Settings()) {
+           @Override
+           public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+               tooltip.add(Text.translatable("tooltip.pikachu_invasion_and_more.frostfire_ice.tooltip"));
                super.appendTooltip(stack, context, tooltip, type);
            }
        });

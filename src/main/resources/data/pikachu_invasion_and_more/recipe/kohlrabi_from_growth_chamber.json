@@ -1,0 +1,10 @@
+{
+  "type": "pikachu_invasion_and_more:growth_chamber",
+  "ingredient": {
+    "item": "pikachu_invasion_and_more:kohlrabi_seeds"
+  },
+  "result": {
+    "count": 5,
+    "id": "pikachu_invasion_and_more:kohlrabi"
+  }
+}

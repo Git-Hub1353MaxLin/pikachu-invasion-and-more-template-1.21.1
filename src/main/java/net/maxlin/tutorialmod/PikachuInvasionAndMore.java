@@ -89,6 +89,8 @@ public class PikachuInvasionAndMore implements ModInitializer {
 
 		FuelRegistry.INSTANCE.add(ModItems.AURORA_ASHES, 600);
 
+		FuelRegistry.INSTANCE.add(ModItems.FROSTFIRE_ICE, 1350);
+
 		PlayerBlockBreakEvents.BEFORE.register(new HammerUsageEvent());
 
 		ServerTickEvents.END_SERVER_TICK.register(server -> {

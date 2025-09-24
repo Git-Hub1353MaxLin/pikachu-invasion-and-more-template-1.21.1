@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.maxlin.tutorialmod.block.ModBlocks;
 import net.maxlin.tutorialmod.block.custom.CauliflowerCropBlock;
 import net.maxlin.tutorialmod.block.custom.HoneyBerryBushBlock;
+import net.maxlin.tutorialmod.block.custom.KohlrabiCropBlock;
 import net.maxlin.tutorialmod.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
@@ -53,12 +54,12 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.PINK_GARNET_LAMP);
 
 
-        BlockStatePropertyLootCondition.Builder builder2 = BlockStatePropertyLootCondition.builder(ModBlocks.CAULIFLOWER_CROP)
+        BlockStatePropertyLootCondition.Builder builder = BlockStatePropertyLootCondition.builder(ModBlocks.CAULIFLOWER_CROP)
                 .properties(StatePredicate.Builder.create().exactMatch(CauliflowerCropBlock.AGE, CauliflowerCropBlock.MAX_AGE));
-        this.addDrop(ModBlocks.CAULIFLOWER_CROP, this.cropDrops(ModBlocks.CAULIFLOWER_CROP, ModItems.CAULIFLOWER, ModItems.CAULIFLOWER_SEEDS, builder2));
+        this.addDrop(ModBlocks.CAULIFLOWER_CROP, this.cropDrops(ModBlocks.CAULIFLOWER_CROP, ModItems.CAULIFLOWER, ModItems.CAULIFLOWER_SEEDS, builder));
 
-        BlockStatePropertyLootCondition.builder(ModBlocks.KOHLRABI_CROP)
-                        .properties(StatePredicate.Builder.create().exactMatch(CauliflowerCropBlock.AGE, CauliflowerCropBlock.MAX_AGE));
+        BlockStatePropertyLootCondition.Builder builder2 = BlockStatePropertyLootCondition.builder(ModBlocks.KOHLRABI_CROP)
+                        .properties(StatePredicate.Builder.create().exactMatch(KohlrabiCropBlock.AGE, KohlrabiCropBlock.MAX_AGE));
         this.addDrop(ModBlocks.KOHLRABI_CROP, this.cropDrops(ModBlocks.KOHLRABI_CROP, ModItems.KOHLRABI, ModItems.KOHLRABI_SEEDS, builder2));
 
 
