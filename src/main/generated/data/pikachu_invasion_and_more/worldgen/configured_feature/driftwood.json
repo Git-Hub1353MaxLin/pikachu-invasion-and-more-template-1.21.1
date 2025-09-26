@@ -9,7 +9,7 @@
       }
     },
     "foliage_placer": {
-      "type": "minecraft:blob_foliage_placer",
+      "type": "minecraft:pine_foliage_placer",
       "height": 3,
       "offset": 1,
       "radius": 4

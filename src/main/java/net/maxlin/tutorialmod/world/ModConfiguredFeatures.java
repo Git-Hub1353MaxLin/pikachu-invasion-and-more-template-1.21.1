@@ -16,8 +16,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
-import net.minecraft.world.gen.foliage.AcaciaFoliagePlacer;
-import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.foliage.PineFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
@@ -56,7 +54,7 @@ public class ModConfiguredFeatures {
 
         register(context, WALNUT_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlocks.WALNUT_LOG),
-                new StraightTrunkPlacer(7, 8, 3),
+                new StraightTrunkPlacer(5, 6, 3),
 
                 BlockStateProvider.of(ModBlocks.WALNUT_LEAVES),
                 new PineFoliagePlacer(ConstantIntProvider.create(4), ConstantIntProvider.create(1), ConstantIntProvider.create(3)),
@@ -68,7 +66,7 @@ public class ModConfiguredFeatures {
                 new StraightTrunkPlacer(5, 6, 3),
 
                 BlockStateProvider.of(ModBlocks.DRIFTWOOD_LEAVES),
-                new BlobFoliagePlacer(ConstantIntProvider.create(4), ConstantIntProvider.create(1), 3),
+                new PineFoliagePlacer(ConstantIntProvider.create(4), ConstantIntProvider.create(1), ConstantIntProvider.create(3)),
 
                 new TwoLayersFeatureSize(1, 0, 2)).dirtProvider(BlockStateProvider.of(Blocks.TERRACOTTA)).build());
 
