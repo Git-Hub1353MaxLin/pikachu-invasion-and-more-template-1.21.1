@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "pikachu_invasion_and_more:block/walnut_leaves"
+  }
+}

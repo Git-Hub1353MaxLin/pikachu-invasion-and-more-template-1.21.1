@@ -45,6 +45,10 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.DRIFTWOOD_LOG)
                 .add(ModBlocks.DRIFTWOOD_WOOD)
                 .add(ModBlocks.STRIPPED_DRIFTWOOD_LOG)
-                .add(ModBlocks.STRIPPED_DRIFTWOOD_WOOD);
+                .add(ModBlocks.STRIPPED_DRIFTWOOD_WOOD)
+                        .add(ModBlocks.WALNUT_LOG)
+                .add(ModBlocks.WALNUT_WOOD)
+                .add(ModBlocks.STRIPPED_WALNUT_LOG)
+                .add(ModBlocks.STRIPPED_WALNUT_WOOD);
     }
 }

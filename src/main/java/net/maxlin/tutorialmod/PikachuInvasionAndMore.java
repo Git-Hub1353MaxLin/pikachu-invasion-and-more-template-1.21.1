@@ -174,6 +174,16 @@ public class PikachuInvasionAndMore implements ModInitializer {
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.DRIFTWOOD_PLANKS, 5, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.DRIFTWOOD_LEAVES, 30, 60);
 
+		StrippableBlockRegistry.register(ModBlocks.WALNUT_LOG, ModBlocks.STRIPPED_DRIFTWOOD_LOG);
+		StrippableBlockRegistry.register(ModBlocks.WALNUT_WOOD, ModBlocks.STRIPPED_DRIFTWOOD_WOOD);
+
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.WALNUT_LOG, 5, 5);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.WALNUT_WOOD, 5, 5);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.STRIPPED_WALNUT_LOG, 5, 5);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.STRIPPED_WALNUT_WOOD, 5, 5);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.WALNUT_PLANKS, 5, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.WALNUT_LEAVES, 30, 60);
+
 		FabricDefaultAttributeRegistry.register(ModEntities.MANTIS, MantisEntity.createAttributes());
 
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.CHAIR, 5, 5);

@@ -54,9 +54,15 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.DRIFTWOOD_LOG.asItem())
                 .add(ModBlocks.DRIFTWOOD_WOOD.asItem())
                 .add(ModBlocks.STRIPPED_DRIFTWOOD_LOG.asItem())
-                .add(ModBlocks.STRIPPED_DRIFTWOOD_WOOD.asItem());
+                .add(ModBlocks.STRIPPED_DRIFTWOOD_WOOD.asItem())
+
+                .add(ModBlocks.WALNUT_LOG.asItem())
+                .add(ModBlocks.WALNUT_WOOD.asItem())
+                .add(ModBlocks.STRIPPED_WALNUT_LOG.asItem())
+                .add(ModBlocks.STRIPPED_WALNUT_WOOD.asItem());
 
         getOrCreateTagBuilder(ItemTags.PLANKS)
-                .add(ModBlocks.DRIFTWOOD_PLANKS.asItem());
+                .add(ModBlocks.DRIFTWOOD_PLANKS.asItem())
+                        .add(ModBlocks.WALNUT_PLANKS.asItem());
     }
 }

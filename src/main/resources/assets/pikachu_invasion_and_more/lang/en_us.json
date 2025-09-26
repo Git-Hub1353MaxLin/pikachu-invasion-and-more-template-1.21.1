@@ -116,6 +116,14 @@
   "block.pikachu_invasion_and_more.driftwood_leaves": "Driftwood Leaves",
   "block.pikachu_invasion_and_more.driftwood_sapling": "Driftwood Sapling",
 
+  "block.pikachu_invasion_and_more.walnut_log": "Walnut Log",
+  "block.pikachu_invasion_and_more.walnut_wood": "Walnut Wood",
+  "block.pikachu_invasion_and_more.stripped_walnut_log": "Walnut Driftwood Log",
+  "block.pikachu_invasion_and_more.stripped_walnut_wood": "Walnut Driftwood Wood",
+  "block.pikachu_invasion_and_more.walnut_planks": "Walnut Planks",
+  "block.pikachu_invasion_and_more.walnut_leaves": "Walnut Leaves",
+  "block.pikachu_invasion_and_more.walnut_sapling": "Walnut Sapling",
+
   "item.pikachu_invasion_and_more.spectre_staff": "Spectre Staff",
 
   "entity.pikachu_invasion_and_more.mantis": "Mantis",

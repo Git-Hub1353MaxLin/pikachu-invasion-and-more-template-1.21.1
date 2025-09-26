@@ -16,7 +16,7 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "block": "pikachu_invasion_and_more:cauliflower_crop",
+                  "block": "pikachu_invasion_and_more:kohlrabi_crop",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "age": "6"
@@ -38,7 +38,7 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "block": "pikachu_invasion_and_more:cauliflower_crop",
+          "block": "pikachu_invasion_and_more:kohlrabi_crop",
           "condition": "minecraft:block_state_property",
           "properties": {
             "age": "6"

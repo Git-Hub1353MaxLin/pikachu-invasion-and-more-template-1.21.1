@@ -106,6 +106,23 @@ public class ModBlocks {
     public static final Block DRIFTWOOD_SAPLING = registerBlock("driftwood_sapling",
             new ModSaplingBlock(ModSaplingGenerators.DRIFTWOOD, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING), Blocks.TERRACOTTA));
 
+    public static final Block WALNUT_LOG = registerBlock("walnut_log",
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG)));
+    public static final Block WALNUT_WOOD = registerBlock("walnut_wood",
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_WOOD)));
+    public static final Block STRIPPED_WALNUT_LOG = registerBlock("stripped_walnut_log",
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_LOG)));
+    public static final Block STRIPPED_WALNUT_WOOD = registerBlock("stripped_walnut_wood",
+            new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_WOOD)));
+
+    public static final Block WALNUT_PLANKS = registerBlock("walnut_planks",
+            new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS)));
+    public static final Block WALNUT_LEAVES = registerBlock("walnut_leaves",
+            new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)));
+
+    public static final Block WALNUT_SAPLING = registerBlock("walnut_sapling",
+            new SaplingBlock(ModSaplingGenerators.WALNUT, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
+
     public static final Block CHAIR = registerBlock("chair",
             new ChairBlock(AbstractBlock.Settings.create().nonOpaque()));
 

@@ -95,6 +95,16 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.DRIFTWOOD_SAPLING);
 
+                        entries.add(ModBlocks.WALNUT_LOG);
+                        entries.add(ModBlocks.WALNUT_WOOD);
+                        entries.add(ModBlocks.STRIPPED_WALNUT_LOG);
+                        entries.add(ModBlocks.STRIPPED_WALNUT_WOOD);
+
+                        entries.add(ModBlocks.WALNUT_PLANKS);
+                        entries.add(ModBlocks.WALNUT_LEAVES);
+
+                        entries.add(ModBlocks.WALNUT_SAPLING);
+
                         entries.add(ModItems.MANTIS_SPAWN_EGG);
 
                         entries.add(ModItems.TOMAHAWK);
