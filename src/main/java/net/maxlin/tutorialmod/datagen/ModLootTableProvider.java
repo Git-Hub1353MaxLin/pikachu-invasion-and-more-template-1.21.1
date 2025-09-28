@@ -6,6 +6,7 @@ import net.maxlin.tutorialmod.block.ModBlocks;
 import net.maxlin.tutorialmod.block.custom.CauliflowerCropBlock;
 import net.maxlin.tutorialmod.block.custom.HoneyBerryBushBlock;
 import net.maxlin.tutorialmod.block.custom.KohlrabiCropBlock;
+import net.maxlin.tutorialmod.block.custom.RadishCropBlock;
 import net.maxlin.tutorialmod.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
@@ -61,6 +62,10 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         BlockStatePropertyLootCondition.Builder builder2 = BlockStatePropertyLootCondition.builder(ModBlocks.KOHLRABI_CROP)
                         .properties(StatePredicate.Builder.create().exactMatch(KohlrabiCropBlock.AGE, KohlrabiCropBlock.MAX_AGE));
         this.addDrop(ModBlocks.KOHLRABI_CROP, this.cropDrops(ModBlocks.KOHLRABI_CROP, ModItems.KOHLRABI, ModItems.KOHLRABI_SEEDS, builder2));
+
+        BlockStatePropertyLootCondition.Builder builder3 = BlockStatePropertyLootCondition.builder(ModBlocks.RADISH_CROP)
+                .properties(StatePredicate.Builder.create().exactMatch(RadishCropBlock.AGE, RadishCropBlock.MAX_AGE));
+        this.addDrop(ModBlocks.RADISH_CROP, this.cropDrops(ModBlocks.RADISH_CROP, ModItems.RADISH, ModItems.RADISH_SEEDS, builder3));
 
 
 

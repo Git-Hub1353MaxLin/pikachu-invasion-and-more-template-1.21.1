@@ -3,10 +3,7 @@ package net.maxlin.tutorialmod.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.maxlin.tutorialmod.block.ModBlocks;
-import net.maxlin.tutorialmod.block.custom.CauliflowerCropBlock;
-import net.maxlin.tutorialmod.block.custom.HoneyBerryBushBlock;
-import net.maxlin.tutorialmod.block.custom.KohlrabiCropBlock;
-import net.maxlin.tutorialmod.block.custom.PinkGarnetLampBlock;
+import net.maxlin.tutorialmod.block.custom.*;
 import net.maxlin.tutorialmod.item.ModItems;
 import net.minecraft.data.client.*;
 import net.minecraft.item.ArmorItem;
@@ -52,6 +49,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCrop(ModBlocks.CAULIFLOWER_CROP, CauliflowerCropBlock.AGE, 0, 1, 2, 3, 4, 5, 6);
 
         blockStateModelGenerator.registerCrop(ModBlocks.KOHLRABI_CROP, KohlrabiCropBlock.AGE, 0, 1, 2, 3, 4, 5, 6);
+
+        blockStateModelGenerator.registerCrop(ModBlocks.RADISH_CROP, RadishCropBlock.AGE, 0, 1, 2, 3);
 
         blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.HONEY_BERRY_BUSH, BlockStateModelGenerator.TintType.NOT_TINTED,
         HoneyBerryBushBlock.AGE, 0, 1, 2, 3);

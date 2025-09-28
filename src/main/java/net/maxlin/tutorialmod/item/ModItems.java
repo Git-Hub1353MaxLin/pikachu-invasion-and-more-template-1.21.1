@@ -155,6 +155,9 @@
        public static final Item KOHLRABI_SEEDS = registerItem("kohlrabi_seeds",
                new AliasedBlockItem(ModBlocks.KOHLRABI_CROP, new Item.Settings()));
 
+       public static final Item RADISH_SEEDS = registerItem("radish_seeds",
+               new AliasedBlockItem(ModBlocks.RADISH_CROP, new Item.Settings()));
+
        public static final Item HONEY_BERRIES = registerItem("honey_berries",
                new AliasedBlockItem(ModBlocks.HONEY_BERRY_BUSH, new Item.Settings().food(ModFoodComponents.HONEY_BERRY)));
 

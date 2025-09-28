@@ -50,6 +50,7 @@ public class ModItemGroups {
                         entries.add(ModItems.KOHLRABI_SEEDS);
 
                         entries.add(ModItems.RADISH);
+                        entries.add(ModItems.RADISH_SEEDS);
 
                         entries.add(ModItems.MANGO);
                         entries.add(ModItems.MANGO_JUICE);

@@ -160,9 +160,10 @@ public class PikachuInvasionAndMore implements ModInitializer {
 
 		CompostingChanceRegistry.INSTANCE.add(ModItems.CAULIFLOWER, 0.5f);
 		CompostingChanceRegistry.INSTANCE.add(ModItems.CAULIFLOWER_SEEDS, 0.2f);
-
 		CompostingChanceRegistry.INSTANCE.add(ModItems.KOHLRABI, 0.5f);
-		CompostingChanceRegistry.INSTANCE.add(ModItems.KOHLRABI_SEEDS, 0.25f);
+		CompostingChanceRegistry.INSTANCE.add(ModItems.KOHLRABI_SEEDS, 0.2f);
+		CompostingChanceRegistry.INSTANCE.add(ModItems.RADISH, 0.5f);
+		CompostingChanceRegistry.INSTANCE.add(ModItems.RADISH_SEEDS, 0.2f);
 
 		StrippableBlockRegistry.register(ModBlocks.DRIFTWOOD_LOG, ModBlocks.STRIPPED_DRIFTWOOD_LOG);
 		StrippableBlockRegistry.register(ModBlocks.DRIFTWOOD_WOOD, ModBlocks.STRIPPED_DRIFTWOOD_WOOD);
@@ -174,8 +175,9 @@ public class PikachuInvasionAndMore implements ModInitializer {
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.DRIFTWOOD_PLANKS, 5, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.DRIFTWOOD_LEAVES, 30, 60);
 
-		StrippableBlockRegistry.register(ModBlocks.WALNUT_LOG, ModBlocks.STRIPPED_DRIFTWOOD_LOG);
-		StrippableBlockRegistry.register(ModBlocks.WALNUT_WOOD, ModBlocks.STRIPPED_DRIFTWOOD_WOOD);
+		StrippableBlockRegistry.register(ModBlocks.WALNUT_LOG, ModBlocks.STRIPPED_WALNUT_LOG);
+		StrippableBlockRegistry.register(ModBlocks.WALNUT_WOOD, ModBlocks.STRIPPED_WALNUT_WOOD);
+
 
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.WALNUT_LOG, 5, 5);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.WALNUT_WOOD, 5, 5);
