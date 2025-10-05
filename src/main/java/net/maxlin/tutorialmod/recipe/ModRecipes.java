@@ -20,6 +20,17 @@ public class ModRecipes {
                 }
             });
 
+    public static final RecipeSerializer<SlimeIncubatorRecipe> SLIME_INCUBATOR_SERIALIZER= Registry.register(
+            Registries.RECIPE_SERIALIZER, Identifier.of(PikachuInvasionAndMore.MOD_ID, "slime_incubator"),
+            new SlimeIncubatorRecipe.Serializer());
+    public static final RecipeType<SlimeIncubatorRecipe> SLIME_INCUBATOR_TYPE = Registry.register(
+            Registries.RECIPE_TYPE, Identifier.of(PikachuInvasionAndMore.MOD_ID, "slime_incubator"), new RecipeType<SlimeIncubatorRecipe>() {
+                @Override
+                public String toString() {
+                    return "slime_incubator";
+                }
+            });
+
     public static void registerRecipes() {
         PikachuInvasionAndMore.LOGGER.info("Registering Custom Recipes for " + PikachuInvasionAndMore.MOD_ID);
     }

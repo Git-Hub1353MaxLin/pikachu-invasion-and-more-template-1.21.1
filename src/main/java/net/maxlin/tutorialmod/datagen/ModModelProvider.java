@@ -74,6 +74,10 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GROWTH_CHAMBER);
 
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SLIME_INCUBATOR);
+
+
+
     }
 
     @Override

@@ -118,6 +118,8 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.GROWTH_CHAMBER);
 
+                        entries.add(ModBlocks.SLIME_INCUBATOR);
+
 
                             }).build());
 

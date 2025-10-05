@@ -176,6 +176,8 @@
 
 
 
+
+
        private static Item registerItem(String name, Item item) {
            return Registry.register(Registries.ITEM, Identifier.of(PikachuInvasionAndMore.MOD_ID, name), item);
        }

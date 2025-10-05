@@ -1,5 +1,6 @@
 package net.maxlin.tutorialmod.block;
 
+   import com.mojang.serialization.MapCodec;
    import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
    import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
    import net.maxlin.tutorialmod.PikachuInvasionAndMore;
@@ -135,6 +136,9 @@ public class ModBlocks {
 
     public static final Block GROWTH_CHAMBER = registerBlock("growth_chamber",
             new GrowthChamberBlock(AbstractBlock.Settings.create()));
+
+    public static final Block SLIME_INCUBATOR = registerBlock("slime_incubator",
+            new SlimeIncubatorBlock(AbstractBlock.Settings.create()));
 
 
     private static Block registerBlockWithoutBlockItem(String name, Block block) {

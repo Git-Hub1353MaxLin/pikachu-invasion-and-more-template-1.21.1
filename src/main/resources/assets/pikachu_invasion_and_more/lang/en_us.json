@@ -141,5 +141,7 @@
 
   "block.pikachu_invasion_and_more.pedestal": "Pedestal",
 
-  "block.pikachu_invasion_and_more.growth_chamber": "Growth Chamber"
+  "block.pikachu_invasion_and_more.growth_chamber": "Growth Chamber",
+
+  "block.pikachu_invasion_and_more.slime_incubator": "Slime Incubator"
 }
