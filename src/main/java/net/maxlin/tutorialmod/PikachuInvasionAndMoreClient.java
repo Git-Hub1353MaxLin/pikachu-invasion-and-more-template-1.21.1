@@ -37,6 +37,7 @@ public class PikachuInvasionAndMoreClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WALNUT_SAPLING, RenderLayer.getCutout());
 
 
+
         ModModelPredicates.registerModelPredicates();
 
         EntityModelLayerRegistry.registerModelLayer(MantisModel.MANTIS, MantisModel::getTexturedModelData);

@@ -1,19 +1,16 @@
 package net.maxlin.tutorialmod.block.entity.custom;
 
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
+import net.maxlin.tutorialmod.block.custom.SlimeIncubatorBlock;
 import net.maxlin.tutorialmod.block.entity.ImplementedInventory;
 import net.maxlin.tutorialmod.block.entity.ModBlockEntities;
-import net.maxlin.tutorialmod.item.ModItems;
 import net.maxlin.tutorialmod.recipe.*;
-import net.maxlin.tutorialmod.screen.custom.GrowthChamberScreenHandler;
-import net.maxlin.tutorialmod.screen.custom.SlimeIncubatorScreen;
 import net.maxlin.tutorialmod.screen.custom.SlimeIncubatorScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.RecipeEntry;
@@ -53,6 +50,8 @@ public class SlimeIncubatorBlockEntity extends BlockEntity implements ExtendedSc
                     default -> 0;
                 };
             }
+
+
 
             @Override
             public void set(int index, int value) {
@@ -98,6 +97,7 @@ public class SlimeIncubatorBlockEntity extends BlockEntity implements ExtendedSc
         nbt.putInt("slime_incubator.max_progress", maxProgress);
     }
 
+
     @Override
     protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         Inventories.readNbt(nbt, inventory, registryLookup);
@@ -108,21 +108,38 @@ public class SlimeIncubatorBlockEntity extends BlockEntity implements ExtendedSc
 
     public void tick(World world, BlockPos pos, BlockState state) {
         if(hasRecipe()) {
-            increaseCraftingProgress();
+            increaseCraftingProgress(world);
             markDirty(world, pos, state);
 
             if(hasCraftingFinished()) {
                 craftItem();
-                resetProgress();
+                resetProgress(world);
             }
         } else {
-            resetProgress();
+            resetProgress(world);
         }
     }
 
-    private void resetProgress() {
+    private void increaseCraftingProgress(World world) {
+        this.progress++;
+
+        if (world != null) {
+            BlockState state = world.getBlockState(pos);
+            if(progress > 0 && progress < maxProgress) {
+                world.setBlockState(pos, state.with(SlimeIncubatorBlock.INCUBATOR_STATE, SlimeIncubatorBlock.IncubatorState.ACTIVE), 3);
+            } else if(progress >= maxProgress) {
+                world.setBlockState(pos, state.with(SlimeIncubatorBlock.INCUBATOR_STATE, SlimeIncubatorBlock.IncubatorState.FINISHED), 3);
+            }
+        }
+    }
+
+    private void resetProgress(World world) {
         this.progress = 0;
         this.maxProgress = 72;
+        if(world != null) {
+            BlockState state = world.getBlockState(pos);
+            world.setBlockState(pos, state.with(SlimeIncubatorBlock.INCUBATOR_STATE, SlimeIncubatorBlock.IncubatorState.IDLE), 3);
+        }
     }
 
     private void craftItem() {
@@ -139,9 +156,6 @@ public class SlimeIncubatorBlockEntity extends BlockEntity implements ExtendedSc
         return this.progress >= this.maxProgress;
     }
 
-    private void increaseCraftingProgress() {
-        this.progress++;
-    }
 
     private boolean hasRecipe() {
         Optional<RecipeEntry<SlimeIncubatorRecipe>> recipe = getCurrentRecipe();

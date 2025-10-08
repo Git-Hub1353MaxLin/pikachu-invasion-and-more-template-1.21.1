@@ -1,7 +1,7 @@
 {
   "variants": {
-    "": {
-      "model": "pikachu_invasion_and_more:block/slime_incubator"
-    }
+    "state=idle": { "model": "pikachu_invasion_and_more:block/slime_incubator_idle" },
+    "state=active": { "model": "pikachu_invasion_and_more:block/slime_incubator_active" },
+    "state=finished": { "model": "pikachu_invasion_and_more:block/slime_incubator_finished" }
   }
 }
