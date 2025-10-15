@@ -23,7 +23,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class SlimeIncubatorBlock extends BlockWithEntity implements BlockEntityProvider {
 
-    public static final MapCodec<SlimeIncubatorBlock> CODEC = SlimeIncubatorBlock.createCodec((java.util.function.Function<Settings, SlimeIncubatorBlock>) SlimeIncubatorBlock::new);
+    public static final MapCodec<SlimeIncubatorBlock> CODEC = SlimeIncubatorBlock.createCodec(SlimeIncubatorBlock::new);
 
     // Enum property for block state
     public static final EnumProperty<IncubatorState> INCUBATOR_STATE = EnumProperty.of("state", IncubatorState.class);

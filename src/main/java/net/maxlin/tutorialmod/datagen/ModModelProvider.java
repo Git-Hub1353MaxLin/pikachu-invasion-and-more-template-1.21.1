@@ -123,7 +123,11 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModBlocks.WALNUT_SAPLING.asItem(), Models.GENERATED);
 
+        itemModelGenerator.register(ModItems.KIAI, Models.GENERATED);
+
         itemModelGenerator.register(ModItems.MANTIS_SPAWN_EGG,
+
+
                 new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()));
 
     }

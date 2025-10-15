@@ -6,6 +6,7 @@ import net.maxlin.tutorialmod.block.entity.ImplementedInventory;
 import net.maxlin.tutorialmod.block.entity.ModBlockEntities;
 import net.maxlin.tutorialmod.recipe.*;
 import net.maxlin.tutorialmod.screen.custom.SlimeIncubatorScreenHandler;
+import net.maxlin.tutorialmod.util.SlimeIncubatorStateHelper;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -107,20 +108,48 @@ public class SlimeIncubatorBlockEntity extends BlockEntity implements ExtendedSc
     }
 
     public void tick(World world, BlockPos pos, BlockState state) {
-        if(hasRecipe()) {
-            increaseCraftingProgress(world);
+        if (hasRecipe()) {
+            // Processing a recipe
+            increaseCraftingProgress();
             markDirty(world, pos, state);
 
-            if(hasCraftingFinished()) {
+            // Set state to ACTIVE while working
+            SlimeIncubatorStateHelper.setState(world, pos, SlimeIncubatorBlock.IncubatorState.ACTIVE);
+
+            if (hasCraftingFinished()) {
                 craftItem();
-                resetProgress(world);
+                resetProgress();
+
+                // Stay FINISHED after crafting is done
+                SlimeIncubatorStateHelper.setState(world, pos, SlimeIncubatorBlock.IncubatorState.FINISHED);
             }
         } else {
-            resetProgress(world);
+            // When there's no recipe, check if output slot still has item
+            ItemStack outputStack = this.getStack(OUTPUT_SLOT);
+
+            if (outputStack.isEmpty()) {
+                // Nothing left — back to IDLE
+                resetProgress();
+                SlimeIncubatorStateHelper.setState(world, pos, SlimeIncubatorBlock.IncubatorState.IDLE);
+            } else {
+                // Keep showing FINISHED while output not picked up
+                SlimeIncubatorStateHelper.setState(world, pos, SlimeIncubatorBlock.IncubatorState.FINISHED);
+            }
         }
     }
 
-    private void increaseCraftingProgress(World world) {
+
+    private void resetProgress() {
+        this.progress = 0;
+        this.maxProgress = 72;
+
+        // Set block state to IDLE
+        assert this.world != null;
+        SlimeIncubatorStateHelper.setState(this.world, this.pos, SlimeIncubatorBlock.IncubatorState.IDLE);
+    }
+
+
+    private void increaseCraftingProgress() {
         this.progress++;
 
         if (world != null) {
@@ -130,15 +159,6 @@ public class SlimeIncubatorBlockEntity extends BlockEntity implements ExtendedSc
             } else if(progress >= maxProgress) {
                 world.setBlockState(pos, state.with(SlimeIncubatorBlock.INCUBATOR_STATE, SlimeIncubatorBlock.IncubatorState.FINISHED), 3);
             }
-        }
-    }
-
-    private void resetProgress(World world) {
-        this.progress = 0;
-        this.maxProgress = 72;
-        if(world != null) {
-            BlockState state = world.getBlockState(pos);
-            world.setBlockState(pos, state.with(SlimeIncubatorBlock.INCUBATOR_STATE, SlimeIncubatorBlock.IncubatorState.IDLE), 3);
         }
     }
 

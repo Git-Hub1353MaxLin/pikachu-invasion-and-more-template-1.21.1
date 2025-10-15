@@ -171,6 +171,9 @@
        public static final Item MANTIS_SPAWN_EGG = registerItem("mantis_spawn_egg",
                new SpawnEggItem(ModEntities.MANTIS, 0x9dc783, 0xbfaf5f, new Item.Settings()));
 
+       public static final Item KIAI = registerItem("kiai",
+               new Kiai(new Item.Settings().maxCount(1)));
+
 
 
 

@@ -120,6 +120,8 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.SLIME_INCUBATOR);
 
+                        entries.add(ModItems.KIAI);
+
 
                             }).build());
 

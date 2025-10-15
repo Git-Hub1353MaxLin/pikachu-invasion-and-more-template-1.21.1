@@ -138,7 +138,7 @@ public class ModBlocks {
             new GrowthChamberBlock(AbstractBlock.Settings.create()));
 
     public static final Block SLIME_INCUBATOR = registerBlock("slime_incubator",
-            new SlimeIncubatorBlock(AbstractBlock.Settings.create()));
+            new SlimeIncubatorBlock(AbstractBlock.Settings.create().nonOpaque()));
 
 
     private static Block registerBlockWithoutBlockItem(String name, Block block) {
