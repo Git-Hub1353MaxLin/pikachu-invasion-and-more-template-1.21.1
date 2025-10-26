@@ -156,6 +156,8 @@ public class PikachuInvasionAndMore implements ModInitializer {
 		FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
 			builder.registerPotionRecipe(Potions.AWKWARD, Items.SLIME_BALL, ModPotions.SLIMEY_POTION);
 
+			builder.registerPotionRecipe(Potions.AWKWARD, Items.IRON_NUGGET, ModPotions.HEAVY_POTION);
+
 		});
 
 		CompostingChanceRegistry.INSTANCE.add(ModItems.CAULIFLOWER, 0.5f);
