@@ -13,7 +13,7 @@ public class ModPotions {
     public static final RegistryEntry<Potion> SLIMEY_POTION = registerPotion("slimey_potion",
             new Potion(new StatusEffectInstance(ModEffects.SLIMEY, 1200, 0)));
 
-    public static final RegistryEntry<Potion> HEAVY_POTION = registerPotion("slimey_potion",
+    public static final RegistryEntry<Potion> HEAVY_POTION = registerPotion("heavy_potion",
             new Potion(new StatusEffectInstance(ModEffects.HEAVY, 1200, 0)));
 
 
