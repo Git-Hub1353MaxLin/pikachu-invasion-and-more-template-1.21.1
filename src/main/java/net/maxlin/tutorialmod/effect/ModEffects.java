@@ -17,6 +17,23 @@ public class ModEffects {
                             Identifier.of(PikachuInvasionAndMore.MOD_ID, "slimey"), -0.25f,
             EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
 
+    public static final RegistryEntry<StatusEffect> HEAVY = registerStatusEffect("heavy",
+            new HeavyEffect(StatusEffectCategory.NEUTRAL, 0xFFEA00)
+                    .addAttributeModifier(
+                            EntityAttributes.GENERIC_MOVEMENT_SPEED,
+                            Identifier.of(PikachuInvasionAndMore.MOD_ID, "heavy_speed"),
+                            -0.25f,
+                            EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL
+                    )
+                    .addAttributeModifier(
+                            EntityAttributes.GENERIC_ATTACK_DAMAGE,
+                            Identifier.of(PikachuInvasionAndMore.MOD_ID, "heavy_damage"),
+                            0.3f,
+                            EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL
+                    )
+    );
+
+
 
 
 
