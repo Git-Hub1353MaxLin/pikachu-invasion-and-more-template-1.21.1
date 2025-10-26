@@ -93,9 +93,13 @@
   "effect.pikachu_invasion_and_more.slimey": "Slimey",
   "effect.pikachu_invasion_and_more.heavy": "Heavy",
 
-  "item.minecraft.potion.effect.slimey_potion": "Slimey Potion",
-  "item.minecraft.splash_potion.effect.slimey_potion": "Slimey Splash Potion",
-  "item.minecraft.lingering_potion.effect.slimey_potion": "Slimey Lingering Potion",
+  "item.minecraft.potion.effect.slimey_potion": "Heavy Potion",
+  "item.minecraft.splash_potion.effect.slimey_potion": "Heavy Splash Potion",
+  "item.minecraft.lingering_potion.effect.slimey_potion": "Heavy Lingering Potion",
+
+  "item.minecraft.potion.effect.heavy_potion": "Slimey Potion",
+  "item.minecraft.splash_potion.effect.heavy_potion": "Slimey Splash Potion",
+  "item.minecraft.lingering_potion.effect.heavy_potion": "Slimey Lingering Potion",
 
   "painting.pikachu_invasion_and_more.saw_them.title": "Saw Them",
   "painting.pikachu_invasion_and_more.saw_them.author": "NanoAttack",
