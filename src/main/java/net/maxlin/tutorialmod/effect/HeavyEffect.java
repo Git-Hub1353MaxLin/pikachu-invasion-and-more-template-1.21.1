@@ -32,7 +32,15 @@ public class HeavyEffect extends StatusEffect {
                 -0.3,
                 EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL
         );
+
+        this.addAttributeModifier(
+                EntityAttributes.GENERIC_ATTACK_KNOCKBACK,
+                Identifier.of(DAMAGE_BOOST_UUID.toString()),
+                1.2,
+                EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL
+        );
     }
+
 
     @Override
     public boolean applyUpdateEffect(LivingEntity entity, int amplifier) {
