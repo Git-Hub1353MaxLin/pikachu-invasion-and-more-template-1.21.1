@@ -37,7 +37,7 @@ public class HeavyEffect extends StatusEffect {
         this.addAttributeModifier(
                 EntityAttributes.GENERIC_ATTACK_KNOCKBACK,
                 Identifier.of(KNOCKBACK_BOOST_UUID.toString()),
-                1.2,
+                0.3,
                 EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL
         );
     }
