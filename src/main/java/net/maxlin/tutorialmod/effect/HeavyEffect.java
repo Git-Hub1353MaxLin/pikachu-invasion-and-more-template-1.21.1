@@ -13,6 +13,7 @@ public class HeavyEffect extends StatusEffect {
 
     private static final UUID DAMAGE_BOOST_UUID = UUID.fromString("f4de126d-6666-4a11-bbce-0517fa45e770");
     private static final UUID SLOW_MOVEMENT_UUID = UUID.fromString("a5531e5a-2a4e-4cf9-a2d9-bf2d2c934a31");
+    private static final UUID KNOCKBACK_BOOST_UUID = UUID.fromString("e9129b92-33ef-4de8-915b-67e50b6efaf5");
 
     public HeavyEffect(StatusEffectCategory category, int color) {
         super(category, color);
@@ -35,7 +36,7 @@ public class HeavyEffect extends StatusEffect {
 
         this.addAttributeModifier(
                 EntityAttributes.GENERIC_ATTACK_KNOCKBACK,
-                Identifier.of(DAMAGE_BOOST_UUID.toString()),
+                Identifier.of(KNOCKBACK_BOOST_UUID.toString()),
                 1.2,
                 EntityAttributeModifier.Operation.ADD_MULTIPLIED_TOTAL
         );
